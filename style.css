@@ -1384,19 +1384,19 @@ main {
       opacity: 1;
       translate: calc(var(--u) * 20) 0;
     }
-    /* carried off under one arm */
+    /* dragged along beside him, clear of his face */
     84% {
       opacity: 1;
-      translate: calc(var(--u) * -20) calc(var(--u) * -1.5);
+      translate: calc(var(--u) * -25) 0;
     }
     85% {
       opacity: 1;
-      translate: calc(var(--u) * -20) calc(var(--u) * -1.5);
+      translate: calc(var(--u) * -25) 0;
     }
     /* thrown */
     86.5% {
       opacity: 1;
-      translate: calc(var(--u) * 5) calc(var(--u) * -9);
+      translate: calc(var(--u) * 2) calc(var(--u) * -9);
     }
     88.5% {
       opacity: 1;
