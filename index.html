@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Loopback Games — small games that build themselves</title>
+    <meta
+      name="description"
+      content="An indie studio whose games are built by AI agents and ship with no engine, no sprite sheets and no audio files. Play them free in the browser."
+    />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0b0b12" />
+    <link rel="canonical" href="https://loopback-games.github.io/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Loopback Games" />
+    <meta property="og:title" content="Loopback Games" />
+    <meta
+      property="og:description"
+      content="Small games that build themselves out of code. No engine, no sprite sheets, no audio files."
+    />
+    <meta property="og:url" content="https://loopback-games.github.io/" />
+    <meta
+      property="og:image"
+      content="https://loopback-games.github.io/assets/og.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="The Loopback Games pixel shield logo and wordmark."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link
+      rel="preload"
+      href="assets/press-start-2p-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <a class="skip" href="#titles">Skip to the games</a>
+
+    <header class="hero">
+      <img
+        class="hero__mark"
+        src="assets/logo.png"
+        width="384"
+        height="384"
+        alt="The Loopback Games crest: a pixelated arrow curling back into its own tail inside a shield."
+      />
+      <h1 class="hero__wordmark">Loopback Games</h1>
+      <p class="hero__thesis">
+        Small games that build themselves out of code.<br />
+        No engine, no sprite sheets, no audio files.
+      </p>
+      <p class="hero__status">
+        <span aria-hidden="true">&gt;</span> system ready<span
+          class="hero__caret"
+          aria-hidden="true"
+          >&#9646;</span
+        >
+      </p>
+    </header>
+
+    <main>
+      <section class="section" id="titles" aria-labelledby="titles-heading">
+        <h2 class="section__heading" id="titles-heading">
+          <span class="section__glyph" aria-hidden="true">&#9654;</span> Three
+          titles, all playable now
+        </h2>
+
+        <ul class="grid">
+          <li class="card card--wages">
+            <p class="card__route">/larry</p>
+            <h3 class="card__title">
+              <a
+                class="card__link"
+                href="https://loopback-games.github.io/larry/"
+                >Lost Wages</a
+              >
+            </h3>
+            <p class="card__hook">An original parser adventure</p>
+            <p class="card__body">
+              Type what you want to do and the town answers back. A strip of
+              neon in the desert that switches its lights off at dawn, and a
+              hero whose welcome turns out to have a shape. Written for adults.
+            </p>
+            <p class="card__actions">
+              <span class="button" aria-hidden="true">&#9654; Play</span>
+              <a class="source" href="https://github.com/Loopback-Games/larry"
+                >Source<span class="sr-only"> for Lost Wages</span></a
+              >
+            </p>
+          </li>
+
+          <li class="card card--pinball">
+            <p class="card__route">/pinball</p>
+            <h3 class="card__title">
+              <a
+                class="card__link"
+                href="https://loopback-games.github.io/pinball/"
+                >Loopback Pinball</a
+              >
+            </h3>
+            <p class="card__hook">A whole table in a browser tab</p>
+            <p class="card__body">
+              Three pop bumpers under the dome, a bank of drop targets, a
+              spinner in the left orbit and a kickback guarding the right
+              outlane. Every pixel is drawn and every sound is synthesised while
+              you play. Flippers work on a phone.
+            </p>
+            <p class="card__actions">
+              <span class="button" aria-hidden="true">&#9654; Play</span>
+              <a class="source" href="https://github.com/Loopback-Games/pinball"
+                >Source<span class="sr-only"> for Loopback Pinball</span></a
+              >
+            </p>
+          </li>
+
+          <li class="card card--looplings">
+            <p class="card__route">/looplings</p>
+            <h3 class="card__title">
+              <a
+                class="card__link"
+                href="https://loopback-games.github.io/looplings/"
+                >Looplings</a
+              >
+            </h3>
+            <p class="card__hook">Procedurally generated puzzling</p>
+            <p class="card__body">
+              Guide small, single-minded creatures to the exit on a budget of
+              eight skills. Every level is generated, then solved by the game
+              before you ever see it, so you are never handed one that cannot be
+              won. Twenty-two kilobytes, gzipped.
+            </p>
+            <p class="card__actions">
+              <span class="button" aria-hidden="true">&#9654; Play</span>
+              <a
+                class="source"
+                href="https://github.com/Loopback-Games/looplings"
+                >Source<span class="sr-only"> for Looplings</span></a
+              >
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" id="made" aria-labelledby="made-heading">
+        <h2 class="section__heading" id="made-heading">
+          <span class="section__glyph" aria-hidden="true">&#9654;</span> How
+          these are made
+        </h2>
+
+        <dl class="spec">
+          <div class="spec__row">
+            <dt class="spec__key">Built by</dt>
+            <dd class="spec__value">
+              Autonomous AI agents, carrying a game from a written brief through
+              to a pull request. A human sets the direction and decides what
+              ships.
+            </dd>
+          </div>
+          <div class="spec__row">
+            <dt class="spec__key">Engine</dt>
+            <dd class="spec__value">
+              None. No Unity, no Godot, no game framework underneath. Each title
+              is hand-written TypeScript compiled to one static bundle.
+            </dd>
+          </div>
+          <div class="spec__row">
+            <dt class="spec__key">Assets</dt>
+            <dd class="spec__value">
+              None shipped. Sprites are composed at boot from small pixel
+              matrices, and sound comes out of oscillators and noise buffers
+              rather than files.
+            </dd>
+          </div>
+          <div class="spec__row">
+            <dt class="spec__key">Size</dt>
+            <dd class="spec__value">
+              Kilobytes rather than megabytes. Looplings is the whole game in
+              twenty-two kilobytes gzipped, with nothing to download afterwards.
+            </dd>
+          </div>
+          <div class="spec__row">
+            <dt class="spec__key">Delivery</dt>
+            <dd class="spec__value">
+              Static files on GitHub Pages. Nothing to install, no account to
+              make, and they work on a phone.
+            </dd>
+          </div>
+          <div class="spec__row">
+            <dt class="spec__key">Source</dt>
+            <dd class="spec__value">
+              Public and MIT licensed, every title. Read it, fork it, take the
+              parts you want.
+            </dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__brag">This page ships zero bytes of JavaScript.</p>
+      <p class="footer__meta">
+        <a href="https://github.com/Loopback-Games"
+          >github.com/Loopback-Games</a
+        >
+        <span class="footer__dot" aria-hidden="true">&#9642;</span>
+        <a
+          href="https://github.com/Loopback-Games/loopback-games.github.io/blob/main/LICENSE"
+          >MIT licence</a
+        >
+        <span class="footer__dot" aria-hidden="true">&#9642;</span>
+        <span>&copy; 2026 Loopback Games</span>
+      </p>
+    </footer>
+  </body>
+</html>

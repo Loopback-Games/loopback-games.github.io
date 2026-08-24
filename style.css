@@ -1,0 +1,562 @@
+/* ------------------------------------------------------------------
+   Loopback Games — landing page
+   No JavaScript. No external requests. Everything below is CSS.
+   ------------------------------------------------------------------ */
+
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("assets/press-start-2p-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --void: #0b0b12;
+  --panel: #12121c;
+  --panel-lit: #191927;
+  --line: #2b2b40;
+  --bone: #eef0f6;
+  --dim: #a5a7c0;
+
+  --cyan: #4ee6d8;
+  --violet: #a68cff;
+  --magenta: #ff5cf4;
+
+  --accent: var(--cyan);
+
+  --display: "Press Start 2P", "Courier New", ui-monospace, monospace;
+  --mono:
+    ui-monospace, "SFMono-Regular", "Cascadia Mono", "JetBrains Mono", Menlo,
+    Consolas, monospace;
+
+  --step: 4px; /* the pixel grid everything else is a multiple of */
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --measure: 74rem;
+}
+
+/* ---------- reset ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--void);
+  color: var(--bone);
+  font-family: var(--mono);
+  font-size: clamp(0.95rem, 0.9rem + 0.25vw, 1.0625rem);
+  line-height: 1.7;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: var(--accent);
+}
+
+/* A pixel grid laid over the whole page, at the same 4px rhythm as the
+   spacing scale. Costs nothing and gives the flat black some tooth. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      rgba(238, 240, 246, 0.022) 0 1px,
+      transparent 1px var(--step)
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(238, 240, 246, 0.022) 0 1px,
+      transparent 1px var(--step)
+    );
+}
+
+/* ---------- shared utilities ---------- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10;
+  padding: 0.75rem 1rem;
+  background: var(--cyan);
+  color: var(--void);
+  font-family: var(--display);
+  font-size: 0.7rem;
+  text-decoration: none;
+}
+
+.skip:focus {
+  left: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--bone);
+  outline-offset: 3px;
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  position: relative;
+  z-index: 1;
+  /* The glow below is wider than a phone; clip it sideways only, so it can
+     still bleed off the top without adding a horizontal scrollbar. */
+  overflow-x: clip;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 1.75rem);
+  padding: clamp(3rem, 11vw, 7rem) var(--gutter) clamp(2.5rem, 8vw, 5rem);
+  text-align: center;
+}
+
+/* One soft wash, borrowed from the crest's own glow. The only blur on the page. */
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -18%;
+  left: 50%;
+  width: min(46rem, 130vw);
+  aspect-ratio: 1;
+  translate: -50% 0;
+  background: radial-gradient(
+    circle at 50% 42%,
+    rgba(139, 108, 240, 0.26),
+    rgba(255, 92, 244, 0.09) 42%,
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+.hero__mark {
+  width: clamp(9rem, 26vw, 13.5rem);
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.hero__wordmark {
+  margin: 0;
+  text-wrap: balance;
+  font-family: var(--display);
+  font-size: clamp(1.05rem, 5.4vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bone);
+  text-shadow:
+    0 0 calc(var(--step) * 5) rgba(166, 140, 255, 0.55),
+    0 0 calc(var(--step) * 12) rgba(255, 92, 244, 0.3);
+}
+
+.hero__thesis {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--dim);
+  text-wrap: balance;
+}
+
+.hero__status {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(0.5rem, 1.9vw, 0.68rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.hero__caret {
+  display: inline-block;
+  margin-left: 0.35em;
+}
+
+/* ---------- sections ---------- */
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.section {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: clamp(2.5rem, 7vw, 4.5rem) var(--gutter);
+}
+
+.section__heading {
+  margin: 0 0 clamp(1.5rem, 4vw, 2.5rem);
+  text-wrap: balance;
+  font-family: var(--display);
+  font-size: clamp(0.68rem, 2.3vw, 0.95rem);
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bone);
+}
+
+.section__glyph {
+  color: var(--cyan);
+}
+
+/* ---------- game cards ---------- */
+
+.grid {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 1.75rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17.5rem), 1fr));
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  background: var(--panel);
+  border: 3px solid var(--line);
+  box-shadow: calc(var(--step) * 2) calc(var(--step) * 2) 0 0 var(--accent);
+  transition:
+    translate 90ms steps(2, end),
+    box-shadow 90ms steps(2, end),
+    background-color 90ms steps(2, end),
+    border-color 90ms steps(2, end);
+}
+
+.card--wages {
+  --accent: var(--magenta);
+}
+
+.card--pinball {
+  --accent: var(--cyan);
+}
+
+.card--looplings {
+  --accent: var(--violet);
+}
+
+/* The whole card is the target. The title carries the only link in the
+   tab order; the source link below lifts back above it. */
+.card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.card:hover,
+.card:focus-within {
+  translate: calc(var(--step) / 2) calc(var(--step) / 2);
+  background: var(--panel-lit);
+  border-color: var(--accent);
+  box-shadow: calc(var(--step) * 1) calc(var(--step) * 1) 0 0 var(--accent);
+}
+
+.card:has(.card__link:focus-visible) {
+  outline: 3px solid var(--bone);
+  outline-offset: 3px;
+}
+
+.card__route {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.card__title {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(0.78rem, 2.5vw, 1rem);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.card__link {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.card__link:focus-visible {
+  outline: none;
+}
+
+.card__hook {
+  margin: 0;
+  color: var(--bone);
+  font-size: 0.95rem;
+}
+
+.card__body {
+  margin: 0;
+  color: var(--dim);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.card__actions {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+
+.button {
+  padding: 0.6rem 0.9rem;
+  background: var(--accent);
+  color: var(--void);
+  font-family: var(--display);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.source {
+  position: relative;
+  z-index: 1;
+  color: var(--dim);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.source:hover {
+  color: var(--bone);
+}
+
+/* ---------- spec sheet ---------- */
+
+.spec {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.spec__row {
+  display: grid;
+  gap: 0.25rem 2rem;
+  padding: clamp(1rem, 2.5vw, 1.35rem) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.spec__key {
+  font-family: var(--display);
+  font-size: 0.62rem;
+  line-height: 1.9;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.spec__value {
+  margin: 0;
+  color: var(--dim);
+  font-size: 0.92rem;
+  text-wrap: pretty;
+}
+
+@media (min-width: 46rem) {
+  .spec__row {
+    grid-template-columns: 11rem 1fr;
+  }
+}
+
+/* ---------- footer ---------- */
+
+.footer {
+  position: relative;
+  z-index: 1;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: clamp(2rem, 5vw, 3rem) var(--gutter) clamp(3rem, 7vw, 4.5rem);
+  border-top: 3px solid var(--line);
+  text-align: center;
+}
+
+.footer__brag {
+  margin: 0 0 1rem;
+  font-family: var(--display);
+  font-size: clamp(0.5rem, 1.8vw, 0.65rem);
+  line-height: 1.9;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--violet);
+}
+
+.footer__meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--dim);
+}
+
+.footer__meta a {
+  color: var(--dim);
+  text-underline-offset: 4px;
+}
+
+.footer__meta a:hover {
+  color: var(--bone);
+}
+
+.footer__dot {
+  color: #7d7f99;
+}
+
+/* ---------- not found ---------- */
+
+.lost {
+  position: relative;
+  z-index: 1;
+  max-width: 34rem;
+  margin-inline: auto;
+  padding: clamp(3rem, 10vw, 6rem) var(--gutter);
+  text-align: center;
+}
+
+.lost .hero__mark {
+  margin-inline: auto;
+}
+
+.lost__code {
+  margin: 0 0 1.25rem;
+  font-family: var(--display);
+  font-size: clamp(2rem, 12vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--magenta);
+  text-shadow: 0 0 calc(var(--step) * 6) rgba(255, 92, 244, 0.45);
+}
+
+.lost__body {
+  margin: 0 0 2rem;
+  color: var(--dim);
+}
+
+.lost__home {
+  display: inline-block;
+  padding: 0.85rem 1.1rem;
+  background: var(--cyan);
+  border: 3px solid var(--cyan);
+  box-shadow: calc(var(--step) * 2) calc(var(--step) * 2) 0 0 var(--violet);
+  color: var(--void);
+  font-family: var(--display);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    translate 90ms steps(2, end),
+    box-shadow 90ms steps(2, end);
+}
+
+.lost__home:hover,
+.lost__home:focus-visible {
+  translate: calc(var(--step) / 2) calc(var(--step) / 2);
+  box-shadow: calc(var(--step) * 1) calc(var(--step) * 1) 0 0 var(--violet);
+}
+
+/* ---------- motion ----------
+   Everything is quantised with steps(), so the page arrives the way a
+   sprite animates rather than the way a modal fades. */
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes boot-in {
+    from {
+      opacity: 0;
+      translate: 0 calc(var(--step) * 3);
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  @keyframes caret-blink {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  .hero__mark,
+  .hero__wordmark,
+  .hero__thesis,
+  .hero__status,
+  .card {
+    animation: boot-in 320ms steps(4, end) backwards;
+  }
+
+  .hero__mark {
+    animation-delay: 40ms;
+  }
+  .hero__wordmark {
+    animation-delay: 200ms;
+  }
+  .hero__thesis {
+    animation-delay: 360ms;
+  }
+  .hero__status {
+    animation-delay: 520ms;
+  }
+
+  .card:nth-child(1) {
+    animation-delay: 660ms;
+  }
+  .card:nth-child(2) {
+    animation-delay: 760ms;
+  }
+  .card:nth-child(3) {
+    animation-delay: 860ms;
+  }
+
+  .hero__caret {
+    animation: caret-blink 1.05s steps(1, end) 900ms infinite alternate;
+  }
+}
