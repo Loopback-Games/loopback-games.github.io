@@ -32,46 +32,61 @@ Without `just`, `python3 -m http.server 8765` does the same job.
 
 ## The crew
 
-Eight small characters live on the page and interfere with it. There is no
-script and no sequence of scenes: each one runs on its own clock, between five
-and fourteen seconds, so what you catch them doing depends on when you look.
+Twelve of them, loose on the page, no two alike: a cat, a slime, two skeletons,
+a knight, a wizard, a noir type in a hat, a blob, a ball — plus a helmet, a
+sword and a magic bolt that are not attached to anyone for long.
 
-They work on the real page, not on a picture of it:
+| Who      | Where        | What they get up to                                                                |
+| -------- | ------------ | ---------------------------------------------------------------------------------- |
+| Cat      | The wordmark | Pounces along the letters, which flinch under it, then sits down and washes        |
+| Slime    | The hero     | Bounces across, misjudges one, lands flat and needs a moment                       |
+| Skeleton | The heading  | Drags the word "playable" out of the sentence and drops it                         |
+| Knight   | Lost Wages   | Wrenches the `Play` button out of the card and hurls it — **his helmet comes off** |
+| Blob     | Pinball      | Rides the card's right frame down like a banister, sideways                        |
+| Ball     | Looplings    | Rolls the card's length and shoulders it out of true                               |
+| Wizard   | Footer rule  | **Fires a bolt** down the rule                                                     |
+| Skeleton | Footer rule  | Takes the bolt, folds up, reassembles, comes back for more                         |
+| Hat guy  | Footer rule  | **Throws a sword** the other way                                                   |
 
-| Who                    | What they get up to                                        |
-| ---------------------- | ---------------------------------------------------------- |
-| A ball on the wordmark | Bounces along the letters, which flinch on each landing    |
-| A runner in the hero   | Crosses it, somersaults over the status line, belly-flops  |
-| A thief in the heading | Drags the word "playable" out of the sentence and drops it |
-| A mugger in Lost Wages | Wrenches the `Play` button out of the card and hurls it    |
-| A rider on Pinball     | Uses the card's right frame as a banister                  |
-| A ball at Looplings    | Rolls the length of the card and shoulders it out of true  |
-| Two on the footer rule | Kick each other off it, take turns losing                  |
+Nobody shares a clock. The periods are **7, 11, 13, 17, 19, 23, 29 and 31
+seconds** — coprime, so the combination on screen takes over four million
+seconds to come round again. There is no sequence to sit through and no loop
+point to notice.
 
 Each character is anchored **inside** the element it torments — the thief is a
-child of the `<span>` around the word, the mugger sits in the button row — so
-wherever the layout puts that element, its resident goes too. Contact is exact
-at every width without one hard-coded coordinate.
+child of the `<span>` around the word, the helmet tracks the head it sits on —
+so wherever the layout puts that element, its resident goes too. Contact is
+exact from 360px to 2560px without one hard-coded coordinate.
 
 Three properties the page has to keep, and the tests that hold it to them:
 
 - **Nothing is clickable that should not be.** The crew is `pointer-events:
-none` and `aria-hidden`. The `Play` elements were already decorative spans —
-  the whole card is the link — so throwing one breaks no control.
+none` and `aria-hidden`; a sweep of 63 moments at six widths confirms no crew
+  element ever captures a point. The `Play` elements were already decorative
+  spans — the whole card is the link — so throwing one breaks no control.
 - **Nothing moves the layout.** Every antic is `translate`, `rotate` or
-  `scale`, none of which reflow anything. The card's shove uses `rotate` alone
-  so it never fights the hover `translate`.
-- **Nothing scrolls sideways.** `main` and the footer clip on the x axis only,
-  so a thrown button is cut off rather than widening the document.
+  `scale`. The card's shove uses `rotate` alone so it never fights the hover
+  `translate`.
+- **Nothing scrolls sideways.** `main` and the footer clip on the x axis only.
 
-The sprites are pixel matrices in `tools/sprites/*.txt`, expanded into
-box-shadow CSS by `tools/build-sprites.py` and pasted between the `SPRITES:`
-markers in `style.css`. Edit the matrix, not the CSS:
+### Why the art is hand-drawn
+
+Asset packs from sites like CraftPix are tempting and wrong for this repo. Their
+freebie licence forbids redistributing the source files "in a manner that would
+make some or all of the art files useable to another end user" — which is
+precisely what a public repo serving raw files over Pages does. It would also
+mislabel their art as MIT. So the cast is drawn here, as pixel matrices in
+`tools/sprites/*.txt`, expanded into box-shadow CSS by
+`tools/build-sprites.py` and pasted between the `SPRITES:` markers in
+`style.css`. Edit the matrix, not the CSS:
 
 ```sh
 just sprites   # rewrite the generated block
 just check     # includes a check that the block is not stale
 ```
+
+That staleness check is not ceremony: it has already caught a search-and-replace
+that reached into the generated block and moved a pixel of the cat.
 
 Under `prefers-reduced-motion` the whole thing stops and the crew becomes a
 still tableau perched around an entirely readable page.

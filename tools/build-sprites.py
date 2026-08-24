@@ -81,7 +81,11 @@ def main() -> int:
     updated = f"{head}{BEGIN}\n\n{generated}\n\n{END}{tail}"
 
     if "--check" in sys.argv:
-        if updated != css:
+        # Compare the sprite data, not the bytes: the formatter reflows the
+        # generated block after this script writes it, and that reflow is not
+        # a stale sprite.
+        squash = lambda text: " ".join(text.split())
+        if squash(updated) != squash(css):
             print("style.css is out of date; run tools/build-sprites.py", file=sys.stderr)
             return 1
         print("sprites are up to date")

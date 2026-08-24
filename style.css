@@ -514,6 +514,241 @@ main {
     calc(var(--px) * 7) calc(var(--px) * 11) 0 0 #2ba99e;
 }
 
+.actor--bolt {
+  --cols: 9;
+  --rows: 5;
+}
+
+.actor--bolt .pixel {
+  box-shadow:
+    calc(var(--px) * 4) calc(var(--px) * 0) 0 0 #4ee6d8,
+    calc(var(--px) * 2) calc(var(--px) * 1) 0 0 #2ba99e,
+    calc(var(--px) * 3) calc(var(--px) * 1) 0 0 #2ba99e,
+    calc(var(--px) * 4) calc(var(--px) * 1) 0 0 #4ee6d8,
+    calc(var(--px) * 5) calc(var(--px) * 1) 0 0 #4ee6d8,
+    calc(var(--px) * 1) calc(var(--px) * 2) 0 0 #2ba99e,
+    calc(var(--px) * 2) calc(var(--px) * 2) 0 0 #2ba99e,
+    calc(var(--px) * 3) calc(var(--px) * 2) 0 0 #4ee6d8,
+    calc(var(--px) * 4) calc(var(--px) * 2) 0 0 #4ee6d8,
+    calc(var(--px) * 5) calc(var(--px) * 2) 0 0 #ffffff,
+    calc(var(--px) * 6) calc(var(--px) * 2) 0 0 #ffffff,
+    calc(var(--px) * 7) calc(var(--px) * 2) 0 0 #4ee6d8,
+    calc(var(--px) * 8) calc(var(--px) * 2) 0 0 #4ee6d8,
+    calc(var(--px) * 2) calc(var(--px) * 3) 0 0 #2ba99e,
+    calc(var(--px) * 3) calc(var(--px) * 3) 0 0 #2ba99e,
+    calc(var(--px) * 4) calc(var(--px) * 3) 0 0 #4ee6d8,
+    calc(var(--px) * 5) calc(var(--px) * 3) 0 0 #4ee6d8,
+    calc(var(--px) * 4) calc(var(--px) * 4) 0 0 #4ee6d8;
+}
+
+.actor--cat {
+  --cols: 14;
+  --rows: 13;
+}
+
+.actor--cat .pixel {
+  box-shadow:
+    calc(var(--px) * 2) calc(var(--px) * 0) 0 0 #ffb45c,
+    calc(var(--px) * 3) calc(var(--px) * 0) 0 0 #ffb45c,
+    calc(var(--px) * 10) calc(var(--px) * 0) 0 0 #ffb45c,
+    calc(var(--px) * 11) calc(var(--px) * 0) 0 0 #ffb45c,
+    calc(var(--px) * 1) calc(var(--px) * 1) 0 0 #ffb45c,
+    calc(var(--px) * 2) calc(var(--px) * 1) 0 0 #ffb45c,
+    calc(var(--px) * 3) calc(var(--px) * 1) 0 0 #ffb45c,
+    calc(var(--px) * 4) calc(var(--px) * 1) 0 0 #ffb45c,
+    calc(var(--px) * 9) calc(var(--px) * 1) 0 0 #ffb45c,
+    calc(var(--px) * 10) calc(var(--px) * 1) 0 0 #ffb45c,
+    calc(var(--px) * 11) calc(var(--px) * 1) 0 0 #ffb45c,
+    calc(var(--px) * 12) calc(var(--px) * 1) 0 0 #ffb45c,
+    calc(var(--px) * 1) calc(var(--px) * 2) 0 0 #ffb45c,
+    calc(var(--px) * 2) calc(var(--px) * 2) 0 0 #ffb45c,
+    calc(var(--px) * 3) calc(var(--px) * 2) 0 0 #ffb45c,
+    calc(var(--px) * 4) calc(var(--px) * 2) 0 0 #ffb45c,
+    calc(var(--px) * 5) calc(var(--px) * 2) 0 0 #ffb45c,
+    calc(var(--px) * 6) calc(var(--px) * 2) 0 0 #ffb45c,
+    calc(var(--px) * 7) calc(var(--px) * 2) 0 0 #ffb45c,
+    calc(var(--px) * 8) calc(var(--px) * 2) 0 0 #ffb45c,
+    calc(var(--px) * 9) calc(var(--px) * 2) 0 0 #ffb45c,
+    calc(var(--px) * 10) calc(var(--px) * 2) 0 0 #ffb45c,
+    calc(var(--px) * 11) calc(var(--px) * 2) 0 0 #ffb45c,
+    calc(var(--px) * 12) calc(var(--px) * 2) 0 0 #ffb45c,
+    calc(var(--px) * 1) calc(var(--px) * 3) 0 0 #ffb45c,
+    calc(var(--px) * 2) calc(var(--px) * 3) 0 0 #ffb45c,
+    calc(var(--px) * 3) calc(var(--px) * 3) 0 0 #ffb45c,
+    calc(var(--px) * 4) calc(var(--px) * 3) 0 0 #ffb45c,
+    calc(var(--px) * 5) calc(var(--px) * 3) 0 0 #ffb45c,
+    calc(var(--px) * 6) calc(var(--px) * 3) 0 0 #ffb45c,
+    calc(var(--px) * 7) calc(var(--px) * 3) 0 0 #ffb45c,
+    calc(var(--px) * 8) calc(var(--px) * 3) 0 0 #ffb45c,
+    calc(var(--px) * 9) calc(var(--px) * 3) 0 0 #ffb45c,
+    calc(var(--px) * 10) calc(var(--px) * 3) 0 0 #ffb45c,
+    calc(var(--px) * 11) calc(var(--px) * 3) 0 0 #ffb45c,
+    calc(var(--px) * 12) calc(var(--px) * 3) 0 0 #ffb45c,
+    calc(var(--px) * 1) calc(var(--px) * 4) 0 0 #ffb45c,
+    calc(var(--px) * 2) calc(var(--px) * 4) 0 0 #ffb45c,
+    calc(var(--px) * 3) calc(var(--px) * 4) 0 0 #0b0b12,
+    calc(var(--px) * 4) calc(var(--px) * 4) 0 0 #0b0b12,
+    calc(var(--px) * 5) calc(var(--px) * 4) 0 0 #ffb45c,
+    calc(var(--px) * 6) calc(var(--px) * 4) 0 0 #ffb45c,
+    calc(var(--px) * 7) calc(var(--px) * 4) 0 0 #ffb45c,
+    calc(var(--px) * 8) calc(var(--px) * 4) 0 0 #ffb45c,
+    calc(var(--px) * 9) calc(var(--px) * 4) 0 0 #0b0b12,
+    calc(var(--px) * 10) calc(var(--px) * 4) 0 0 #0b0b12,
+    calc(var(--px) * 11) calc(var(--px) * 4) 0 0 #ffb45c,
+    calc(var(--px) * 12) calc(var(--px) * 4) 0 0 #ffb45c,
+    calc(var(--px) * 1) calc(var(--px) * 5) 0 0 #ffb45c,
+    calc(var(--px) * 2) calc(var(--px) * 5) 0 0 #ffb45c,
+    calc(var(--px) * 3) calc(var(--px) * 5) 0 0 #ffb45c,
+    calc(var(--px) * 4) calc(var(--px) * 5) 0 0 #ffb45c,
+    calc(var(--px) * 5) calc(var(--px) * 5) 0 0 #ffb45c,
+    calc(var(--px) * 6) calc(var(--px) * 5) 0 0 #ffb45c,
+    calc(var(--px) * 7) calc(var(--px) * 5) 0 0 #ffb45c,
+    calc(var(--px) * 8) calc(var(--px) * 5) 0 0 #ffb45c,
+    calc(var(--px) * 9) calc(var(--px) * 5) 0 0 #ffb45c,
+    calc(var(--px) * 10) calc(var(--px) * 5) 0 0 #ffb45c,
+    calc(var(--px) * 11) calc(var(--px) * 5) 0 0 #ffb45c,
+    calc(var(--px) * 12) calc(var(--px) * 5) 0 0 #ffb45c,
+    calc(var(--px) * 1) calc(var(--px) * 6) 0 0 #ffb45c,
+    calc(var(--px) * 2) calc(var(--px) * 6) 0 0 #ffb45c,
+    calc(var(--px) * 3) calc(var(--px) * 6) 0 0 #fff0d8,
+    calc(var(--px) * 4) calc(var(--px) * 6) 0 0 #fff0d8,
+    calc(var(--px) * 5) calc(var(--px) * 6) 0 0 #fff0d8,
+    calc(var(--px) * 6) calc(var(--px) * 6) 0 0 #fff0d8,
+    calc(var(--px) * 7) calc(var(--px) * 6) 0 0 #fff0d8,
+    calc(var(--px) * 8) calc(var(--px) * 6) 0 0 #fff0d8,
+    calc(var(--px) * 9) calc(var(--px) * 6) 0 0 #fff0d8,
+    calc(var(--px) * 10) calc(var(--px) * 6) 0 0 #fff0d8,
+    calc(var(--px) * 11) calc(var(--px) * 6) 0 0 #ffb45c,
+    calc(var(--px) * 12) calc(var(--px) * 6) 0 0 #ffb45c,
+    calc(var(--px) * 1) calc(var(--px) * 7) 0 0 #ffb45c,
+    calc(var(--px) * 2) calc(var(--px) * 7) 0 0 #ffb45c,
+    calc(var(--px) * 3) calc(var(--px) * 7) 0 0 #fff0d8,
+    calc(var(--px) * 4) calc(var(--px) * 7) 0 0 #fff0d8,
+    calc(var(--px) * 5) calc(var(--px) * 7) 0 0 #fff0d8,
+    calc(var(--px) * 6) calc(var(--px) * 7) 0 0 #fff0d8,
+    calc(var(--px) * 7) calc(var(--px) * 7) 0 0 #fff0d8,
+    calc(var(--px) * 8) calc(var(--px) * 7) 0 0 #fff0d8,
+    calc(var(--px) * 9) calc(var(--px) * 7) 0 0 #fff0d8,
+    calc(var(--px) * 10) calc(var(--px) * 7) 0 0 #fff0d8,
+    calc(var(--px) * 11) calc(var(--px) * 7) 0 0 #ffb45c,
+    calc(var(--px) * 12) calc(var(--px) * 7) 0 0 #ffb45c,
+    calc(var(--px) * 2) calc(var(--px) * 8) 0 0 #ffb45c,
+    calc(var(--px) * 3) calc(var(--px) * 8) 0 0 #ffb45c,
+    calc(var(--px) * 4) calc(var(--px) * 8) 0 0 #ffb45c,
+    calc(var(--px) * 5) calc(var(--px) * 8) 0 0 #ffb45c,
+    calc(var(--px) * 6) calc(var(--px) * 8) 0 0 #ffb45c,
+    calc(var(--px) * 7) calc(var(--px) * 8) 0 0 #ffb45c,
+    calc(var(--px) * 8) calc(var(--px) * 8) 0 0 #ffb45c,
+    calc(var(--px) * 9) calc(var(--px) * 8) 0 0 #ffb45c,
+    calc(var(--px) * 10) calc(var(--px) * 8) 0 0 #ffb45c,
+    calc(var(--px) * 11) calc(var(--px) * 8) 0 0 #ffb45c,
+    calc(var(--px) * 2) calc(var(--px) * 9) 0 0 #ffb45c,
+    calc(var(--px) * 3) calc(var(--px) * 9) 0 0 #ffb45c,
+    calc(var(--px) * 4) calc(var(--px) * 9) 0 0 #fff0d8,
+    calc(var(--px) * 5) calc(var(--px) * 9) 0 0 #fff0d8,
+    calc(var(--px) * 6) calc(var(--px) * 9) 0 0 #fff0d8,
+    calc(var(--px) * 7) calc(var(--px) * 9) 0 0 #fff0d8,
+    calc(var(--px) * 8) calc(var(--px) * 9) 0 0 #ffb45c,
+    calc(var(--px) * 9) calc(var(--px) * 9) 0 0 #ffb45c,
+    calc(var(--px) * 10) calc(var(--px) * 9) 0 0 #ffb45c,
+    calc(var(--px) * 11) calc(var(--px) * 9) 0 0 #ffb45c,
+    calc(var(--px) * 2) calc(var(--px) * 10) 0 0 #ffb45c,
+    calc(var(--px) * 3) calc(var(--px) * 10) 0 0 #ffb45c,
+    calc(var(--px) * 4) calc(var(--px) * 10) 0 0 #fff0d8,
+    calc(var(--px) * 5) calc(var(--px) * 10) 0 0 #fff0d8,
+    calc(var(--px) * 6) calc(var(--px) * 10) 0 0 #fff0d8,
+    calc(var(--px) * 7) calc(var(--px) * 10) 0 0 #fff0d8,
+    calc(var(--px) * 8) calc(var(--px) * 10) 0 0 #ffb45c,
+    calc(var(--px) * 9) calc(var(--px) * 10) 0 0 #ffb45c,
+    calc(var(--px) * 10) calc(var(--px) * 10) 0 0 #ffb45c,
+    calc(var(--px) * 11) calc(var(--px) * 10) 0 0 #ffb45c,
+    calc(var(--px) * 2) calc(var(--px) * 11) 0 0 #ffb45c,
+    calc(var(--px) * 3) calc(var(--px) * 11) 0 0 #ffb45c,
+    calc(var(--px) * 4) calc(var(--px) * 11) 0 0 #ffb45c,
+    calc(var(--px) * 5) calc(var(--px) * 11) 0 0 #ffb45c,
+    calc(var(--px) * 6) calc(var(--px) * 11) 0 0 #ffb45c,
+    calc(var(--px) * 7) calc(var(--px) * 11) 0 0 #ffb45c,
+    calc(var(--px) * 8) calc(var(--px) * 11) 0 0 #ffb45c,
+    calc(var(--px) * 9) calc(var(--px) * 11) 0 0 #ffb45c,
+    calc(var(--px) * 10) calc(var(--px) * 11) 0 0 #ffb45c,
+    calc(var(--px) * 11) calc(var(--px) * 11) 0 0 #ffb45c,
+    calc(var(--px) * 3) calc(var(--px) * 12) 0 0 #ffb45c,
+    calc(var(--px) * 4) calc(var(--px) * 12) 0 0 #ffb45c,
+    calc(var(--px) * 9) calc(var(--px) * 12) 0 0 #ffb45c,
+    calc(var(--px) * 10) calc(var(--px) * 12) 0 0 #ffb45c;
+}
+
+.actor--helmet {
+  --cols: 12;
+  --rows: 8;
+}
+
+.actor--helmet .pixel {
+  box-shadow:
+    calc(var(--px) * 5) calc(var(--px) * 0) 0 0 #e8eefc,
+    calc(var(--px) * 6) calc(var(--px) * 0) 0 0 #e8eefc,
+    calc(var(--px) * 4) calc(var(--px) * 1) 0 0 #e8eefc,
+    calc(var(--px) * 5) calc(var(--px) * 1) 0 0 #e8eefc,
+    calc(var(--px) * 6) calc(var(--px) * 1) 0 0 #e8eefc,
+    calc(var(--px) * 7) calc(var(--px) * 1) 0 0 #e8eefc,
+    calc(var(--px) * 2) calc(var(--px) * 2) 0 0 #9fb4d8,
+    calc(var(--px) * 3) calc(var(--px) * 2) 0 0 #9fb4d8,
+    calc(var(--px) * 4) calc(var(--px) * 2) 0 0 #9fb4d8,
+    calc(var(--px) * 5) calc(var(--px) * 2) 0 0 #9fb4d8,
+    calc(var(--px) * 6) calc(var(--px) * 2) 0 0 #9fb4d8,
+    calc(var(--px) * 7) calc(var(--px) * 2) 0 0 #9fb4d8,
+    calc(var(--px) * 8) calc(var(--px) * 2) 0 0 #9fb4d8,
+    calc(var(--px) * 9) calc(var(--px) * 2) 0 0 #9fb4d8,
+    calc(var(--px) * 1) calc(var(--px) * 3) 0 0 #9fb4d8,
+    calc(var(--px) * 2) calc(var(--px) * 3) 0 0 #9fb4d8,
+    calc(var(--px) * 3) calc(var(--px) * 3) 0 0 #9fb4d8,
+    calc(var(--px) * 4) calc(var(--px) * 3) 0 0 #9fb4d8,
+    calc(var(--px) * 5) calc(var(--px) * 3) 0 0 #9fb4d8,
+    calc(var(--px) * 6) calc(var(--px) * 3) 0 0 #9fb4d8,
+    calc(var(--px) * 7) calc(var(--px) * 3) 0 0 #9fb4d8,
+    calc(var(--px) * 8) calc(var(--px) * 3) 0 0 #9fb4d8,
+    calc(var(--px) * 9) calc(var(--px) * 3) 0 0 #9fb4d8,
+    calc(var(--px) * 10) calc(var(--px) * 3) 0 0 #9fb4d8,
+    calc(var(--px) * 1) calc(var(--px) * 4) 0 0 #9fb4d8,
+    calc(var(--px) * 2) calc(var(--px) * 4) 0 0 #9fb4d8,
+    calc(var(--px) * 3) calc(var(--px) * 4) 0 0 #9fb4d8,
+    calc(var(--px) * 4) calc(var(--px) * 4) 0 0 #9fb4d8,
+    calc(var(--px) * 5) calc(var(--px) * 4) 0 0 #9fb4d8,
+    calc(var(--px) * 6) calc(var(--px) * 4) 0 0 #9fb4d8,
+    calc(var(--px) * 7) calc(var(--px) * 4) 0 0 #9fb4d8,
+    calc(var(--px) * 8) calc(var(--px) * 4) 0 0 #9fb4d8,
+    calc(var(--px) * 9) calc(var(--px) * 4) 0 0 #9fb4d8,
+    calc(var(--px) * 10) calc(var(--px) * 4) 0 0 #9fb4d8,
+    calc(var(--px) * 1) calc(var(--px) * 5) 0 0 #9fb4d8,
+    calc(var(--px) * 2) calc(var(--px) * 5) 0 0 #9fb4d8,
+    calc(var(--px) * 3) calc(var(--px) * 5) 0 0 #5e73a3,
+    calc(var(--px) * 4) calc(var(--px) * 5) 0 0 #5e73a3,
+    calc(var(--px) * 5) calc(var(--px) * 5) 0 0 #9fb4d8,
+    calc(var(--px) * 6) calc(var(--px) * 5) 0 0 #9fb4d8,
+    calc(var(--px) * 7) calc(var(--px) * 5) 0 0 #5e73a3,
+    calc(var(--px) * 8) calc(var(--px) * 5) 0 0 #5e73a3,
+    calc(var(--px) * 9) calc(var(--px) * 5) 0 0 #9fb4d8,
+    calc(var(--px) * 10) calc(var(--px) * 5) 0 0 #9fb4d8,
+    calc(var(--px) * 1) calc(var(--px) * 6) 0 0 #9fb4d8,
+    calc(var(--px) * 2) calc(var(--px) * 6) 0 0 #9fb4d8,
+    calc(var(--px) * 3) calc(var(--px) * 6) 0 0 #9fb4d8,
+    calc(var(--px) * 4) calc(var(--px) * 6) 0 0 #9fb4d8,
+    calc(var(--px) * 5) calc(var(--px) * 6) 0 0 #9fb4d8,
+    calc(var(--px) * 6) calc(var(--px) * 6) 0 0 #9fb4d8,
+    calc(var(--px) * 7) calc(var(--px) * 6) 0 0 #9fb4d8,
+    calc(var(--px) * 8) calc(var(--px) * 6) 0 0 #9fb4d8,
+    calc(var(--px) * 9) calc(var(--px) * 6) 0 0 #9fb4d8,
+    calc(var(--px) * 10) calc(var(--px) * 6) 0 0 #9fb4d8,
+    calc(var(--px) * 2) calc(var(--px) * 7) 0 0 #5e73a3,
+    calc(var(--px) * 3) calc(var(--px) * 7) 0 0 #5e73a3,
+    calc(var(--px) * 4) calc(var(--px) * 7) 0 0 #5e73a3,
+    calc(var(--px) * 5) calc(var(--px) * 7) 0 0 #5e73a3,
+    calc(var(--px) * 6) calc(var(--px) * 7) 0 0 #5e73a3,
+    calc(var(--px) * 7) calc(var(--px) * 7) 0 0 #5e73a3,
+    calc(var(--px) * 8) calc(var(--px) * 7) 0 0 #5e73a3,
+    calc(var(--px) * 9) calc(var(--px) * 7) 0 0 #5e73a3;
+}
+
 .actor--kip {
   --cols: 11;
   --rows: 14;
@@ -613,6 +848,173 @@ main {
     calc(var(--px) * 3) calc(var(--px) * 13) 0 0 #c9b6ff,
     calc(var(--px) * 7) calc(var(--px) * 13) 0 0 #c9b6ff,
     calc(var(--px) * 8) calc(var(--px) * 13) 0 0 #c9b6ff;
+}
+
+.actor--knight {
+  --cols: 14;
+  --rows: 16;
+}
+
+.actor--knight .pixel {
+  box-shadow:
+    calc(var(--px) * 4) calc(var(--px) * 0) 0 0 #6b4a2a,
+    calc(var(--px) * 5) calc(var(--px) * 0) 0 0 #6b4a2a,
+    calc(var(--px) * 6) calc(var(--px) * 0) 0 0 #6b4a2a,
+    calc(var(--px) * 7) calc(var(--px) * 0) 0 0 #6b4a2a,
+    calc(var(--px) * 8) calc(var(--px) * 0) 0 0 #6b4a2a,
+    calc(var(--px) * 9) calc(var(--px) * 0) 0 0 #6b4a2a,
+    calc(var(--px) * 2) calc(var(--px) * 1) 0 0 #6b4a2a,
+    calc(var(--px) * 3) calc(var(--px) * 1) 0 0 #6b4a2a,
+    calc(var(--px) * 4) calc(var(--px) * 1) 0 0 #6b4a2a,
+    calc(var(--px) * 5) calc(var(--px) * 1) 0 0 #6b4a2a,
+    calc(var(--px) * 6) calc(var(--px) * 1) 0 0 #6b4a2a,
+    calc(var(--px) * 7) calc(var(--px) * 1) 0 0 #6b4a2a,
+    calc(var(--px) * 8) calc(var(--px) * 1) 0 0 #6b4a2a,
+    calc(var(--px) * 9) calc(var(--px) * 1) 0 0 #6b4a2a,
+    calc(var(--px) * 10) calc(var(--px) * 1) 0 0 #6b4a2a,
+    calc(var(--px) * 11) calc(var(--px) * 1) 0 0 #6b4a2a,
+    calc(var(--px) * 1) calc(var(--px) * 2) 0 0 #6b4a2a,
+    calc(var(--px) * 2) calc(var(--px) * 2) 0 0 #f2c9a0,
+    calc(var(--px) * 3) calc(var(--px) * 2) 0 0 #f2c9a0,
+    calc(var(--px) * 4) calc(var(--px) * 2) 0 0 #f2c9a0,
+    calc(var(--px) * 5) calc(var(--px) * 2) 0 0 #f2c9a0,
+    calc(var(--px) * 6) calc(var(--px) * 2) 0 0 #f2c9a0,
+    calc(var(--px) * 7) calc(var(--px) * 2) 0 0 #f2c9a0,
+    calc(var(--px) * 8) calc(var(--px) * 2) 0 0 #f2c9a0,
+    calc(var(--px) * 9) calc(var(--px) * 2) 0 0 #f2c9a0,
+    calc(var(--px) * 10) calc(var(--px) * 2) 0 0 #f2c9a0,
+    calc(var(--px) * 11) calc(var(--px) * 2) 0 0 #f2c9a0,
+    calc(var(--px) * 12) calc(var(--px) * 2) 0 0 #6b4a2a,
+    calc(var(--px) * 1) calc(var(--px) * 3) 0 0 #6b4a2a,
+    calc(var(--px) * 2) calc(var(--px) * 3) 0 0 #f2c9a0,
+    calc(var(--px) * 3) calc(var(--px) * 3) 0 0 #f2c9a0,
+    calc(var(--px) * 4) calc(var(--px) * 3) 0 0 #f2c9a0,
+    calc(var(--px) * 5) calc(var(--px) * 3) 0 0 #f2c9a0,
+    calc(var(--px) * 6) calc(var(--px) * 3) 0 0 #f2c9a0,
+    calc(var(--px) * 7) calc(var(--px) * 3) 0 0 #f2c9a0,
+    calc(var(--px) * 8) calc(var(--px) * 3) 0 0 #f2c9a0,
+    calc(var(--px) * 9) calc(var(--px) * 3) 0 0 #f2c9a0,
+    calc(var(--px) * 10) calc(var(--px) * 3) 0 0 #f2c9a0,
+    calc(var(--px) * 11) calc(var(--px) * 3) 0 0 #f2c9a0,
+    calc(var(--px) * 12) calc(var(--px) * 3) 0 0 #6b4a2a,
+    calc(var(--px) * 1) calc(var(--px) * 4) 0 0 #f2c9a0,
+    calc(var(--px) * 2) calc(var(--px) * 4) 0 0 #f2c9a0,
+    calc(var(--px) * 3) calc(var(--px) * 4) 0 0 #0b0b12,
+    calc(var(--px) * 4) calc(var(--px) * 4) 0 0 #0b0b12,
+    calc(var(--px) * 5) calc(var(--px) * 4) 0 0 #f2c9a0,
+    calc(var(--px) * 6) calc(var(--px) * 4) 0 0 #f2c9a0,
+    calc(var(--px) * 7) calc(var(--px) * 4) 0 0 #f2c9a0,
+    calc(var(--px) * 8) calc(var(--px) * 4) 0 0 #f2c9a0,
+    calc(var(--px) * 9) calc(var(--px) * 4) 0 0 #0b0b12,
+    calc(var(--px) * 10) calc(var(--px) * 4) 0 0 #0b0b12,
+    calc(var(--px) * 11) calc(var(--px) * 4) 0 0 #f2c9a0,
+    calc(var(--px) * 12) calc(var(--px) * 4) 0 0 #f2c9a0,
+    calc(var(--px) * 1) calc(var(--px) * 5) 0 0 #f2c9a0,
+    calc(var(--px) * 2) calc(var(--px) * 5) 0 0 #f2c9a0,
+    calc(var(--px) * 3) calc(var(--px) * 5) 0 0 #0b0b12,
+    calc(var(--px) * 4) calc(var(--px) * 5) 0 0 #0b0b12,
+    calc(var(--px) * 5) calc(var(--px) * 5) 0 0 #f2c9a0,
+    calc(var(--px) * 6) calc(var(--px) * 5) 0 0 #f2c9a0,
+    calc(var(--px) * 7) calc(var(--px) * 5) 0 0 #f2c9a0,
+    calc(var(--px) * 8) calc(var(--px) * 5) 0 0 #f2c9a0,
+    calc(var(--px) * 9) calc(var(--px) * 5) 0 0 #0b0b12,
+    calc(var(--px) * 10) calc(var(--px) * 5) 0 0 #0b0b12,
+    calc(var(--px) * 11) calc(var(--px) * 5) 0 0 #f2c9a0,
+    calc(var(--px) * 12) calc(var(--px) * 5) 0 0 #f2c9a0,
+    calc(var(--px) * 1) calc(var(--px) * 6) 0 0 #f2c9a0,
+    calc(var(--px) * 2) calc(var(--px) * 6) 0 0 #f2c9a0,
+    calc(var(--px) * 3) calc(var(--px) * 6) 0 0 #f2c9a0,
+    calc(var(--px) * 4) calc(var(--px) * 6) 0 0 #f2c9a0,
+    calc(var(--px) * 5) calc(var(--px) * 6) 0 0 #f2c9a0,
+    calc(var(--px) * 6) calc(var(--px) * 6) 0 0 #f2c9a0,
+    calc(var(--px) * 7) calc(var(--px) * 6) 0 0 #f2c9a0,
+    calc(var(--px) * 8) calc(var(--px) * 6) 0 0 #f2c9a0,
+    calc(var(--px) * 9) calc(var(--px) * 6) 0 0 #f2c9a0,
+    calc(var(--px) * 10) calc(var(--px) * 6) 0 0 #f2c9a0,
+    calc(var(--px) * 11) calc(var(--px) * 6) 0 0 #f2c9a0,
+    calc(var(--px) * 12) calc(var(--px) * 6) 0 0 #f2c9a0,
+    calc(var(--px) * 2) calc(var(--px) * 7) 0 0 #f2c9a0,
+    calc(var(--px) * 3) calc(var(--px) * 7) 0 0 #f2c9a0,
+    calc(var(--px) * 4) calc(var(--px) * 7) 0 0 #f2c9a0,
+    calc(var(--px) * 5) calc(var(--px) * 7) 0 0 #f2c9a0,
+    calc(var(--px) * 6) calc(var(--px) * 7) 0 0 #f2c9a0,
+    calc(var(--px) * 7) calc(var(--px) * 7) 0 0 #f2c9a0,
+    calc(var(--px) * 8) calc(var(--px) * 7) 0 0 #f2c9a0,
+    calc(var(--px) * 9) calc(var(--px) * 7) 0 0 #f2c9a0,
+    calc(var(--px) * 10) calc(var(--px) * 7) 0 0 #f2c9a0,
+    calc(var(--px) * 11) calc(var(--px) * 7) 0 0 #f2c9a0,
+    calc(var(--px) * 3) calc(var(--px) * 8) 0 0 #f2c9a0,
+    calc(var(--px) * 4) calc(var(--px) * 8) 0 0 #f2c9a0,
+    calc(var(--px) * 5) calc(var(--px) * 8) 0 0 #f2c9a0,
+    calc(var(--px) * 6) calc(var(--px) * 8) 0 0 #f2c9a0,
+    calc(var(--px) * 7) calc(var(--px) * 8) 0 0 #f2c9a0,
+    calc(var(--px) * 8) calc(var(--px) * 8) 0 0 #f2c9a0,
+    calc(var(--px) * 9) calc(var(--px) * 8) 0 0 #f2c9a0,
+    calc(var(--px) * 10) calc(var(--px) * 8) 0 0 #f2c9a0,
+    calc(var(--px) * 5) calc(var(--px) * 9) 0 0 #f2c9a0,
+    calc(var(--px) * 6) calc(var(--px) * 9) 0 0 #f2c9a0,
+    calc(var(--px) * 7) calc(var(--px) * 9) 0 0 #f2c9a0,
+    calc(var(--px) * 8) calc(var(--px) * 9) 0 0 #f2c9a0,
+    calc(var(--px) * 2) calc(var(--px) * 10) 0 0 #9fb4d8,
+    calc(var(--px) * 3) calc(var(--px) * 10) 0 0 #9fb4d8,
+    calc(var(--px) * 4) calc(var(--px) * 10) 0 0 #9fb4d8,
+    calc(var(--px) * 5) calc(var(--px) * 10) 0 0 #9fb4d8,
+    calc(var(--px) * 6) calc(var(--px) * 10) 0 0 #9fb4d8,
+    calc(var(--px) * 7) calc(var(--px) * 10) 0 0 #9fb4d8,
+    calc(var(--px) * 8) calc(var(--px) * 10) 0 0 #9fb4d8,
+    calc(var(--px) * 9) calc(var(--px) * 10) 0 0 #9fb4d8,
+    calc(var(--px) * 10) calc(var(--px) * 10) 0 0 #9fb4d8,
+    calc(var(--px) * 11) calc(var(--px) * 10) 0 0 #9fb4d8,
+    calc(var(--px) * 1) calc(var(--px) * 11) 0 0 #9fb4d8,
+    calc(var(--px) * 2) calc(var(--px) * 11) 0 0 #9fb4d8,
+    calc(var(--px) * 3) calc(var(--px) * 11) 0 0 #9fb4d8,
+    calc(var(--px) * 4) calc(var(--px) * 11) 0 0 #9fb4d8,
+    calc(var(--px) * 5) calc(var(--px) * 11) 0 0 #9fb4d8,
+    calc(var(--px) * 6) calc(var(--px) * 11) 0 0 #9fb4d8,
+    calc(var(--px) * 7) calc(var(--px) * 11) 0 0 #9fb4d8,
+    calc(var(--px) * 8) calc(var(--px) * 11) 0 0 #9fb4d8,
+    calc(var(--px) * 9) calc(var(--px) * 11) 0 0 #9fb4d8,
+    calc(var(--px) * 10) calc(var(--px) * 11) 0 0 #9fb4d8,
+    calc(var(--px) * 11) calc(var(--px) * 11) 0 0 #9fb4d8,
+    calc(var(--px) * 12) calc(var(--px) * 11) 0 0 #9fb4d8,
+    calc(var(--px) * 1) calc(var(--px) * 12) 0 0 #9fb4d8,
+    calc(var(--px) * 2) calc(var(--px) * 12) 0 0 #9fb4d8,
+    calc(var(--px) * 3) calc(var(--px) * 12) 0 0 #5e73a3,
+    calc(var(--px) * 4) calc(var(--px) * 12) 0 0 #5e73a3,
+    calc(var(--px) * 5) calc(var(--px) * 12) 0 0 #5e73a3,
+    calc(var(--px) * 6) calc(var(--px) * 12) 0 0 #5e73a3,
+    calc(var(--px) * 7) calc(var(--px) * 12) 0 0 #5e73a3,
+    calc(var(--px) * 8) calc(var(--px) * 12) 0 0 #5e73a3,
+    calc(var(--px) * 9) calc(var(--px) * 12) 0 0 #5e73a3,
+    calc(var(--px) * 10) calc(var(--px) * 12) 0 0 #5e73a3,
+    calc(var(--px) * 11) calc(var(--px) * 12) 0 0 #9fb4d8,
+    calc(var(--px) * 12) calc(var(--px) * 12) 0 0 #9fb4d8,
+    calc(var(--px) * 1) calc(var(--px) * 13) 0 0 #9fb4d8,
+    calc(var(--px) * 2) calc(var(--px) * 13) 0 0 #9fb4d8,
+    calc(var(--px) * 3) calc(var(--px) * 13) 0 0 #9fb4d8,
+    calc(var(--px) * 4) calc(var(--px) * 13) 0 0 #5e73a3,
+    calc(var(--px) * 5) calc(var(--px) * 13) 0 0 #5e73a3,
+    calc(var(--px) * 6) calc(var(--px) * 13) 0 0 #5e73a3,
+    calc(var(--px) * 7) calc(var(--px) * 13) 0 0 #5e73a3,
+    calc(var(--px) * 8) calc(var(--px) * 13) 0 0 #5e73a3,
+    calc(var(--px) * 9) calc(var(--px) * 13) 0 0 #5e73a3,
+    calc(var(--px) * 10) calc(var(--px) * 13) 0 0 #9fb4d8,
+    calc(var(--px) * 11) calc(var(--px) * 13) 0 0 #9fb4d8,
+    calc(var(--px) * 12) calc(var(--px) * 13) 0 0 #9fb4d8,
+    calc(var(--px) * 2) calc(var(--px) * 14) 0 0 #9fb4d8,
+    calc(var(--px) * 3) calc(var(--px) * 14) 0 0 #9fb4d8,
+    calc(var(--px) * 4) calc(var(--px) * 14) 0 0 #9fb4d8,
+    calc(var(--px) * 5) calc(var(--px) * 14) 0 0 #9fb4d8,
+    calc(var(--px) * 6) calc(var(--px) * 14) 0 0 #9fb4d8,
+    calc(var(--px) * 7) calc(var(--px) * 14) 0 0 #9fb4d8,
+    calc(var(--px) * 8) calc(var(--px) * 14) 0 0 #9fb4d8,
+    calc(var(--px) * 9) calc(var(--px) * 14) 0 0 #9fb4d8,
+    calc(var(--px) * 10) calc(var(--px) * 14) 0 0 #9fb4d8,
+    calc(var(--px) * 11) calc(var(--px) * 14) 0 0 #9fb4d8,
+    calc(var(--px) * 3) calc(var(--px) * 15) 0 0 #5e73a3,
+    calc(var(--px) * 4) calc(var(--px) * 15) 0 0 #5e73a3,
+    calc(var(--px) * 9) calc(var(--px) * 15) 0 0 #5e73a3,
+    calc(var(--px) * 10) calc(var(--px) * 15) 0 0 #5e73a3;
 }
 
 .actor--orb {
@@ -744,33 +1146,521 @@ main {
     calc(var(--px) * 8) calc(var(--px) * 11) 0 0 #ff5cf4;
 }
 
+.actor--skeleton {
+  --cols: 14;
+  --rows: 16;
+}
+
+.actor--skeleton .pixel {
+  box-shadow:
+    calc(var(--px) * 4) calc(var(--px) * 0) 0 0 #e8e4f0,
+    calc(var(--px) * 5) calc(var(--px) * 0) 0 0 #e8e4f0,
+    calc(var(--px) * 6) calc(var(--px) * 0) 0 0 #e8e4f0,
+    calc(var(--px) * 7) calc(var(--px) * 0) 0 0 #e8e4f0,
+    calc(var(--px) * 8) calc(var(--px) * 0) 0 0 #e8e4f0,
+    calc(var(--px) * 9) calc(var(--px) * 0) 0 0 #e8e4f0,
+    calc(var(--px) * 2) calc(var(--px) * 1) 0 0 #e8e4f0,
+    calc(var(--px) * 3) calc(var(--px) * 1) 0 0 #e8e4f0,
+    calc(var(--px) * 4) calc(var(--px) * 1) 0 0 #e8e4f0,
+    calc(var(--px) * 5) calc(var(--px) * 1) 0 0 #e8e4f0,
+    calc(var(--px) * 6) calc(var(--px) * 1) 0 0 #e8e4f0,
+    calc(var(--px) * 7) calc(var(--px) * 1) 0 0 #e8e4f0,
+    calc(var(--px) * 8) calc(var(--px) * 1) 0 0 #e8e4f0,
+    calc(var(--px) * 9) calc(var(--px) * 1) 0 0 #e8e4f0,
+    calc(var(--px) * 10) calc(var(--px) * 1) 0 0 #e8e4f0,
+    calc(var(--px) * 11) calc(var(--px) * 1) 0 0 #e8e4f0,
+    calc(var(--px) * 1) calc(var(--px) * 2) 0 0 #e8e4f0,
+    calc(var(--px) * 2) calc(var(--px) * 2) 0 0 #e8e4f0,
+    calc(var(--px) * 3) calc(var(--px) * 2) 0 0 #e8e4f0,
+    calc(var(--px) * 4) calc(var(--px) * 2) 0 0 #e8e4f0,
+    calc(var(--px) * 5) calc(var(--px) * 2) 0 0 #e8e4f0,
+    calc(var(--px) * 6) calc(var(--px) * 2) 0 0 #e8e4f0,
+    calc(var(--px) * 7) calc(var(--px) * 2) 0 0 #e8e4f0,
+    calc(var(--px) * 8) calc(var(--px) * 2) 0 0 #e8e4f0,
+    calc(var(--px) * 9) calc(var(--px) * 2) 0 0 #e8e4f0,
+    calc(var(--px) * 10) calc(var(--px) * 2) 0 0 #e8e4f0,
+    calc(var(--px) * 11) calc(var(--px) * 2) 0 0 #e8e4f0,
+    calc(var(--px) * 12) calc(var(--px) * 2) 0 0 #e8e4f0,
+    calc(var(--px) * 1) calc(var(--px) * 3) 0 0 #e8e4f0,
+    calc(var(--px) * 2) calc(var(--px) * 3) 0 0 #e8e4f0,
+    calc(var(--px) * 3) calc(var(--px) * 3) 0 0 #e8e4f0,
+    calc(var(--px) * 4) calc(var(--px) * 3) 0 0 #e8e4f0,
+    calc(var(--px) * 5) calc(var(--px) * 3) 0 0 #e8e4f0,
+    calc(var(--px) * 6) calc(var(--px) * 3) 0 0 #e8e4f0,
+    calc(var(--px) * 7) calc(var(--px) * 3) 0 0 #e8e4f0,
+    calc(var(--px) * 8) calc(var(--px) * 3) 0 0 #e8e4f0,
+    calc(var(--px) * 9) calc(var(--px) * 3) 0 0 #e8e4f0,
+    calc(var(--px) * 10) calc(var(--px) * 3) 0 0 #e8e4f0,
+    calc(var(--px) * 11) calc(var(--px) * 3) 0 0 #e8e4f0,
+    calc(var(--px) * 12) calc(var(--px) * 3) 0 0 #e8e4f0,
+    calc(var(--px) * 1) calc(var(--px) * 4) 0 0 #e8e4f0,
+    calc(var(--px) * 2) calc(var(--px) * 4) 0 0 #e8e4f0,
+    calc(var(--px) * 3) calc(var(--px) * 4) 0 0 #0b0b12,
+    calc(var(--px) * 4) calc(var(--px) * 4) 0 0 #0b0b12,
+    calc(var(--px) * 5) calc(var(--px) * 4) 0 0 #e8e4f0,
+    calc(var(--px) * 6) calc(var(--px) * 4) 0 0 #e8e4f0,
+    calc(var(--px) * 7) calc(var(--px) * 4) 0 0 #e8e4f0,
+    calc(var(--px) * 8) calc(var(--px) * 4) 0 0 #e8e4f0,
+    calc(var(--px) * 9) calc(var(--px) * 4) 0 0 #0b0b12,
+    calc(var(--px) * 10) calc(var(--px) * 4) 0 0 #0b0b12,
+    calc(var(--px) * 11) calc(var(--px) * 4) 0 0 #e8e4f0,
+    calc(var(--px) * 12) calc(var(--px) * 4) 0 0 #e8e4f0,
+    calc(var(--px) * 1) calc(var(--px) * 5) 0 0 #e8e4f0,
+    calc(var(--px) * 2) calc(var(--px) * 5) 0 0 #e8e4f0,
+    calc(var(--px) * 3) calc(var(--px) * 5) 0 0 #0b0b12,
+    calc(var(--px) * 4) calc(var(--px) * 5) 0 0 #0b0b12,
+    calc(var(--px) * 5) calc(var(--px) * 5) 0 0 #e8e4f0,
+    calc(var(--px) * 6) calc(var(--px) * 5) 0 0 #e8e4f0,
+    calc(var(--px) * 7) calc(var(--px) * 5) 0 0 #e8e4f0,
+    calc(var(--px) * 8) calc(var(--px) * 5) 0 0 #e8e4f0,
+    calc(var(--px) * 9) calc(var(--px) * 5) 0 0 #0b0b12,
+    calc(var(--px) * 10) calc(var(--px) * 5) 0 0 #0b0b12,
+    calc(var(--px) * 11) calc(var(--px) * 5) 0 0 #e8e4f0,
+    calc(var(--px) * 12) calc(var(--px) * 5) 0 0 #e8e4f0,
+    calc(var(--px) * 1) calc(var(--px) * 6) 0 0 #e8e4f0,
+    calc(var(--px) * 2) calc(var(--px) * 6) 0 0 #e8e4f0,
+    calc(var(--px) * 3) calc(var(--px) * 6) 0 0 #e8e4f0,
+    calc(var(--px) * 4) calc(var(--px) * 6) 0 0 #e8e4f0,
+    calc(var(--px) * 5) calc(var(--px) * 6) 0 0 #e8e4f0,
+    calc(var(--px) * 6) calc(var(--px) * 6) 0 0 #e8e4f0,
+    calc(var(--px) * 7) calc(var(--px) * 6) 0 0 #e8e4f0,
+    calc(var(--px) * 8) calc(var(--px) * 6) 0 0 #e8e4f0,
+    calc(var(--px) * 9) calc(var(--px) * 6) 0 0 #e8e4f0,
+    calc(var(--px) * 10) calc(var(--px) * 6) 0 0 #e8e4f0,
+    calc(var(--px) * 11) calc(var(--px) * 6) 0 0 #e8e4f0,
+    calc(var(--px) * 12) calc(var(--px) * 6) 0 0 #e8e4f0,
+    calc(var(--px) * 1) calc(var(--px) * 7) 0 0 #e8e4f0,
+    calc(var(--px) * 2) calc(var(--px) * 7) 0 0 #e8e4f0,
+    calc(var(--px) * 3) calc(var(--px) * 7) 0 0 #e8e4f0,
+    calc(var(--px) * 4) calc(var(--px) * 7) 0 0 #e8e4f0,
+    calc(var(--px) * 5) calc(var(--px) * 7) 0 0 #e8e4f0,
+    calc(var(--px) * 6) calc(var(--px) * 7) 0 0 #e8e4f0,
+    calc(var(--px) * 7) calc(var(--px) * 7) 0 0 #e8e4f0,
+    calc(var(--px) * 8) calc(var(--px) * 7) 0 0 #e8e4f0,
+    calc(var(--px) * 9) calc(var(--px) * 7) 0 0 #e8e4f0,
+    calc(var(--px) * 10) calc(var(--px) * 7) 0 0 #e8e4f0,
+    calc(var(--px) * 11) calc(var(--px) * 7) 0 0 #e8e4f0,
+    calc(var(--px) * 12) calc(var(--px) * 7) 0 0 #e8e4f0,
+    calc(var(--px) * 1) calc(var(--px) * 8) 0 0 #e8e4f0,
+    calc(var(--px) * 2) calc(var(--px) * 8) 0 0 #e8e4f0,
+    calc(var(--px) * 4) calc(var(--px) * 8) 0 0 #e8e4f0,
+    calc(var(--px) * 6) calc(var(--px) * 8) 0 0 #e8e4f0,
+    calc(var(--px) * 7) calc(var(--px) * 8) 0 0 #e8e4f0,
+    calc(var(--px) * 9) calc(var(--px) * 8) 0 0 #e8e4f0,
+    calc(var(--px) * 11) calc(var(--px) * 8) 0 0 #e8e4f0,
+    calc(var(--px) * 12) calc(var(--px) * 8) 0 0 #e8e4f0,
+    calc(var(--px) * 2) calc(var(--px) * 9) 0 0 #e8e4f0,
+    calc(var(--px) * 3) calc(var(--px) * 9) 0 0 #e8e4f0,
+    calc(var(--px) * 4) calc(var(--px) * 9) 0 0 #e8e4f0,
+    calc(var(--px) * 5) calc(var(--px) * 9) 0 0 #e8e4f0,
+    calc(var(--px) * 6) calc(var(--px) * 9) 0 0 #e8e4f0,
+    calc(var(--px) * 7) calc(var(--px) * 9) 0 0 #e8e4f0,
+    calc(var(--px) * 8) calc(var(--px) * 9) 0 0 #e8e4f0,
+    calc(var(--px) * 9) calc(var(--px) * 9) 0 0 #e8e4f0,
+    calc(var(--px) * 10) calc(var(--px) * 9) 0 0 #e8e4f0,
+    calc(var(--px) * 11) calc(var(--px) * 9) 0 0 #e8e4f0,
+    calc(var(--px) * 3) calc(var(--px) * 10) 0 0 #e8e4f0,
+    calc(var(--px) * 4) calc(var(--px) * 10) 0 0 #e8e4f0,
+    calc(var(--px) * 5) calc(var(--px) * 10) 0 0 #e8e4f0,
+    calc(var(--px) * 6) calc(var(--px) * 10) 0 0 #e8e4f0,
+    calc(var(--px) * 7) calc(var(--px) * 10) 0 0 #e8e4f0,
+    calc(var(--px) * 8) calc(var(--px) * 10) 0 0 #e8e4f0,
+    calc(var(--px) * 9) calc(var(--px) * 10) 0 0 #e8e4f0,
+    calc(var(--px) * 10) calc(var(--px) * 10) 0 0 #e8e4f0,
+    calc(var(--px) * 5) calc(var(--px) * 11) 0 0 #e8e4f0,
+    calc(var(--px) * 6) calc(var(--px) * 11) 0 0 #e8e4f0,
+    calc(var(--px) * 7) calc(var(--px) * 11) 0 0 #e8e4f0,
+    calc(var(--px) * 8) calc(var(--px) * 11) 0 0 #e8e4f0,
+    calc(var(--px) * 2) calc(var(--px) * 12) 0 0 #e8e4f0,
+    calc(var(--px) * 3) calc(var(--px) * 12) 0 0 #e8e4f0,
+    calc(var(--px) * 4) calc(var(--px) * 12) 0 0 #e8e4f0,
+    calc(var(--px) * 5) calc(var(--px) * 12) 0 0 #e8e4f0,
+    calc(var(--px) * 6) calc(var(--px) * 12) 0 0 #e8e4f0,
+    calc(var(--px) * 7) calc(var(--px) * 12) 0 0 #e8e4f0,
+    calc(var(--px) * 8) calc(var(--px) * 12) 0 0 #e8e4f0,
+    calc(var(--px) * 9) calc(var(--px) * 12) 0 0 #e8e4f0,
+    calc(var(--px) * 10) calc(var(--px) * 12) 0 0 #e8e4f0,
+    calc(var(--px) * 11) calc(var(--px) * 12) 0 0 #e8e4f0,
+    calc(var(--px) * 2) calc(var(--px) * 13) 0 0 #e8e4f0,
+    calc(var(--px) * 3) calc(var(--px) * 13) 0 0 #e8e4f0,
+    calc(var(--px) * 4) calc(var(--px) * 13) 0 0 #a9a3bd,
+    calc(var(--px) * 5) calc(var(--px) * 13) 0 0 #a9a3bd,
+    calc(var(--px) * 6) calc(var(--px) * 13) 0 0 #e8e4f0,
+    calc(var(--px) * 7) calc(var(--px) * 13) 0 0 #e8e4f0,
+    calc(var(--px) * 8) calc(var(--px) * 13) 0 0 #a9a3bd,
+    calc(var(--px) * 9) calc(var(--px) * 13) 0 0 #a9a3bd,
+    calc(var(--px) * 10) calc(var(--px) * 13) 0 0 #e8e4f0,
+    calc(var(--px) * 11) calc(var(--px) * 13) 0 0 #e8e4f0,
+    calc(var(--px) * 2) calc(var(--px) * 14) 0 0 #e8e4f0,
+    calc(var(--px) * 3) calc(var(--px) * 14) 0 0 #e8e4f0,
+    calc(var(--px) * 4) calc(var(--px) * 14) 0 0 #a9a3bd,
+    calc(var(--px) * 5) calc(var(--px) * 14) 0 0 #a9a3bd,
+    calc(var(--px) * 6) calc(var(--px) * 14) 0 0 #e8e4f0,
+    calc(var(--px) * 7) calc(var(--px) * 14) 0 0 #e8e4f0,
+    calc(var(--px) * 8) calc(var(--px) * 14) 0 0 #a9a3bd,
+    calc(var(--px) * 9) calc(var(--px) * 14) 0 0 #a9a3bd,
+    calc(var(--px) * 10) calc(var(--px) * 14) 0 0 #e8e4f0,
+    calc(var(--px) * 11) calc(var(--px) * 14) 0 0 #e8e4f0,
+    calc(var(--px) * 3) calc(var(--px) * 15) 0 0 #e8e4f0,
+    calc(var(--px) * 4) calc(var(--px) * 15) 0 0 #e8e4f0,
+    calc(var(--px) * 9) calc(var(--px) * 15) 0 0 #e8e4f0,
+    calc(var(--px) * 10) calc(var(--px) * 15) 0 0 #e8e4f0;
+}
+
+.actor--slime {
+  --cols: 14;
+  --rows: 10;
+}
+
+.actor--slime .pixel {
+  box-shadow:
+    calc(var(--px) * 6) calc(var(--px) * 0) 0 0 #7ef2a8,
+    calc(var(--px) * 7) calc(var(--px) * 0) 0 0 #7ef2a8,
+    calc(var(--px) * 4) calc(var(--px) * 1) 0 0 #7ef2a8,
+    calc(var(--px) * 5) calc(var(--px) * 1) 0 0 #7ef2a8,
+    calc(var(--px) * 6) calc(var(--px) * 1) 0 0 #7ef2a8,
+    calc(var(--px) * 7) calc(var(--px) * 1) 0 0 #7ef2a8,
+    calc(var(--px) * 8) calc(var(--px) * 1) 0 0 #7ef2a8,
+    calc(var(--px) * 9) calc(var(--px) * 1) 0 0 #7ef2a8,
+    calc(var(--px) * 2) calc(var(--px) * 2) 0 0 #7ef2a8,
+    calc(var(--px) * 3) calc(var(--px) * 2) 0 0 #7ef2a8,
+    calc(var(--px) * 4) calc(var(--px) * 2) 0 0 #c9ffdd,
+    calc(var(--px) * 5) calc(var(--px) * 2) 0 0 #7ef2a8,
+    calc(var(--px) * 6) calc(var(--px) * 2) 0 0 #7ef2a8,
+    calc(var(--px) * 7) calc(var(--px) * 2) 0 0 #7ef2a8,
+    calc(var(--px) * 8) calc(var(--px) * 2) 0 0 #7ef2a8,
+    calc(var(--px) * 9) calc(var(--px) * 2) 0 0 #7ef2a8,
+    calc(var(--px) * 10) calc(var(--px) * 2) 0 0 #7ef2a8,
+    calc(var(--px) * 11) calc(var(--px) * 2) 0 0 #7ef2a8,
+    calc(var(--px) * 1) calc(var(--px) * 3) 0 0 #7ef2a8,
+    calc(var(--px) * 2) calc(var(--px) * 3) 0 0 #7ef2a8,
+    calc(var(--px) * 3) calc(var(--px) * 3) 0 0 #c9ffdd,
+    calc(var(--px) * 4) calc(var(--px) * 3) 0 0 #c9ffdd,
+    calc(var(--px) * 5) calc(var(--px) * 3) 0 0 #7ef2a8,
+    calc(var(--px) * 6) calc(var(--px) * 3) 0 0 #7ef2a8,
+    calc(var(--px) * 7) calc(var(--px) * 3) 0 0 #7ef2a8,
+    calc(var(--px) * 8) calc(var(--px) * 3) 0 0 #7ef2a8,
+    calc(var(--px) * 9) calc(var(--px) * 3) 0 0 #7ef2a8,
+    calc(var(--px) * 10) calc(var(--px) * 3) 0 0 #7ef2a8,
+    calc(var(--px) * 11) calc(var(--px) * 3) 0 0 #7ef2a8,
+    calc(var(--px) * 12) calc(var(--px) * 3) 0 0 #7ef2a8,
+    calc(var(--px) * 1) calc(var(--px) * 4) 0 0 #7ef2a8,
+    calc(var(--px) * 2) calc(var(--px) * 4) 0 0 #7ef2a8,
+    calc(var(--px) * 3) calc(var(--px) * 4) 0 0 #0b0b12,
+    calc(var(--px) * 4) calc(var(--px) * 4) 0 0 #0b0b12,
+    calc(var(--px) * 5) calc(var(--px) * 4) 0 0 #7ef2a8,
+    calc(var(--px) * 6) calc(var(--px) * 4) 0 0 #7ef2a8,
+    calc(var(--px) * 7) calc(var(--px) * 4) 0 0 #7ef2a8,
+    calc(var(--px) * 8) calc(var(--px) * 4) 0 0 #7ef2a8,
+    calc(var(--px) * 9) calc(var(--px) * 4) 0 0 #0b0b12,
+    calc(var(--px) * 10) calc(var(--px) * 4) 0 0 #0b0b12,
+    calc(var(--px) * 11) calc(var(--px) * 4) 0 0 #7ef2a8,
+    calc(var(--px) * 12) calc(var(--px) * 4) 0 0 #7ef2a8,
+    calc(var(--px) * 1) calc(var(--px) * 5) 0 0 #7ef2a8,
+    calc(var(--px) * 2) calc(var(--px) * 5) 0 0 #7ef2a8,
+    calc(var(--px) * 3) calc(var(--px) * 5) 0 0 #7ef2a8,
+    calc(var(--px) * 4) calc(var(--px) * 5) 0 0 #7ef2a8,
+    calc(var(--px) * 5) calc(var(--px) * 5) 0 0 #7ef2a8,
+    calc(var(--px) * 6) calc(var(--px) * 5) 0 0 #7ef2a8,
+    calc(var(--px) * 7) calc(var(--px) * 5) 0 0 #7ef2a8,
+    calc(var(--px) * 8) calc(var(--px) * 5) 0 0 #7ef2a8,
+    calc(var(--px) * 9) calc(var(--px) * 5) 0 0 #7ef2a8,
+    calc(var(--px) * 10) calc(var(--px) * 5) 0 0 #7ef2a8,
+    calc(var(--px) * 11) calc(var(--px) * 5) 0 0 #7ef2a8,
+    calc(var(--px) * 12) calc(var(--px) * 5) 0 0 #7ef2a8,
+    calc(var(--px) * 1) calc(var(--px) * 6) 0 0 #7ef2a8,
+    calc(var(--px) * 2) calc(var(--px) * 6) 0 0 #7ef2a8,
+    calc(var(--px) * 3) calc(var(--px) * 6) 0 0 #7ef2a8,
+    calc(var(--px) * 4) calc(var(--px) * 6) 0 0 #7ef2a8,
+    calc(var(--px) * 5) calc(var(--px) * 6) 0 0 #0b0b12,
+    calc(var(--px) * 6) calc(var(--px) * 6) 0 0 #0b0b12,
+    calc(var(--px) * 7) calc(var(--px) * 6) 0 0 #0b0b12,
+    calc(var(--px) * 8) calc(var(--px) * 6) 0 0 #0b0b12,
+    calc(var(--px) * 9) calc(var(--px) * 6) 0 0 #7ef2a8,
+    calc(var(--px) * 10) calc(var(--px) * 6) 0 0 #7ef2a8,
+    calc(var(--px) * 11) calc(var(--px) * 6) 0 0 #7ef2a8,
+    calc(var(--px) * 12) calc(var(--px) * 6) 0 0 #7ef2a8,
+    calc(var(--px) * 0) calc(var(--px) * 7) 0 0 #7ef2a8,
+    calc(var(--px) * 1) calc(var(--px) * 7) 0 0 #7ef2a8,
+    calc(var(--px) * 2) calc(var(--px) * 7) 0 0 #7ef2a8,
+    calc(var(--px) * 3) calc(var(--px) * 7) 0 0 #7ef2a8,
+    calc(var(--px) * 4) calc(var(--px) * 7) 0 0 #7ef2a8,
+    calc(var(--px) * 5) calc(var(--px) * 7) 0 0 #7ef2a8,
+    calc(var(--px) * 6) calc(var(--px) * 7) 0 0 #7ef2a8,
+    calc(var(--px) * 7) calc(var(--px) * 7) 0 0 #7ef2a8,
+    calc(var(--px) * 8) calc(var(--px) * 7) 0 0 #7ef2a8,
+    calc(var(--px) * 9) calc(var(--px) * 7) 0 0 #7ef2a8,
+    calc(var(--px) * 10) calc(var(--px) * 7) 0 0 #7ef2a8,
+    calc(var(--px) * 11) calc(var(--px) * 7) 0 0 #7ef2a8,
+    calc(var(--px) * 12) calc(var(--px) * 7) 0 0 #7ef2a8,
+    calc(var(--px) * 13) calc(var(--px) * 7) 0 0 #7ef2a8,
+    calc(var(--px) * 0) calc(var(--px) * 8) 0 0 #7ef2a8,
+    calc(var(--px) * 1) calc(var(--px) * 8) 0 0 #7ef2a8,
+    calc(var(--px) * 2) calc(var(--px) * 8) 0 0 #7ef2a8,
+    calc(var(--px) * 3) calc(var(--px) * 8) 0 0 #7ef2a8,
+    calc(var(--px) * 4) calc(var(--px) * 8) 0 0 #7ef2a8,
+    calc(var(--px) * 5) calc(var(--px) * 8) 0 0 #7ef2a8,
+    calc(var(--px) * 6) calc(var(--px) * 8) 0 0 #7ef2a8,
+    calc(var(--px) * 7) calc(var(--px) * 8) 0 0 #7ef2a8,
+    calc(var(--px) * 8) calc(var(--px) * 8) 0 0 #7ef2a8,
+    calc(var(--px) * 9) calc(var(--px) * 8) 0 0 #7ef2a8,
+    calc(var(--px) * 10) calc(var(--px) * 8) 0 0 #7ef2a8,
+    calc(var(--px) * 11) calc(var(--px) * 8) 0 0 #7ef2a8,
+    calc(var(--px) * 12) calc(var(--px) * 8) 0 0 #7ef2a8,
+    calc(var(--px) * 13) calc(var(--px) * 8) 0 0 #7ef2a8,
+    calc(var(--px) * 1) calc(var(--px) * 9) 0 0 #7ef2a8,
+    calc(var(--px) * 2) calc(var(--px) * 9) 0 0 #7ef2a8,
+    calc(var(--px) * 3) calc(var(--px) * 9) 0 0 #7ef2a8,
+    calc(var(--px) * 4) calc(var(--px) * 9) 0 0 #7ef2a8,
+    calc(var(--px) * 5) calc(var(--px) * 9) 0 0 #7ef2a8,
+    calc(var(--px) * 6) calc(var(--px) * 9) 0 0 #7ef2a8,
+    calc(var(--px) * 7) calc(var(--px) * 9) 0 0 #7ef2a8,
+    calc(var(--px) * 8) calc(var(--px) * 9) 0 0 #7ef2a8,
+    calc(var(--px) * 9) calc(var(--px) * 9) 0 0 #7ef2a8,
+    calc(var(--px) * 10) calc(var(--px) * 9) 0 0 #7ef2a8,
+    calc(var(--px) * 11) calc(var(--px) * 9) 0 0 #7ef2a8,
+    calc(var(--px) * 12) calc(var(--px) * 9) 0 0 #7ef2a8;
+}
+
+.actor--sword {
+  --cols: 4;
+  --rows: 14;
+}
+
+.actor--sword .pixel {
+  box-shadow:
+    calc(var(--px) * 1) calc(var(--px) * 0) 0 0 #9fd8ff,
+    calc(var(--px) * 2) calc(var(--px) * 0) 0 0 #9fd8ff,
+    calc(var(--px) * 1) calc(var(--px) * 1) 0 0 #9fd8ff,
+    calc(var(--px) * 2) calc(var(--px) * 1) 0 0 #e8eefc,
+    calc(var(--px) * 1) calc(var(--px) * 2) 0 0 #9fd8ff,
+    calc(var(--px) * 2) calc(var(--px) * 2) 0 0 #e8eefc,
+    calc(var(--px) * 1) calc(var(--px) * 3) 0 0 #9fd8ff,
+    calc(var(--px) * 2) calc(var(--px) * 3) 0 0 #e8eefc,
+    calc(var(--px) * 1) calc(var(--px) * 4) 0 0 #9fd8ff,
+    calc(var(--px) * 2) calc(var(--px) * 4) 0 0 #e8eefc,
+    calc(var(--px) * 1) calc(var(--px) * 5) 0 0 #9fd8ff,
+    calc(var(--px) * 2) calc(var(--px) * 5) 0 0 #e8eefc,
+    calc(var(--px) * 1) calc(var(--px) * 6) 0 0 #9fd8ff,
+    calc(var(--px) * 2) calc(var(--px) * 6) 0 0 #e8eefc,
+    calc(var(--px) * 1) calc(var(--px) * 7) 0 0 #9fd8ff,
+    calc(var(--px) * 2) calc(var(--px) * 7) 0 0 #e8eefc,
+    calc(var(--px) * 0) calc(var(--px) * 8) 0 0 #c98b3a,
+    calc(var(--px) * 1) calc(var(--px) * 8) 0 0 #c98b3a,
+    calc(var(--px) * 2) calc(var(--px) * 8) 0 0 #c98b3a,
+    calc(var(--px) * 3) calc(var(--px) * 8) 0 0 #c98b3a,
+    calc(var(--px) * 1) calc(var(--px) * 9) 0 0 #c98b3a,
+    calc(var(--px) * 2) calc(var(--px) * 9) 0 0 #c98b3a,
+    calc(var(--px) * 1) calc(var(--px) * 10) 0 0 #c98b3a,
+    calc(var(--px) * 2) calc(var(--px) * 10) 0 0 #c98b3a,
+    calc(var(--px) * 1) calc(var(--px) * 11) 0 0 #c98b3a,
+    calc(var(--px) * 2) calc(var(--px) * 11) 0 0 #c98b3a,
+    calc(var(--px) * 1) calc(var(--px) * 12) 0 0 #c98b3a,
+    calc(var(--px) * 2) calc(var(--px) * 12) 0 0 #c98b3a,
+    calc(var(--px) * 1) calc(var(--px) * 13) 0 0 #c98b3a,
+    calc(var(--px) * 2) calc(var(--px) * 13) 0 0 #c98b3a;
+}
+
+.actor--wizard {
+  --cols: 14;
+  --rows: 18;
+}
+
+.actor--wizard .pixel {
+  box-shadow:
+    calc(var(--px) * 6) calc(var(--px) * 0) 0 0 #6b4fd0,
+    calc(var(--px) * 7) calc(var(--px) * 0) 0 0 #6b4fd0,
+    calc(var(--px) * 5) calc(var(--px) * 1) 0 0 #6b4fd0,
+    calc(var(--px) * 6) calc(var(--px) * 1) 0 0 #6b4fd0,
+    calc(var(--px) * 7) calc(var(--px) * 1) 0 0 #6b4fd0,
+    calc(var(--px) * 8) calc(var(--px) * 1) 0 0 #6b4fd0,
+    calc(var(--px) * 4) calc(var(--px) * 2) 0 0 #6b4fd0,
+    calc(var(--px) * 5) calc(var(--px) * 2) 0 0 #6b4fd0,
+    calc(var(--px) * 6) calc(var(--px) * 2) 0 0 #6b4fd0,
+    calc(var(--px) * 7) calc(var(--px) * 2) 0 0 #6b4fd0,
+    calc(var(--px) * 8) calc(var(--px) * 2) 0 0 #6b4fd0,
+    calc(var(--px) * 9) calc(var(--px) * 2) 0 0 #6b4fd0,
+    calc(var(--px) * 3) calc(var(--px) * 3) 0 0 #6b4fd0,
+    calc(var(--px) * 4) calc(var(--px) * 3) 0 0 #6b4fd0,
+    calc(var(--px) * 5) calc(var(--px) * 3) 0 0 #6b4fd0,
+    calc(var(--px) * 6) calc(var(--px) * 3) 0 0 #ffd85c,
+    calc(var(--px) * 7) calc(var(--px) * 3) 0 0 #ffd85c,
+    calc(var(--px) * 8) calc(var(--px) * 3) 0 0 #6b4fd0,
+    calc(var(--px) * 9) calc(var(--px) * 3) 0 0 #6b4fd0,
+    calc(var(--px) * 10) calc(var(--px) * 3) 0 0 #6b4fd0,
+    calc(var(--px) * 2) calc(var(--px) * 4) 0 0 #6b4fd0,
+    calc(var(--px) * 3) calc(var(--px) * 4) 0 0 #6b4fd0,
+    calc(var(--px) * 4) calc(var(--px) * 4) 0 0 #6b4fd0,
+    calc(var(--px) * 5) calc(var(--px) * 4) 0 0 #6b4fd0,
+    calc(var(--px) * 6) calc(var(--px) * 4) 0 0 #ffd85c,
+    calc(var(--px) * 7) calc(var(--px) * 4) 0 0 #ffd85c,
+    calc(var(--px) * 8) calc(var(--px) * 4) 0 0 #6b4fd0,
+    calc(var(--px) * 9) calc(var(--px) * 4) 0 0 #6b4fd0,
+    calc(var(--px) * 10) calc(var(--px) * 4) 0 0 #6b4fd0,
+    calc(var(--px) * 11) calc(var(--px) * 4) 0 0 #6b4fd0,
+    calc(var(--px) * 1) calc(var(--px) * 5) 0 0 #a68cff,
+    calc(var(--px) * 2) calc(var(--px) * 5) 0 0 #a68cff,
+    calc(var(--px) * 3) calc(var(--px) * 5) 0 0 #a68cff,
+    calc(var(--px) * 4) calc(var(--px) * 5) 0 0 #a68cff,
+    calc(var(--px) * 5) calc(var(--px) * 5) 0 0 #a68cff,
+    calc(var(--px) * 6) calc(var(--px) * 5) 0 0 #a68cff,
+    calc(var(--px) * 7) calc(var(--px) * 5) 0 0 #a68cff,
+    calc(var(--px) * 8) calc(var(--px) * 5) 0 0 #a68cff,
+    calc(var(--px) * 9) calc(var(--px) * 5) 0 0 #a68cff,
+    calc(var(--px) * 10) calc(var(--px) * 5) 0 0 #a68cff,
+    calc(var(--px) * 11) calc(var(--px) * 5) 0 0 #a68cff,
+    calc(var(--px) * 12) calc(var(--px) * 5) 0 0 #a68cff,
+    calc(var(--px) * 1) calc(var(--px) * 6) 0 0 #a68cff,
+    calc(var(--px) * 2) calc(var(--px) * 6) 0 0 #a68cff,
+    calc(var(--px) * 3) calc(var(--px) * 6) 0 0 #a68cff,
+    calc(var(--px) * 4) calc(var(--px) * 6) 0 0 #a68cff,
+    calc(var(--px) * 5) calc(var(--px) * 6) 0 0 #a68cff,
+    calc(var(--px) * 6) calc(var(--px) * 6) 0 0 #a68cff,
+    calc(var(--px) * 7) calc(var(--px) * 6) 0 0 #a68cff,
+    calc(var(--px) * 8) calc(var(--px) * 6) 0 0 #a68cff,
+    calc(var(--px) * 9) calc(var(--px) * 6) 0 0 #a68cff,
+    calc(var(--px) * 10) calc(var(--px) * 6) 0 0 #a68cff,
+    calc(var(--px) * 11) calc(var(--px) * 6) 0 0 #a68cff,
+    calc(var(--px) * 12) calc(var(--px) * 6) 0 0 #a68cff,
+    calc(var(--px) * 2) calc(var(--px) * 7) 0 0 #e8d8ff,
+    calc(var(--px) * 3) calc(var(--px) * 7) 0 0 #e8d8ff,
+    calc(var(--px) * 4) calc(var(--px) * 7) 0 0 #e8d8ff,
+    calc(var(--px) * 5) calc(var(--px) * 7) 0 0 #e8d8ff,
+    calc(var(--px) * 6) calc(var(--px) * 7) 0 0 #e8d8ff,
+    calc(var(--px) * 7) calc(var(--px) * 7) 0 0 #e8d8ff,
+    calc(var(--px) * 8) calc(var(--px) * 7) 0 0 #e8d8ff,
+    calc(var(--px) * 9) calc(var(--px) * 7) 0 0 #e8d8ff,
+    calc(var(--px) * 10) calc(var(--px) * 7) 0 0 #e8d8ff,
+    calc(var(--px) * 11) calc(var(--px) * 7) 0 0 #e8d8ff,
+    calc(var(--px) * 2) calc(var(--px) * 8) 0 0 #e8d8ff,
+    calc(var(--px) * 3) calc(var(--px) * 8) 0 0 #e8d8ff,
+    calc(var(--px) * 4) calc(var(--px) * 8) 0 0 #0b0b12,
+    calc(var(--px) * 5) calc(var(--px) * 8) 0 0 #0b0b12,
+    calc(var(--px) * 6) calc(var(--px) * 8) 0 0 #e8d8ff,
+    calc(var(--px) * 7) calc(var(--px) * 8) 0 0 #e8d8ff,
+    calc(var(--px) * 8) calc(var(--px) * 8) 0 0 #e8d8ff,
+    calc(var(--px) * 9) calc(var(--px) * 8) 0 0 #e8d8ff,
+    calc(var(--px) * 10) calc(var(--px) * 8) 0 0 #0b0b12,
+    calc(var(--px) * 11) calc(var(--px) * 8) 0 0 #0b0b12,
+    calc(var(--px) * 2) calc(var(--px) * 9) 0 0 #e8d8ff,
+    calc(var(--px) * 3) calc(var(--px) * 9) 0 0 #e8d8ff,
+    calc(var(--px) * 4) calc(var(--px) * 9) 0 0 #e8d8ff,
+    calc(var(--px) * 5) calc(var(--px) * 9) 0 0 #e8d8ff,
+    calc(var(--px) * 6) calc(var(--px) * 9) 0 0 #e8d8ff,
+    calc(var(--px) * 7) calc(var(--px) * 9) 0 0 #e8d8ff,
+    calc(var(--px) * 8) calc(var(--px) * 9) 0 0 #e8d8ff,
+    calc(var(--px) * 9) calc(var(--px) * 9) 0 0 #e8d8ff,
+    calc(var(--px) * 10) calc(var(--px) * 9) 0 0 #e8d8ff,
+    calc(var(--px) * 11) calc(var(--px) * 9) 0 0 #e8d8ff,
+    calc(var(--px) * 3) calc(var(--px) * 10) 0 0 #e8d8ff,
+    calc(var(--px) * 4) calc(var(--px) * 10) 0 0 #e8d8ff,
+    calc(var(--px) * 5) calc(var(--px) * 10) 0 0 #e8d8ff,
+    calc(var(--px) * 6) calc(var(--px) * 10) 0 0 #e8d8ff,
+    calc(var(--px) * 7) calc(var(--px) * 10) 0 0 #e8d8ff,
+    calc(var(--px) * 8) calc(var(--px) * 10) 0 0 #e8d8ff,
+    calc(var(--px) * 9) calc(var(--px) * 10) 0 0 #e8d8ff,
+    calc(var(--px) * 10) calc(var(--px) * 10) 0 0 #e8d8ff,
+    calc(var(--px) * 3) calc(var(--px) * 11) 0 0 #e8d8ff,
+    calc(var(--px) * 4) calc(var(--px) * 11) 0 0 #e8d8ff,
+    calc(var(--px) * 5) calc(var(--px) * 11) 0 0 #e8d8ff,
+    calc(var(--px) * 6) calc(var(--px) * 11) 0 0 #e8d8ff,
+    calc(var(--px) * 7) calc(var(--px) * 11) 0 0 #e8d8ff,
+    calc(var(--px) * 8) calc(var(--px) * 11) 0 0 #e8d8ff,
+    calc(var(--px) * 9) calc(var(--px) * 11) 0 0 #e8d8ff,
+    calc(var(--px) * 10) calc(var(--px) * 11) 0 0 #e8d8ff,
+    calc(var(--px) * 4) calc(var(--px) * 12) 0 0 #e8d8ff,
+    calc(var(--px) * 5) calc(var(--px) * 12) 0 0 #e8d8ff,
+    calc(var(--px) * 6) calc(var(--px) * 12) 0 0 #e8d8ff,
+    calc(var(--px) * 7) calc(var(--px) * 12) 0 0 #e8d8ff,
+    calc(var(--px) * 8) calc(var(--px) * 12) 0 0 #e8d8ff,
+    calc(var(--px) * 9) calc(var(--px) * 12) 0 0 #e8d8ff,
+    calc(var(--px) * 2) calc(var(--px) * 13) 0 0 #4a3590,
+    calc(var(--px) * 3) calc(var(--px) * 13) 0 0 #4a3590,
+    calc(var(--px) * 4) calc(var(--px) * 13) 0 0 #4a3590,
+    calc(var(--px) * 5) calc(var(--px) * 13) 0 0 #4a3590,
+    calc(var(--px) * 6) calc(var(--px) * 13) 0 0 #4a3590,
+    calc(var(--px) * 7) calc(var(--px) * 13) 0 0 #4a3590,
+    calc(var(--px) * 8) calc(var(--px) * 13) 0 0 #4a3590,
+    calc(var(--px) * 9) calc(var(--px) * 13) 0 0 #4a3590,
+    calc(var(--px) * 10) calc(var(--px) * 13) 0 0 #4a3590,
+    calc(var(--px) * 11) calc(var(--px) * 13) 0 0 #4a3590,
+    calc(var(--px) * 1) calc(var(--px) * 14) 0 0 #4a3590,
+    calc(var(--px) * 2) calc(var(--px) * 14) 0 0 #4a3590,
+    calc(var(--px) * 3) calc(var(--px) * 14) 0 0 #4a3590,
+    calc(var(--px) * 4) calc(var(--px) * 14) 0 0 #4a3590,
+    calc(var(--px) * 5) calc(var(--px) * 14) 0 0 #4a3590,
+    calc(var(--px) * 6) calc(var(--px) * 14) 0 0 #4a3590,
+    calc(var(--px) * 7) calc(var(--px) * 14) 0 0 #4a3590,
+    calc(var(--px) * 8) calc(var(--px) * 14) 0 0 #4a3590,
+    calc(var(--px) * 9) calc(var(--px) * 14) 0 0 #4a3590,
+    calc(var(--px) * 10) calc(var(--px) * 14) 0 0 #4a3590,
+    calc(var(--px) * 11) calc(var(--px) * 14) 0 0 #4a3590,
+    calc(var(--px) * 12) calc(var(--px) * 14) 0 0 #4a3590,
+    calc(var(--px) * 1) calc(var(--px) * 15) 0 0 #4a3590,
+    calc(var(--px) * 2) calc(var(--px) * 15) 0 0 #4a3590,
+    calc(var(--px) * 3) calc(var(--px) * 15) 0 0 #4a3590,
+    calc(var(--px) * 4) calc(var(--px) * 15) 0 0 #4a3590,
+    calc(var(--px) * 5) calc(var(--px) * 15) 0 0 #4a3590,
+    calc(var(--px) * 6) calc(var(--px) * 15) 0 0 #4a3590,
+    calc(var(--px) * 7) calc(var(--px) * 15) 0 0 #4a3590,
+    calc(var(--px) * 8) calc(var(--px) * 15) 0 0 #4a3590,
+    calc(var(--px) * 9) calc(var(--px) * 15) 0 0 #4a3590,
+    calc(var(--px) * 10) calc(var(--px) * 15) 0 0 #4a3590,
+    calc(var(--px) * 11) calc(var(--px) * 15) 0 0 #4a3590,
+    calc(var(--px) * 12) calc(var(--px) * 15) 0 0 #4a3590,
+    calc(var(--px) * 1) calc(var(--px) * 16) 0 0 #4a3590,
+    calc(var(--px) * 2) calc(var(--px) * 16) 0 0 #4a3590,
+    calc(var(--px) * 3) calc(var(--px) * 16) 0 0 #4a3590,
+    calc(var(--px) * 4) calc(var(--px) * 16) 0 0 #4a3590,
+    calc(var(--px) * 5) calc(var(--px) * 16) 0 0 #4a3590,
+    calc(var(--px) * 6) calc(var(--px) * 16) 0 0 #4a3590,
+    calc(var(--px) * 7) calc(var(--px) * 16) 0 0 #4a3590,
+    calc(var(--px) * 8) calc(var(--px) * 16) 0 0 #4a3590,
+    calc(var(--px) * 9) calc(var(--px) * 16) 0 0 #4a3590,
+    calc(var(--px) * 10) calc(var(--px) * 16) 0 0 #4a3590,
+    calc(var(--px) * 11) calc(var(--px) * 16) 0 0 #4a3590,
+    calc(var(--px) * 12) calc(var(--px) * 16) 0 0 #4a3590,
+    calc(var(--px) * 2) calc(var(--px) * 17) 0 0 #4a3590,
+    calc(var(--px) * 3) calc(var(--px) * 17) 0 0 #4a3590,
+    calc(var(--px) * 4) calc(var(--px) * 17) 0 0 #4a3590,
+    calc(var(--px) * 5) calc(var(--px) * 17) 0 0 #4a3590,
+    calc(var(--px) * 6) calc(var(--px) * 17) 0 0 #4a3590,
+    calc(var(--px) * 7) calc(var(--px) * 17) 0 0 #4a3590,
+    calc(var(--px) * 8) calc(var(--px) * 17) 0 0 #4a3590,
+    calc(var(--px) * 9) calc(var(--px) * 17) 0 0 #4a3590,
+    calc(var(--px) * 10) calc(var(--px) * 17) 0 0 #4a3590,
+    calc(var(--px) * 11) calc(var(--px) * 17) 0 0 #4a3590;
+}
+
 /* SPRITES:END */
 
 /* ---------- the crew ----------
-   Eight of them, loose on the page. Each is anchored inside a real element —
-   the wordmark, the word "playable", a card, the button row — so wherever the
-   layout puts that element, its resident goes too, and contact is exact at
-   every width without a single hard-coded coordinate.
+   Twelve of them, loose on the page, no two alike. Each is anchored inside a
+   real element — the wordmark, the word "playable", a card, the button row —
+   so wherever the layout puts that element, its resident goes too, and contact
+   is exact at every width without a hard-coded coordinate.
 
-   Nobody shares a clock. The loops are 5s to 14s and mutually prime enough
-   that the combination on screen keeps changing, which is the point: this is a
-   page with vermin, not a page playing a cutscene. */
+   Nobody shares a clock, and the periods are 7, 11, 13, 17, 19, 23, 29 and 31
+   seconds. Those are coprime, so the combination on screen takes over four
+   million seconds to come round again. There is no sequence to sit through and
+   no loop point to notice: whatever you catch them doing depends on when you
+   looked. */
 
 :root {
   /* A sprite pixel has to be a whole pixel. A fractional one puts every row on
      a subpixel boundary and the rasteriser shreds the sprite. */
-  --px: 3px;
+  --px: 2px;
 }
 
 @media (min-width: 30rem) {
   :root {
-    --px: 4px;
+    --px: 3px;
   }
 }
 
 @media (min-width: 48rem) {
   :root {
-    --px: 5px;
+    --px: 4px;
   }
 }
 
@@ -791,8 +1681,11 @@ main {
   transform-origin: bottom center;
 }
 
-/* Characters pivot at their feet. The ball rolls, so it turns about its middle. */
-.actor--orb .body {
+/* Characters pivot at their feet. Things that fly turn about their middle. */
+.actor--orb .body,
+.actor--bolt .body,
+.actor--sword .body,
+.actor--helmet .body {
   transform-origin: center;
 }
 
@@ -835,12 +1728,12 @@ main {
   overflow-x: clip;
 }
 
-.crew--bouncer {
-  left: 18%;
+.crew--pouncer {
+  left: 16%;
   bottom: 100%;
 }
 
-.crew--runner {
+.crew--hopper {
   left: 50%;
   bottom: clamp(0.75rem, 3vw, 1.75rem);
 }
@@ -850,7 +1743,8 @@ main {
   bottom: 100%;
 }
 
-.crew--mugger {
+.crew--mugger,
+.crew--lid {
   left: 1.6rem;
   bottom: 100%;
 }
@@ -865,13 +1759,30 @@ main {
   bottom: calc(var(--px) * 2);
 }
 
-.crew--scrapper-a {
-  left: 34%;
+@media (max-width: 30rem) {
+  .crew--slider {
+    right: 0;
+  }
+}
+
+.crew--wizard,
+.crew--bolt {
+  left: 16%;
   top: 0;
 }
 
-.crew--scrapper-b {
-  left: 58%;
+.crew--target {
+  left: 62%;
+  top: 0;
+}
+
+.crew--swordsman {
+  left: 84%;
+  top: 0;
+}
+
+.crew--sword {
+  left: 84%;
   top: 0;
 }
 
@@ -880,7 +1791,11 @@ main {
     animation: idle-bob 0.44s steps(1, end) infinite;
   }
 
-  .actor--orb .pixel {
+  /* Things that roll, fly or are currently detached do not have feet to shift. */
+  .actor--orb .pixel,
+  .actor--bolt .pixel,
+  .actor--sword .pixel,
+  .actor--helmet .pixel {
     animation: none;
   }
 
@@ -895,199 +1810,237 @@ main {
     }
   }
 
-  /* ---- the ball on the wordmark, and the wordmark taking it ---- */
+  /* ---- 7s · a cat works the wordmark over ---- */
 
-  .crew--bouncer {
-    animation: bounce-arc 5.5s cubic-bezier(0.3, 0, 0.7, 1) infinite;
+  .crew--pouncer {
+    animation: pounce 7s cubic-bezier(0.3, 0, 0.7, 1) infinite;
   }
 
-  .crew--bouncer .body {
-    animation: bounce-spin 5.5s linear infinite;
+  .crew--pouncer .body {
+    animation: pounce-body 7s ease-in-out infinite;
   }
 
   .hero__letters {
-    animation: letters-struck 5.5s steps(1, end) infinite;
+    animation: letters-struck 7s steps(1, end) infinite;
   }
 
-  @keyframes bounce-arc {
+  @keyframes pounce {
     0%,
     100% {
-      translate: 0 calc(var(--px) * 1);
+      translate: 0 calc(var(--px) * 3);
     }
-    8% {
-      translate: calc(var(--px) * 2) calc(var(--px) * -14);
+    9% {
+      translate: calc(var(--px) * 3) calc(var(--px) * -13);
     }
-    22% {
-      translate: calc(var(--px) * 9) calc(var(--px) * 1);
+    20% {
+      translate: calc(var(--px) * 11) calc(var(--px) * 3);
     }
-    30% {
-      translate: calc(var(--px) * 12) calc(var(--px) * -9);
+    29% {
+      translate: calc(var(--px) * 16) calc(var(--px) * -10);
     }
-    44% {
-      translate: calc(var(--px) * 18) calc(var(--px) * 1);
+    40% {
+      translate: calc(var(--px) * 23) calc(var(--px) * 3);
     }
-    52% {
-      translate: calc(var(--px) * 22) calc(var(--px) * -13);
+    /* sits down in the middle of the word and washes itself */
+    58% {
+      translate: calc(var(--px) * 23) calc(var(--px) * 3);
     }
-    66% {
-      translate: calc(var(--px) * 30) calc(var(--px) * 1);
+    68% {
+      translate: calc(var(--px) * 28) calc(var(--px) * -14);
     }
-    76% {
-      translate: calc(var(--px) * 20) calc(var(--px) * -16);
+    79% {
+      translate: calc(var(--px) * 14) calc(var(--px) * 3);
     }
-    88% {
-      translate: calc(var(--px) * 6) calc(var(--px) * -4);
+    90% {
+      translate: calc(var(--px) * 5) calc(var(--px) * -6);
     }
   }
 
-  @keyframes bounce-spin {
-    from {
+  @keyframes pounce-body {
+    0%,
+    41% {
       rotate: 0deg;
+      scale: 1 1;
     }
-    to {
-      rotate: 720deg;
+    43% {
+      rotate: 0deg;
+      scale: 1.25 0.78;
+    }
+    46%,
+    52% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    /* the wash */
+    54% {
+      rotate: -18deg;
+      scale: 1 1;
+    }
+    57% {
+      rotate: 16deg;
+      scale: 1 1;
+    }
+    60%,
+    100% {
+      rotate: 0deg;
+      scale: 1 1;
     }
   }
 
-  /* The letters flinch on each landing, and only on the landings. */
   @keyframes letters-struck {
     0%,
-    1.6% {
-      translate: 0 calc(var(--px) * 0.8);
+    1.4% {
+      translate: 0 calc(var(--px) * 0.9);
     }
-    3.2%,
-    22% {
+    3%,
+    19% {
       translate: 0 0;
     }
-    23.6% {
-      translate: 0 calc(var(--px) * 0.8);
+    21% {
+      translate: 0 calc(var(--px) * 0.9);
     }
-    25%,
-    44% {
+    23%,
+    39% {
       translate: 0 0;
     }
-    45.6% {
-      translate: 0 calc(var(--px) * 0.8);
+    41% {
+      translate: 0 calc(var(--px) * 0.9);
     }
-    47%,
-    66% {
+    43%,
+    78% {
       translate: 0 0;
     }
-    67.6% {
-      translate: 0 calc(var(--px) * 0.8);
+    80% {
+      translate: 0 calc(var(--px) * 0.9);
     }
-    69%,
+    82%,
     100% {
       translate: 0 0;
     }
   }
 
-  /* ---- the runner crossing the hero ---- */
+  /* ---- 11s · a slime crosses the hero, badly ---- */
 
-  .crew--runner {
-    animation: crossing 9s linear infinite;
+  .crew--hopper {
+    animation: hopping 11s cubic-bezier(0.35, 0, 0.65, 1) infinite;
   }
 
-  .crew--runner .body {
-    animation: crossing-antics 9s ease-in-out infinite;
+  .crew--hopper .body {
+    animation: hopping-squash 11s ease-out infinite;
   }
 
-  @keyframes crossing {
+  @keyframes hopping {
     0% {
-      translate: -58vw 0;
+      translate: -56vw 0;
     }
-    34% {
-      translate: -8vw 0;
+    12% {
+      translate: -34vw calc(var(--px) * -12);
     }
-    42% {
-      translate: 4vw calc(var(--px) * -11);
+    20% {
+      translate: -22vw 0;
     }
-    50% {
-      translate: 14vw 0;
+    30% {
+      translate: -6vw calc(var(--px) * -15);
     }
-    58% {
-      translate: 20vw 0;
+    38% {
+      translate: 4vw 0;
     }
-    66% {
-      translate: 26vw calc(var(--px) * -7);
+    /* misjudges one entirely */
+    48% {
+      translate: 14vw calc(var(--px) * -22);
+    }
+    56% {
+      translate: 16vw 0;
+    }
+    70% {
+      translate: 16vw 0;
+    }
+    80% {
+      translate: 34vw calc(var(--px) * -9);
+    }
+    88%,
+    100% {
+      translate: 56vw 0;
+    }
+  }
+
+  @keyframes hopping-squash {
+    0%,
+    18% {
+      scale: 1 1;
+      rotate: 0deg;
+    }
+    21% {
+      scale: 1.4 0.62;
+      rotate: 0deg;
+    }
+    25%,
+    36% {
+      scale: 1 1;
+      rotate: 0deg;
+    }
+    39% {
+      scale: 1.35 0.68;
+      rotate: 0deg;
+    }
+    43%,
+    54% {
+      scale: 1 1;
+      rotate: 0deg;
+    }
+    /* lands flat and needs a moment */
+    57% {
+      scale: 1.7 0.34;
+      rotate: 0deg;
+    }
+    68% {
+      scale: 1.7 0.34;
+      rotate: 0deg;
     }
     74%,
     100% {
-      translate: 58vw 0;
+      scale: 1 1;
+      rotate: 0deg;
     }
   }
 
-  @keyframes crossing-antics {
-    0%,
-    36% {
-      rotate: 0deg;
-      scale: 1 1;
-    }
-    38% {
-      rotate: 0deg;
-      scale: 0.86 1.14;
-    }
-    42% {
-      rotate: 180deg;
-      scale: 1 1;
-    }
-    50% {
-      rotate: 360deg;
-      scale: 1.3 0.72;
-    }
-    54%,
-    62% {
-      rotate: 360deg;
-      scale: 1 1;
-    }
-    66% {
-      rotate: 540deg;
-      scale: 1 1;
-    }
-    70%,
-    100% {
-      rotate: 720deg;
-      scale: 1 1;
-    }
-  }
-
-  /* ---- a word gets carried off ---- */
+  /* ---- 13s · a skeleton makes off with a word ---- */
 
   .loose {
-    animation: word-abducted 14s ease-in-out infinite;
+    animation: word-abducted 13s ease-in-out infinite;
   }
 
   .crew--thief {
-    animation: thief-approach 14s ease-in-out infinite;
+    animation: thief-approach 13s ease-in-out infinite;
   }
 
   .crew--thief .body {
-    animation: thief-strain 14s ease-in-out infinite;
+    animation: thief-strain 13s ease-in-out infinite;
   }
 
   @keyframes word-abducted {
     0%,
-    26% {
+    28% {
       translate: 0 0;
       rotate: 0deg;
     }
-    30% {
+    32% {
       translate: 0 calc(var(--px) * -1);
-      rotate: -3deg;
+      rotate: -4deg;
     }
     46% {
-      translate: 5.5em calc(var(--px) * -2);
-      rotate: 7deg;
+      translate: 4.5em calc(var(--px) * -2);
+      rotate: 8deg;
     }
-    54% {
-      translate: 6em calc(var(--px) * -1);
-      rotate: -9deg;
+    53% {
+      translate: 5em calc(var(--px) * -1);
+      rotate: -10deg;
     }
-    62% {
-      translate: 2em calc(var(--px) * 3);
-      rotate: 14deg;
+    60% {
+      translate: 1.5em calc(var(--px) * 3);
+      rotate: 15deg;
     }
-    70%,
+    68%,
     100% {
       translate: 0 0;
       rotate: 0deg;
@@ -1097,229 +2050,253 @@ main {
   /* He walks in, takes hold, and from there the word carries him. */
   @keyframes thief-approach {
     0%,
-    12% {
-      translate: -9em 0;
+    13% {
+      translate: -8em 0;
     }
-    26%,
-    62% {
-      translate: calc(var(--px) * -3) 0;
+    28%,
+    60% {
+      translate: calc(var(--px) * -7) 0;
     }
-    66% {
-      translate: calc(var(--px) * -3) calc(var(--px) * -6);
+    64% {
+      translate: calc(var(--px) * -7) calc(var(--px) * -7);
     }
-    72%,
+    70%,
     100% {
-      translate: -9em 0;
+      translate: -8em 0;
     }
   }
 
   @keyframes thief-strain {
     0%,
-    27% {
+    29% {
       rotate: 0deg;
       scale: 1 1;
     }
-    34%,
-    54% {
-      rotate: -14deg;
-      scale: 1 0.94;
+    36%,
+    53% {
+      rotate: -15deg;
+      scale: 1 0.93;
     }
-    62% {
-      rotate: 20deg;
+    60% {
+      rotate: 22deg;
       scale: 1 1;
     }
-    66% {
+    64% {
       rotate: 200deg;
       scale: 1 1;
     }
-    70%,
+    69%,
     100% {
       rotate: 360deg;
       scale: 1 1;
     }
   }
 
-  /* ---- the Play button in Lost Wages gets stolen ---- */
+  /* ---- 17s · a knight relieves Lost Wages of its Play button ---- */
 
   .card--wages .button {
-    animation: button-yanked 11s cubic-bezier(0.35, 0, 0.3, 1) infinite;
+    animation: button-yanked 17s cubic-bezier(0.35, 0, 0.3, 1) infinite;
   }
 
   .crew--mugger {
-    animation: mugger-move 11s ease-in-out infinite;
+    animation: mugger-move 17s ease-in-out infinite;
   }
 
   .crew--mugger .body {
-    animation: mugger-heave 11s ease-in-out infinite;
+    animation: mugger-heave 17s ease-in-out infinite;
+  }
+
+  .crew--lid {
+    animation: lid-lost 17s cubic-bezier(0.3, 0, 0.6, 1) infinite;
   }
 
   @keyframes button-yanked {
     0%,
-    30% {
+    32% {
       translate: 0 0;
       rotate: 0deg;
     }
-    36% {
+    37% {
       translate: calc(var(--px) * -3) calc(var(--px) * -2);
       rotate: -8deg;
     }
-    /* hurled clean out of the card */
-    44% {
-      translate: min(7rem, 22vw) calc(var(--px) * -18);
+    43% {
+      translate: min(7rem, 22vw) calc(var(--px) * -20);
       rotate: 220deg;
     }
-    52% {
-      translate: min(11rem, 34vw) calc(var(--px) * 6);
-      rotate: 420deg;
-    }
+    50%,
     58% {
-      translate: min(11rem, 34vw) calc(var(--px) * 6);
+      translate: min(11rem, 34vw) calc(var(--px) * 7);
       rotate: 420deg;
     }
-    /* and sheepishly put back */
-    70% {
-      translate: 0 0;
-      rotate: 720deg;
-    }
-    76%,
+    68%,
     100% {
       translate: 0 0;
       rotate: 720deg;
     }
   }
 
-  /* He loiters at the card's left frame between jobs rather than off the edge
-     of the page, where he would read as a rendering fault. */
   @keyframes mugger-move {
     0%,
-    8% {
-      translate: -3.1rem calc(var(--px) * 2);
+    10% {
+      translate: -2.4rem calc(var(--px) * 2);
     }
-    28%,
-    40% {
+    30%,
+    41% {
       translate: 0 0;
     }
-    46% {
+    47% {
       translate: calc(var(--px) * -4) 0;
     }
-    62%,
+    60%,
     100% {
-      translate: -3.1rem calc(var(--px) * 2);
+      translate: -2.4rem calc(var(--px) * 2);
     }
   }
 
   @keyframes mugger-heave {
     0%,
-    30% {
+    32% {
       rotate: 0deg;
       scale: 1 1;
     }
-    36% {
-      rotate: -22deg;
-      scale: 1 0.92;
+    37% {
+      rotate: -24deg;
+      scale: 1 0.9;
     }
-    41% {
-      rotate: 26deg;
-      scale: 1.06 1;
+    42% {
+      rotate: 28deg;
+      scale: 1.07 1;
     }
-    46%,
+    47%,
     100% {
       rotate: 0deg;
       scale: 1 1;
     }
   }
 
-  /* ---- one of them uses the Pinball card as a banister ---- */
+  /* The helmet does not survive the effort. */
+  /* The helmet tracks the head it sits on, so its x matches mugger-move at
+     every keyframe until the moment it stops being on the head. */
+  @keyframes lid-lost {
+    0%,
+    10% {
+      translate: -2.4rem calc(var(--px) * -13);
+      rotate: 0deg;
+    }
+    30%,
+    36% {
+      translate: 0 calc(var(--px) * -15);
+      rotate: 0deg;
+    }
+    42% {
+      translate: calc(var(--px) * -9) calc(var(--px) * -26);
+      rotate: -160deg;
+    }
+    49% {
+      translate: calc(var(--px) * -14) calc(var(--px) * 4);
+      rotate: -330deg;
+    }
+    54% {
+      translate: calc(var(--px) * -13) calc(var(--px) * 3);
+      rotate: -350deg;
+    }
+    /* jams it back on and leaves */
+    62%,
+    100% {
+      translate: -2.4rem calc(var(--px) * -13);
+      rotate: -360deg;
+    }
+  }
+
+  /* ---- 19s · the Pinball card has a banister ---- */
 
   .crew--slider {
-    animation: banister 8s ease-in infinite;
+    animation: banister 19s ease-in infinite;
   }
 
   .crew--slider .body {
-    animation: banister-style 8s ease-in-out infinite;
+    animation: banister-style 19s ease-in-out infinite;
   }
 
   @keyframes banister {
     0%,
-    6% {
+    8% {
       top: -4%;
+      translate: 0 0;
     }
-    38% {
-      top: 96%;
+    32% {
+      top: 94%;
+      translate: 0 0;
     }
-    46% {
-      top: 96%;
+    40% {
+      top: 94%;
+      translate: 0 0;
     }
-    54% {
-      top: 96%;
-      translate: calc(var(--px) * -7) 0;
+    /* climbs back up the outside of the frame for another go */
+    52% {
+      top: 94%;
+      translate: calc(var(--px) * -8) 0;
     }
-    70%,
+    74%,
     100% {
       top: -4%;
-      translate: calc(var(--px) * -7) 0;
+      translate: calc(var(--px) * -8) 0;
     }
   }
 
   @keyframes banister-style {
     0%,
-    5% {
+    7% {
       rotate: 0deg;
       scale: 1 1;
     }
-    /* riding the frame down sideways, because of course */
-    12%,
-    34% {
+    14%,
+    30% {
       rotate: 90deg;
       scale: 1 1;
     }
-    40% {
+    34% {
       rotate: 90deg;
       scale: 1.35 0.7;
     }
-    48% {
+    41% {
       rotate: 0deg;
       scale: 1 1;
     }
-    58% {
-      rotate: 0deg;
-      scale: 1 1;
-    }
-    64%,
+    52%,
     100% {
       rotate: 0deg;
       scale: 1 1;
     }
   }
 
-  /* ---- the ball goes bowling into the Looplings card ---- */
+  /* ---- 23s · something heavy rolls into Looplings ---- */
 
   .crew--bowler {
-    animation: bowling 13s linear infinite;
+    animation: bowling 23s linear infinite;
   }
 
   .crew--bowler .body {
-    animation: bowling-spin 13s linear infinite;
+    animation: bowling-spin 23s linear infinite;
   }
 
   .card--looplings {
-    animation: card-shoved 13s ease-out infinite;
+    animation: card-shoved 23s ease-out infinite;
   }
 
   @keyframes bowling {
     0%,
-    4% {
+    6% {
       left: -14%;
     }
-    30% {
+    28% {
       left: 88%;
     }
-    34% {
+    32% {
       left: 84%;
     }
-    46% {
-      left: -14%;
-    }
+    44%,
     100% {
       left: -14%;
     }
@@ -1327,16 +2304,16 @@ main {
 
   @keyframes bowling-spin {
     0%,
-    4% {
+    6% {
       rotate: 0deg;
     }
-    30% {
+    28% {
       rotate: 900deg;
     }
-    34% {
+    32% {
       rotate: 860deg;
     }
-    46%,
+    44%,
     100% {
       rotate: -360deg;
     }
@@ -1346,143 +2323,248 @@ main {
      translate or the shadow on .card. */
   @keyframes card-shoved {
     0%,
-    29% {
+    27% {
       rotate: 0deg;
     }
-    31% {
+    29% {
       rotate: 1.4deg;
     }
-    34% {
+    32% {
       rotate: -1deg;
     }
-    37% {
+    35% {
       rotate: 0.5deg;
     }
-    40%,
+    38%,
     100% {
       rotate: 0deg;
     }
   }
 
-  /* ---- two of them scrapping on the footer rule ---- */
+  /* ---- 29s · a wizard shoots a skeleton off the footer rule ---- */
 
-  .crew--scrapper-a {
-    animation: scrap-a 5s ease-in-out infinite;
+  .crew--wizard .body {
+    animation: casting 29s ease-in-out infinite;
   }
 
-  .crew--scrapper-a .body {
-    animation: scrap-a-body 5s ease-in-out infinite;
+  .crew--bolt {
+    animation: bolt-flight 29s linear infinite;
   }
 
-  .crew--scrapper-b {
-    animation: scrap-b 5s ease-in-out infinite;
+  .crew--bolt .body {
+    animation: bolt-spin 29s linear infinite;
   }
 
-  .crew--scrapper-b .body {
-    animation: scrap-b-body 5s ease-in-out infinite;
+  .crew--target {
+    animation: target-hit 29s ease-out infinite;
   }
 
-  @keyframes scrap-a {
-    0%,
-    14% {
-      translate: 0 0;
-    }
-    22% {
-      translate: calc(var(--px) * 7) calc(var(--px) * -4);
-    }
-    30% {
-      translate: calc(var(--px) * 2) 0;
-    }
-    56% {
-      translate: calc(var(--px) * 2) 0;
-    }
-    64% {
-      translate: calc(var(--px) * -6) 0;
-    }
-    80%,
-    100% {
-      translate: 0 0;
-    }
+  .crew--target .body {
+    animation: target-fold 29s ease-out infinite;
   }
 
-  @keyframes scrap-a-body {
-    0%,
-    16% {
-      rotate: 0deg;
-      scale: 1 1;
-    }
-    22% {
-      rotate: 34deg;
-      scale: 1 1;
-    }
-    30% {
-      rotate: 0deg;
-      scale: 1 1;
-    }
-    58% {
-      rotate: 0deg;
-      scale: 1 1;
-    }
-    /* takes one back and sits down hard */
-    64% {
-      rotate: -30deg;
-      scale: 1.2 0.8;
-    }
-    76%,
-    100% {
-      rotate: 0deg;
-      scale: 1 1;
-    }
-  }
-
-  @keyframes scrap-b {
+  @keyframes casting {
     0%,
     18% {
-      translate: 0 0;
+      rotate: 0deg;
+      scale: 1 1;
     }
-    24% {
-      translate: calc(var(--px) * 5) 0;
+    /* winds up */
+    23% {
+      rotate: -14deg;
+      scale: 1 1.05;
+    }
+    26% {
+      rotate: 12deg;
+      scale: 1.08 0.95;
+    }
+    31%,
+    62% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    /* pleased with itself */
+    65% {
+      rotate: 0deg;
+      scale: 1 1.12;
+    }
+    69% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    73%,
+    100% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+  }
+
+  @keyframes bolt-flight {
+    0%,
+    26% {
+      translate: 0 calc(var(--px) * -9);
+      opacity: 0;
+    }
+    27% {
+      translate: calc(var(--px) * 4) calc(var(--px) * -9);
+      opacity: 1;
+    }
+    33% {
+      translate: 43vw calc(var(--px) * -9);
+      opacity: 1;
     }
     34%,
-    50% {
+    100% {
+      translate: 43vw calc(var(--px) * -9);
+      opacity: 0;
+    }
+  }
+
+  @keyframes bolt-spin {
+    from {
+      rotate: 0deg;
+    }
+    to {
+      rotate: 2880deg;
+    }
+  }
+
+  @keyframes target-hit {
+    0%,
+    33% {
       translate: 0 0;
     }
-    60% {
-      translate: calc(var(--px) * -8) calc(var(--px) * -3);
+    36% {
+      translate: calc(var(--px) * 7) calc(var(--px) * -5);
     }
-    70%,
+    41% {
+      translate: calc(var(--px) * 12) 0;
+    }
+    58% {
+      translate: calc(var(--px) * 12) 0;
+    }
+    /* reassembles and wanders back for more */
+    76%,
     100% {
       translate: 0 0;
     }
   }
 
-  @keyframes scrap-b-body {
+  @keyframes target-fold {
     0%,
-    20% {
+    33% {
       rotate: 0deg;
       scale: 1 1;
     }
-    /* eats it, flails, returns the favour */
-    24% {
-      rotate: 24deg;
-      scale: 1.15 0.86;
+    36% {
+      rotate: 40deg;
+      scale: 1 1;
     }
-    34% {
+    41%,
+    56% {
+      rotate: 90deg;
+      scale: 1 1;
+    }
+    64% {
       rotate: 0deg;
       scale: 1 1;
     }
-    52% {
-      rotate: 0deg;
-      scale: 1 1;
-    }
-    60% {
-      rotate: -40deg;
-      scale: 1 1;
-    }
-    70%,
+    68%,
     100% {
       rotate: 0deg;
       scale: 1 1;
+    }
+  }
+
+  /* ---- 31s · and someone answers with a thrown sword ---- */
+
+  .crew--swordsman {
+    animation: swordsman-step 31s ease-in-out infinite;
+  }
+
+  .crew--swordsman .body {
+    animation: swordsman-throw 31s ease-in-out infinite;
+  }
+
+  .crew--sword {
+    animation: sword-thrown 31s cubic-bezier(0.3, 0, 0.7, 1) infinite;
+  }
+
+  .crew--sword .body {
+    animation: sword-tumble 31s linear infinite;
+  }
+
+  @keyframes swordsman-step {
+    0%,
+    40% {
+      translate: 0 0;
+    }
+    46% {
+      translate: calc(var(--px) * 5) 0;
+    }
+    52% {
+      translate: calc(var(--px) * -3) 0;
+    }
+    64%,
+    100% {
+      translate: 0 0;
+    }
+  }
+
+  @keyframes swordsman-throw {
+    0%,
+    42% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    46% {
+      rotate: -30deg;
+      scale: 1 1.06;
+    }
+    49% {
+      rotate: 26deg;
+      scale: 1.1 0.94;
+    }
+    55%,
+    100% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+  }
+
+  @keyframes sword-thrown {
+    0%,
+    44% {
+      translate: 0 calc(var(--px) * -11);
+      opacity: 0;
+    }
+    46% {
+      translate: calc(var(--px) * -4) calc(var(--px) * -13);
+      opacity: 1;
+    }
+    54% {
+      translate: -38vw calc(var(--px) * -20);
+      opacity: 1;
+    }
+    60% {
+      translate: -64vw calc(var(--px) * -2);
+      opacity: 1;
+    }
+    62%,
+    100% {
+      translate: -64vw calc(var(--px) * -2);
+      opacity: 0;
+    }
+  }
+
+  @keyframes sword-tumble {
+    0%,
+    44% {
+      rotate: 0deg;
+    }
+    62%,
+    100% {
+      rotate: -1440deg;
     }
   }
 }
