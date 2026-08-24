@@ -19,11 +19,11 @@ pixel art, served from `https://loopback-games.github.io/` via GitHub Pages.
 Derived from the public repositories under the `Loopback-Games` organisation.
 `quarter-zip` was deleted from the organisation during design and is excluded.
 
-| Repo | Title | Live URL |
-| --- | --- | --- |
-| `larry` | Lost Wages | https://loopback-games.github.io/larry/ |
-| `pinball` | Loopback Pinball | https://loopback-games.github.io/pinball/ |
-| `looplings` | Looplings | https://loopback-games.github.io/looplings/ |
+| Repo        | Title            | Live URL                                    |
+| ----------- | ---------------- | ------------------------------------------- |
+| `larry`     | Lost Wages       | https://loopback-games.github.io/larry/     |
+| `pinball`   | Loopback Pinball | https://loopback-games.github.io/pinball/   |
+| `looplings` | Looplings        | https://loopback-games.github.io/looplings/ |
 
 ## Structure
 
@@ -57,8 +57,11 @@ assets/
 2. Game grid — CSS grid, `repeat(auto-fit, minmax(...))`, one column on phones.
    Each card: pixel title, one-line hook, short description, `PLAY` link to the
    live game, source link to the repository.
-3. "How these are made" — the AI-agent-built, no-engine, no-asset-files angle.
-4. Footer — organisation link, MIT licence, copyright.
+3. Footer — organisation link, MIT licence, copyright.
+
+A "How these are made" section describing the AI-agent-built, no-asset-files
+angle was built and then cut at review: the page is a catalogue, and the
+studio's method is not what a visitor arrives for.
 
 ## Deployment
 
