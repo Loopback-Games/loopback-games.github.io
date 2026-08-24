@@ -30,6 +30,26 @@ just check     # zero-JS guard, link check, accessibility audit
 
 Without `just`, `python3 -m http.server 8765` does the same job.
 
+## The cast
+
+Three sprites run four skits on a loop above the footer: Blip kicks a ball that
+comes back, Kip argues with a parser, Blip stands on the ball, and Kip steals a
+button. It is all CSS. Every animation shares one duration, `--loop`, and every
+keyframe percentage is a position in that one timeline, which is the only way a
+stylesheet can keep this many actors in step.
+
+The sprites are pixel matrices in `tools/sprites/*.txt`, expanded into
+box-shadow CSS by `tools/build-sprites.py` and pasted between the `SPRITES:`
+markers in `style.css`. Edit the matrix, not the CSS:
+
+```sh
+just sprites   # rewrite the generated block
+just check     # includes a check that the block is not stale
+```
+
+The stage is `aria-hidden` and stops entirely under `prefers-reduced-motion`,
+where it falls back to the two characters standing still.
+
 ## Adding a game
 
 1. Copy one of the three `<li class="card">` blocks in `index.html`.

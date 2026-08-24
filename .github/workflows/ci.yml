@@ -31,6 +31,15 @@ jobs:
           fi
           echo "No JavaScript found."
 
+  sprites:
+    name: sprites in sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Check style.css still matches the sprite matrices
+        run: python3 tools/build-sprites.py --check
+
   markup:
     name: html validity
     runs-on: ubuntu-latest

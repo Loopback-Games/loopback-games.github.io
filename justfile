@@ -15,9 +15,17 @@ serve:
 fmt:
     npx --yes prettier@3 --write "*.html" "*.css" "*.md"
 
+# Expand tools/sprites/*.txt into the generated block in style.css.
+sprites:
+    python3 tools/build-sprites.py
+
 # Check formatting without writing.
-lint: workflows
+lint: workflows sprites-current
     npx --yes prettier@3 --check "*.html" "*.css" "*.md"
+
+# Fail if style.css no longer matches the sprite matrices.
+sprites-current:
+    python3 tools/build-sprites.py --check
 
 # Parse the workflow files. A stray colon in a step name breaks the run
 # before any job starts, and GitHub reports that with no logs at all.
