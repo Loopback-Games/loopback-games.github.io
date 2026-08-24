@@ -1014,6 +1014,13 @@ main {
   display: inline-block;
 }
 
+/* translate does not apply to a bare inline box, so every letter is its own
+   inline-block. The spans carry no whitespace between them in the markup;
+   a gap there would widen the word and put the cat off its mark. */
+.hero__letters > span {
+  display: inline-block;
+}
+
 .section__heading {
   position: relative;
 }
@@ -1029,7 +1036,7 @@ main {
 }
 
 .crew--pouncer {
-  left: 16%;
+  left: calc(50% - 7.7em);
   bottom: 100%;
 }
 
@@ -1081,100 +1088,163 @@ main {
     animation: pounce-body 7s ease-in-out infinite;
   }
 
-  .hero__letters {
-    animation: letters-struck 7s steps(1, end) infinite;
+  /* Six letters take a hit. They all run the same knock on the same 7s clock;
+     a negative delay is what puts each one's dip under the cat at the moment
+     it lands, so the letter and the paw are driven by one timeline and cannot
+     drift apart. delay = -(7s - the landing time in pounce). */
+  .knock {
+    animation: letter-knock 7s ease-out infinite;
   }
 
+  .knock--1 {
+    animation-delay: 0s;
+  }
+
+  .knock--2 {
+    animation-delay: -5.81s;
+  }
+
+  .knock--3 {
+    animation-delay: -4.62s;
+  }
+
+  .knock--4 {
+    animation-delay: -3.43s;
+  }
+
+  .knock--5 {
+    animation-delay: -1.75s;
+  }
+
+  .knock--6 {
+    animation-delay: -0.7s;
+  }
+
+  /* x is in em of the wordmark, so a landing is on the same letter at every
+     font size. Letter n sits at 1.1em * n + 0.55em. y stays in sprite pixels,
+     which is what puts the cat's feet on the letters rather than through them. */
   @keyframes pounce {
     0%,
     100% {
-      translate: 0 calc(var(--px) * 3);
+      translate: 0.55em calc(var(--px) * 3);
     }
-    9% {
-      translate: calc(var(--px) * 3) calc(var(--px) * -13);
+    8% {
+      translate: 1.65em calc(var(--px) * -14);
     }
-    20% {
-      translate: calc(var(--px) * 11) calc(var(--px) * 3);
+    /* the second O */
+    17% {
+      translate: 2.75em calc(var(--px) * 3);
     }
-    29% {
-      translate: calc(var(--px) * 16) calc(var(--px) * -10);
+    25% {
+      translate: 3.85em calc(var(--px) * -12);
     }
-    40% {
-      translate: calc(var(--px) * 23) calc(var(--px) * 3);
+    /* the B */
+    34% {
+      translate: 4.95em calc(var(--px) * 3);
     }
-    /* sits down in the middle of the word and washes itself */
-    58% {
-      translate: calc(var(--px) * 23) calc(var(--px) * 3);
+    43% {
+      translate: 6.6em calc(var(--px) * -15);
     }
-    68% {
-      translate: calc(var(--px) * 28) calc(var(--px) * -14);
+    /* the K, where it sits down and washes itself */
+    51%,
+    63% {
+      translate: 8.25em calc(var(--px) * 3);
     }
-    79% {
-      translate: calc(var(--px) * 14) calc(var(--px) * 3);
+    69% {
+      translate: 9.9em calc(var(--px) * -13);
     }
+    /* the A of GAMES */
+    75% {
+      translate: 11.55em calc(var(--px) * 3);
+    }
+    83% {
+      translate: 13.2em calc(var(--px) * -11);
+    }
+    /* the S, then one long arc back to the L */
     90% {
-      translate: calc(var(--px) * 5) calc(var(--px) * -6);
+      translate: 14.85em calc(var(--px) * 3);
+    }
+    95% {
+      translate: 7.7em calc(var(--px) * -21);
     }
   }
 
   @keyframes pounce-body {
     0%,
-    41% {
+    15% {
       rotate: 0deg;
       scale: 1 1;
     }
-    43% {
+    18% {
+      rotate: 0deg;
+      scale: 1.22 0.8;
+    }
+    22%,
+    32% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    35% {
+      rotate: 0deg;
+      scale: 1.22 0.8;
+    }
+    39%,
+    49% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    52% {
       rotate: 0deg;
       scale: 1.25 0.78;
     }
-    46%,
-    52% {
+    55% {
       rotate: 0deg;
       scale: 1 1;
     }
     /* the wash */
-    54% {
+    57% {
       rotate: -18deg;
       scale: 1 1;
     }
-    57% {
+    60% {
       rotate: 16deg;
       scale: 1 1;
     }
-    60%,
+    63%,
+    73% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    76% {
+      rotate: 0deg;
+      scale: 1.22 0.8;
+    }
+    80%,
+    88% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    91% {
+      rotate: 0deg;
+      scale: 1.22 0.8;
+    }
+    95%,
     100% {
       rotate: 0deg;
       scale: 1 1;
     }
   }
 
-  @keyframes letters-struck {
+  /* Driven down, then a little past level on the way back. */
+  @keyframes letter-knock {
     0%,
-    1.4% {
-      translate: 0 calc(var(--px) * 0.9);
+    2% {
+      translate: 0 0.09em;
     }
-    3%,
-    19% {
-      translate: 0 0;
+    5% {
+      translate: 0 -0.035em;
     }
-    21% {
-      translate: 0 calc(var(--px) * 0.9);
-    }
-    23%,
-    39% {
-      translate: 0 0;
-    }
-    41% {
-      translate: 0 calc(var(--px) * 0.9);
-    }
-    43%,
-    78% {
-      translate: 0 0;
-    }
-    80% {
-      translate: 0 calc(var(--px) * 0.9);
-    }
-    82%,
+    8%,
     100% {
       translate: 0 0;
     }
