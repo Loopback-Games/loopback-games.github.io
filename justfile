@@ -20,7 +20,7 @@ sprites:
     python3 tools/build-sprites.py
 
 # Check formatting without writing.
-lint: workflows sprites-current
+lint: workflows sprites-current hd-present
     npx --yes prettier@3 --check "*.html" "*.css" "*.md"
 
 # Fail if style.css no longer matches the sprite matrices.
@@ -56,3 +56,11 @@ check: no-js lint
 # Remove local scratch output.
 clean:
     rm -rf node_modules
+
+# Rebuild the upgraded sprites from the CC0 art in hd-src/.
+hd:
+    python3 tools/build-hd.py
+
+# Fail if the upgraded sprites are missing.
+hd-present:
+    python3 tools/build-hd.py --check

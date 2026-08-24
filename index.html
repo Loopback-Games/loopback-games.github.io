@@ -83,6 +83,14 @@
           >&#9646;</span
         >
       </p>
+
+      <!-- The whole switch. No script: the checkbox holds the state and
+           body:has() reads it. It sits before everything it restyles so it can
+           be hidden without hiding what it controls. -->
+      <input class="sr-only upgrade__state" type="checkbox" id="upgrade" />
+      <label class="upgrade" for="upgrade">
+        <span aria-hidden="true">&#9650;</span> Upgrade graphics
+      </label>
     </header>
 
     <main>

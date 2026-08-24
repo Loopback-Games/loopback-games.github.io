@@ -205,6 +205,50 @@ body::before {
   margin-left: 0.35em;
 }
 
+/* ---------- the upgrade switch ----------
+   The site draws its cast out of box-shadows. This trades all three of them
+   for bitmaps of the same characters drawn properly, which is the one thing on
+   the page that is not made of code — hence a button rather than a default. */
+
+.upgrade {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  margin-top: clamp(1.25rem, 4vw, 2rem);
+  padding: 0.7em 1.1em;
+  border: var(--step) solid var(--line);
+  background: var(--panel);
+  color: var(--dim);
+  font-family: var(--display);
+  font-size: clamp(0.5rem, 1.9vw, 0.6875rem);
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    color 0.12s steps(2, end),
+    border-color 0.12s steps(2, end),
+    background-color 0.12s steps(2, end);
+}
+
+.upgrade:hover {
+  border-color: var(--accent);
+  background: var(--panel-lit);
+  color: var(--bone);
+}
+
+/* The control is the checkbox, which is off-screen, so its focus ring has to be
+   drawn on the label instead or the switch cannot be seen to be focused. */
+.upgrade__state:focus-visible + .upgrade {
+  outline: var(--step) solid var(--accent);
+  outline-offset: var(--step);
+}
+
+.upgrade__state:checked + .upgrade {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 /* ---------- sections ---------- */
 
 main {
@@ -1611,6 +1655,83 @@ main {
       rotate: 720deg;
     }
   }
+}
+
+/* ---------- upgraded ----------
+   Everything below only applies while the switch is on. The bitmaps are
+   referenced nowhere else, so a visitor who never presses the button never
+   downloads them.
+
+   The swap happens on .pixel, not on .body. .body carries every scene — the
+   pounce, the haul, the whip — so leaving it alone means all three keep
+   working untouched, and .pixel is also what idle-bob moves, so the upgraded
+   cast goes on breathing. */
+
+body:has(.upgrade__state:checked) .crew .pixel {
+  width: 100%;
+  height: 100%;
+  box-shadow: none;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Each bitmap keeps the height of the sprite it replaces but not its width, so
+   --cols is restated here from what tools/build-hd.py reports. Without this the
+   art is squashed into the pixel sprite's aspect ratio. */
+body:has(.upgrade__state:checked) .actor--cat {
+  --cols: 12;
+}
+
+body:has(.upgrade__state:checked) .actor--cat .pixel {
+  background-image: url("assets/hd/dino.png");
+}
+
+body:has(.upgrade__state:checked) .actor--skeleton {
+  --cols: 10;
+}
+
+body:has(.upgrade__state:checked) .actor--skeleton .pixel {
+  background-image: url("assets/hd/zombie.png");
+}
+
+body:has(.upgrade__state:checked) .actor--adventurer {
+  --cols: 12;
+}
+
+body:has(.upgrade__state:checked) .actor--adventurer .pixel {
+  background-image: url("assets/hd/adventurer.png");
+}
+
+/* She has no whip in the upgraded art, and a pixel one beside it reads as a
+   stray artefact. She stands close enough to reach the separator instead. */
+body:has(.upgrade__state:checked) .crew--whip {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body:has(.upgrade__state:checked) .crew--adventurer {
+    animation-name: adventurer-step-upgraded;
+  }
+
+  @keyframes adventurer-step-upgraded {
+    0%,
+    12% {
+      translate: calc(var(--px) * -11) 0;
+    }
+    24%,
+    46% {
+      translate: calc(var(--px) * -6) 0;
+    }
+    60%,
+    100% {
+      translate: calc(var(--px) * -11) 0;
+    }
+  }
+}
+
+body:has(.upgrade__state:checked) .crew--adventurer {
+  translate: calc(var(--px) * -11) 0;
 }
 
 /* ---------- not found ---------- */

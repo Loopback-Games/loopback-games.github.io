@@ -1,1 +1,4 @@
 node_modules/
+
+# Source art for the upgraded sprites; see assets/hd/README.md
+hd-src/
