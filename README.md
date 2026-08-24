@@ -40,6 +40,21 @@ Without `just`, `python3 -m http.server 8765` does the same job.
 
 The grid reflows on its own; no other change is needed.
 
+## Where the crest comes from
+
+`assets/logo.png` is derived from `loopback_games.png`, the original square
+mark. The circuit-board background is keyed out by luminance and the result is
+quantised to 128 colours, which takes it from 910 kB to 18 kB:
+
+```sh
+magick loopback_games.png \
+  \( +clone -colorspace Gray -level 14%,44% -sigmoidal-contrast 4x50% \) \
+  -alpha off -compose CopyOpacity -composite -trim +repage \
+  -resize 384x384 -dither None -colors 128 -strip assets/logo.png
+```
+
+`assets/og.jpg` is `loopback_games_full.jpeg` cropped to 1200x630.
+
 ## Credits
 
 Press Start 2P by CodeMan38, used under the SIL Open Font License 1.1. The
