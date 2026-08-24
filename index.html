@@ -188,15 +188,17 @@
           href="https://github.com/Loopback-Games/loopback-games.github.io/blob/main/LICENSE"
           >MIT licence</a
         >
-        <!-- The knight lives inside this separator so he is anchored to the
-             thing he hits, at every width, without a hard-coded coordinate.
-             The pip is a separate element because the dot is his positioning
-             context and must not move when he knocks the pip loose. -->
+        <!-- The adventurer lives inside this separator so she is anchored to
+             the thing she hits, at every width, without a hard-coded
+             coordinate. The pip is a separate element because the dot is her
+             positioning context and must not move when the whip takes it. -->
         <span class="footer__dot footer__dot--struck" aria-hidden="true"
           ><span class="footer__pip">&#9642;</span
-          ><span class="crew crew--knight actor--knight" aria-hidden="true"
+          ><span
+            class="crew crew--adventurer actor--adventurer"
+            aria-hidden="true"
             ><span class="body"><i class="pixel"></i></span></span
-          ><span class="crew crew--blade actor--sword" aria-hidden="true"
+          ><span class="crew crew--whip actor--whip" aria-hidden="true"
             ><span class="body"><i class="pixel"></i></span></span
         ></span>
         <span>&copy; 2026 Loopback Games</span>
