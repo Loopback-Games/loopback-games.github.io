@@ -59,9 +59,11 @@
         <span class="sr-only">Loopback Games</span>
         <span class="hero__letters" aria-hidden="true"
           ><span class="knock knock--1">L</span><span>o</span
-          ><span class="knock knock--2">o</span><span>p</span
+          ><span class="knock knock--2">o</span
+          ><span class="knock knock--8">p</span
           ><span class="knock knock--3">b</span><span>a</span><span>c</span
-          ><span class="knock knock--4">k</span> <span>G</span
+          ><span class="knock knock--4">k</span>
+          <span class="knock knock--7">G</span
           ><span class="knock knock--5">a</span><span>m</span><span>e</span
           ><span class="knock knock--6">s</span></span
         >
@@ -175,23 +177,28 @@
     </main>
 
     <footer class="footer">
-      <span class="crew crew--knight actor--knight" aria-hidden="true"
-        ><span class="body"><i class="pixel"></i></span
-      ></span>
-      <span class="crew crew--blade actor--sword" aria-hidden="true"
-        ><span class="body"><i class="pixel"></i></span
-      ></span>
-
       <p class="footer__meta">
         <a href="https://github.com/Loopback-Games"
           >github.com/Loopback-Games</a
         >
-        <span class="footer__dot" aria-hidden="true">&#9642;</span>
+        <span class="footer__dot" aria-hidden="true"
+          ><span class="footer__pip">&#9642;</span></span
+        >
         <a
           href="https://github.com/Loopback-Games/loopback-games.github.io/blob/main/LICENSE"
           >MIT licence</a
         >
-        <span class="footer__dot" aria-hidden="true">&#9642;</span>
+        <!-- The knight lives inside this separator so he is anchored to the
+             thing he hits, at every width, without a hard-coded coordinate.
+             The pip is a separate element because the dot is his positioning
+             context and must not move when he knocks the pip loose. -->
+        <span class="footer__dot footer__dot--struck" aria-hidden="true"
+          ><span class="footer__pip">&#9642;</span
+          ><span class="crew crew--knight actor--knight" aria-hidden="true"
+            ><span class="body"><i class="pixel"></i></span></span
+          ><span class="crew crew--blade actor--sword" aria-hidden="true"
+            ><span class="body"><i class="pixel"></i></span></span
+        ></span>
         <span>&copy; 2026 Loopback Games</span>
       </p>
     </footer>

@@ -948,10 +948,14 @@ main {
    that element, its resident goes too, and contact is exact at every width
    without a hard-coded coordinate.
 
-   Nobody shares a clock, and the periods are 7, 13 and 29 seconds. Those are
+   Nobody shares a clock, and the periods are 11, 13 and 17 seconds. Those are
    coprime, so the combination on screen takes over two thousand seconds to come
    round again. There is no sequence to sit through and no loop point to notice:
-   whatever you catch them doing depends on when you looked. */
+   whatever you catch them doing depends on when you looked.
+
+   Each loop is also seamless in velocity, not just position: wherever an actor
+   is at 100% it is travelling the same way it travels at 0%, so there is no
+   frame where something snaps back to the start. */
 
 :root {
   /* A sprite pixel has to be a whole pixel. A fractional one puts every row on
@@ -1006,6 +1010,14 @@ main {
 
 /* anchors */
 
+/* The crest sits above the crew, so a bound that crosses the middle of the
+   hero passes behind it. Without this the cat is painted over the shield and
+   reads as sitting in the logo rather than leaping past it. */
+.hero__mark {
+  position: relative;
+  z-index: 4;
+}
+
 .hero__wordmark {
   position: relative;
 }
@@ -1045,14 +1057,30 @@ main {
   bottom: 100%;
 }
 
-.crew--knight,
-.crew--blade {
-  left: 22%;
-  top: 0;
+/* The separator is the knight's anchor, so he finds it wherever the centred
+   footer line puts it. The pip inside is what he actually hits. */
+.footer__dot {
+  position: relative;
 }
 
-/* Where the sword rests when nothing is animating it: in his hand, not through
-   his head. blade-flight overrides this the moment it runs. */
+.footer__pip {
+  display: inline-block;
+}
+
+.crew--knight,
+.crew--blade {
+  left: 0;
+  bottom: 100%;
+}
+
+/* Where the two of them rest when nothing is animating them: him back from the
+   separator rather than straddling it, and the sword in his hand rather than
+   through his head. The animations override both the moment they run, so this
+   is what a visitor who has asked for reduced motion is left looking at. */
+.crew--knight {
+  translate: -2.6em 0;
+}
+
 .crew--blade {
   translate: calc(var(--px) * 7) calc(var(--px) * -8);
 }
@@ -1078,100 +1106,139 @@ main {
     }
   }
 
-  /* ---- 7s · a cat works the wordmark over ---- */
+  /* ---- 11s · a cat works the wordmark over ---- */
 
   .crew--pouncer {
-    animation: pounce 7s cubic-bezier(0.3, 0, 0.7, 1) infinite;
+    animation: pounce 11s cubic-bezier(0.3, 0, 0.7, 1) infinite;
   }
 
   .crew--pouncer .body {
-    animation: pounce-body 7s ease-in-out infinite;
+    animation: pounce-body 11s ease-in-out infinite;
   }
 
-  /* Six letters take a hit. They all run the same knock on the same 7s clock;
+  /* Six letters take a hit. They all run the same knock on the same 11s clock;
      a negative delay is what puts each one's dip under the cat at the moment
      it lands, so the letter and the paw are driven by one timeline and cannot
-     drift apart. delay = -(7s - the landing time in pounce). */
+     drift apart. delay = -(11s - the landing time in pounce). */
   .knock {
-    animation: letter-knock 7s ease-out infinite;
+    animation: letter-knock 11s ease-out infinite;
   }
 
   .knock--1 {
-    animation-delay: 0s;
+    animation-delay: -0.33s;
   }
 
   .knock--2 {
-    animation-delay: -5.81s;
+    animation-delay: -9.13s;
   }
 
   .knock--3 {
-    animation-delay: -4.62s;
+    animation-delay: -7.59s;
   }
 
   .knock--4 {
-    animation-delay: -3.43s;
+    animation-delay: -6.05s;
   }
 
   .knock--5 {
-    animation-delay: -1.75s;
+    animation-delay: -3.41s;
   }
 
   .knock--6 {
-    animation-delay: -0.7s;
+    animation-delay: -1.98s;
+  }
+
+  .knock--7 {
+    animation-delay: -1.32s;
+  }
+
+  .knock--8 {
+    animation-delay: -0.77s;
   }
 
   /* x is in em of the wordmark, so a landing is on the same letter at every
      font size. Letter n sits at 1.1em * n + 0.55em. y stays in sprite pixels,
-     which is what puts the cat's feet on the letters rather than through them. */
+     which is what puts the cat's feet on the letters rather than through them.
+
+     The last bound overshoots the L and puts the cat down clear of the word, so
+     the loop closes on a short hop rightward — the same direction it leaves in
+     at 0%. Landing back on the L directly would reverse its heading mid-stride,
+     which is what made the reset read as a snap. The arc home is also capped at
+     the height of every other hop; the old one went high enough to cross the
+     crest, and a cat passing through the logo is what you noticed, not a jump. */
   @keyframes pounce {
+    /* At rest on the L. The loop seam sits inside this pause, so the cat is
+       motionless on both sides of it and the change of heading happens where
+       there is no motion to contradict. Landing on the L and leaving rightward
+       in the same frame is what made the old reset snap. */
     0%,
-    100% {
+    4% {
       translate: 0.55em calc(var(--px) * 3);
     }
-    8% {
-      translate: 1.65em calc(var(--px) * -14);
+    10% {
+      translate: 1.65em calc(var(--px) * -13);
     }
     /* the second O */
     17% {
       translate: 2.75em calc(var(--px) * 3);
     }
-    25% {
+    24% {
       translate: 3.85em calc(var(--px) * -12);
     }
     /* the B */
-    34% {
+    31% {
       translate: 4.95em calc(var(--px) * 3);
     }
-    43% {
-      translate: 6.6em calc(var(--px) * -15);
+    38% {
+      translate: 6.6em calc(var(--px) * -14);
     }
     /* the K, where it sits down and washes itself */
-    51%,
-    63% {
+    45%,
+    57% {
       translate: 8.25em calc(var(--px) * 3);
     }
-    69% {
+    63% {
       translate: 9.9em calc(var(--px) * -13);
     }
     /* the A of GAMES */
-    75% {
+    69% {
       translate: 11.55em calc(var(--px) * 3);
     }
-    83% {
-      translate: 13.2em calc(var(--px) * -11);
+    76% {
+      translate: 13.2em calc(var(--px) * -12);
     }
-    /* the S, then one long arc back to the L */
-    90% {
+    /* the S, and a moment to gather itself */
+    82%,
+    85% {
       translate: 14.85em calc(var(--px) * 3);
     }
+    /* home along the word rather than over it: three short bounds on the G,
+       the P and the L, each low enough to stay under the crest */
+    86.5% {
+      translate: 12.9em calc(var(--px) * -10);
+    }
+    88% {
+      translate: 10.45em calc(var(--px) * 3);
+    }
+    90.5% {
+      translate: 7em calc(var(--px) * -12);
+    }
+    93% {
+      translate: 3.85em calc(var(--px) * 3);
+    }
     95% {
-      translate: 7.7em calc(var(--px) * -21);
+      translate: 2.2em calc(var(--px) * -9);
+    }
+    97%,
+    100% {
+      translate: 0.55em calc(var(--px) * 3);
     }
   }
 
   @keyframes pounce-body {
+    /* 0% is inside the rest on the L, so the loop opens level */
     0%,
-    15% {
+    14% {
       rotate: 0deg;
       scale: 1 1;
     }
@@ -1180,199 +1247,274 @@ main {
       scale: 1.22 0.8;
     }
     22%,
-    32% {
+    28% {
       rotate: 0deg;
       scale: 1 1;
     }
-    35% {
+    32% {
       rotate: 0deg;
       scale: 1.22 0.8;
     }
-    39%,
+    36%,
+    43% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    46% {
+      rotate: 0deg;
+      scale: 1.25 0.78;
+    }
     49% {
       rotate: 0deg;
       scale: 1 1;
     }
-    52% {
-      rotate: 0deg;
-      scale: 1.25 0.78;
-    }
-    55% {
-      rotate: 0deg;
-      scale: 1 1;
-    }
     /* the wash */
-    57% {
+    52% {
       rotate: -18deg;
       scale: 1 1;
     }
-    60% {
+    55% {
       rotate: 16deg;
       scale: 1 1;
     }
-    63%,
-    73% {
+    57%,
+    67% {
       rotate: 0deg;
       scale: 1 1;
     }
-    76% {
+    70% {
       rotate: 0deg;
       scale: 1.22 0.8;
     }
-    80%,
-    88% {
+    74%,
+    80% {
       rotate: 0deg;
       scale: 1 1;
+    }
+    83% {
+      rotate: 0deg;
+      scale: 1.25 0.78;
+    }
+    /* crouches on the S, then stretches out of the launch */
+    85% {
+      rotate: 0deg;
+      scale: 1.18 0.84;
+    }
+    86.5% {
+      rotate: 0deg;
+      scale: 0.92 1.12;
+    }
+    89% {
+      rotate: 0deg;
+      scale: 1.2 0.82;
     }
     91% {
       rotate: 0deg;
-      scale: 1.22 0.8;
+      scale: 0.94 1.08;
     }
-    95%,
+    94% {
+      rotate: 0deg;
+      scale: 1.2 0.82;
+    }
+    96% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    98% {
+      rotate: 0deg;
+      scale: 1.15 0.86;
+    }
+    99.5%,
     100% {
       rotate: 0deg;
       scale: 1 1;
     }
   }
 
-  /* Driven down, then a little past level on the way back. */
   @keyframes letter-knock {
     0%,
-    2% {
+    1.5% {
       translate: 0 0.09em;
     }
-    5% {
+    3.5% {
       translate: 0 -0.035em;
     }
-    8%,
+    5.5%,
     100% {
       translate: 0 0;
     }
   }
 
-  /* ---- 13s · a skeleton makes off with a word ---- */
+  /* ---- 13s · a skeleton tries to walk off with a word ---- */
 
   .loose {
-    animation: word-abducted 13s ease-in-out infinite;
+    animation: word-hauled 13s ease-in-out infinite;
   }
 
   .crew--thief {
-    animation: thief-approach 13s ease-in-out infinite;
+    animation: thief-haul 13s ease-in-out infinite;
   }
 
   .crew--thief .body {
     animation: thief-strain 13s ease-in-out infinite;
   }
 
-  @keyframes word-abducted {
+  /* The word only ever moves left, and never by more than the space in front
+     of it, so it cannot climb into the word after it. The old one slid 4.5em
+     to the right and ended up printed on top of NOW. */
+  @keyframes word-hauled {
     0%,
-    28% {
+    30% {
       translate: 0 0;
       rotate: 0deg;
     }
-    32% {
-      translate: 0 calc(var(--px) * -1);
-      rotate: -4deg;
+    38% {
+      translate: -0.22em 0;
+      rotate: -1.5deg;
     }
-    46% {
-      translate: 4.5em calc(var(--px) * -2);
-      rotate: 8deg;
+    48% {
+      translate: -0.62em calc(var(--px) * -1);
+      rotate: -3deg;
     }
-    53% {
-      translate: 5em calc(var(--px) * -1);
-      rotate: -10deg;
+    /* it slips */
+    54% {
+      translate: -0.5em 0;
+      rotate: -1deg;
     }
-    60% {
-      translate: 1.5em calc(var(--px) * 3);
-      rotate: 15deg;
+    /* the recoil is a tilt, not a nudge to the right: the word sits flush
+       against NOW, so any rightward overshoot lands on it */
+    58% {
+      translate: 0 0;
+      rotate: 2deg;
     }
-    68%,
+    62% {
+      translate: 0 0;
+      rotate: 0deg;
+    }
+    64% {
+      translate: 0 0;
+      rotate: -0.8deg;
+    }
+    67%,
     100% {
       translate: 0 0;
       rotate: 0deg;
     }
   }
 
-  /* He walks in, takes hold, and from there the word carries him. */
-  @keyframes thief-approach {
+  /* His x matches word-hauled at every frame he has hold of it. The old pair
+     drifted apart the moment he took hold: he stayed put while the word left
+     without him, which is why nothing about it read as carrying. */
+  @keyframes thief-haul {
     0%,
     13% {
       translate: -8em 0;
     }
-    28%,
-    60% {
+    30% {
       translate: calc(var(--px) * -7) 0;
     }
-    64% {
-      translate: calc(var(--px) * -7) calc(var(--px) * -7);
+    38% {
+      translate: calc(-0.22em + var(--px) * -7) 0;
     }
-    70%,
+    48% {
+      translate: calc(-0.62em + var(--px) * -7) 0;
+    }
+    /* it gets away from him and he goes over backwards */
+    54% {
+      translate: calc(-0.5em + var(--px) * -7) 0;
+    }
+    57% {
+      translate: calc(-1.15em + var(--px) * -7) calc(var(--px) * -3);
+    }
+    61% {
+      translate: calc(-1.3em + var(--px) * -7) 0;
+    }
+    /* he is across the heading while he is down, so he does not stay down */
+    66% {
+      translate: calc(-1.3em + var(--px) * -7) 0;
+    }
+    80%,
     100% {
       translate: -8em 0;
     }
   }
 
+  /* He leans into it, then lands flat and gets up. He used to spin through 360
+     degrees here, which at this size is not a fall, it is a white smear. */
   @keyframes thief-strain {
     0%,
-    29% {
+    30% {
       rotate: 0deg;
       scale: 1 1;
     }
-    36%,
-    53% {
-      rotate: -15deg;
+    38% {
+      rotate: 14deg;
+      scale: 1 0.96;
+    }
+    48% {
+      rotate: 20deg;
       scale: 1 0.93;
     }
-    60% {
-      rotate: 22deg;
+    54% {
+      rotate: 10deg;
       scale: 1 1;
     }
-    64% {
-      rotate: 200deg;
+    /* flat on his back */
+    57% {
+      rotate: -70deg;
       scale: 1 1;
     }
-    69%,
+    61%,
+    66% {
+      rotate: -90deg;
+      scale: 1 1;
+    }
+    /* and up */
+    71% {
+      rotate: -12deg;
+      scale: 1 1;
+    }
+    75%,
     100% {
-      rotate: 360deg;
+      rotate: 0deg;
       scale: 1 1;
     }
   }
 
-  /* ---- 29s · a knight mislays his sword in the footer ---- */
+  /* ---- 17s · a knight takes exception to a separator ---- */
 
   .crew--knight {
-    animation: knight-pace 29s ease-in-out infinite;
+    animation: knight-step 17s ease-in-out infinite;
   }
 
   .crew--knight .body {
-    animation: knight-swing 29s ease-in-out infinite;
+    animation: knight-swing 17s ease-in-out infinite;
   }
 
   .crew--blade {
-    animation: blade-flight 29s cubic-bezier(0.3, 0, 0.55, 1) infinite;
+    animation: blade-swing 17s ease-in-out infinite;
   }
 
-  .crew--blade .body {
-    animation: blade-turn 29s ease-in-out infinite;
+  /* Only the separator he is standing at. .footer__pip alone matches both of
+     them, and the far one has nobody swinging at it. */
+  .footer__dot--struck .footer__pip {
+    animation: pip-struck 17s cubic-bezier(0.25, 0, 0.5, 1) infinite;
   }
 
-  @keyframes knight-pace {
+  @keyframes knight-step {
     0%,
     12% {
-      translate: 0 0;
+      translate: -2.6em 0;
     }
-    22%,
-    40% {
-      translate: calc(var(--px) * 5) 0;
+    /* squares up to it */
+    24%,
+    46% {
+      translate: -1.15em 0;
     }
-    /* goes to fetch it */
-    52%,
-    72% {
-      translate: calc(var(--px) * 24) 0;
-    }
-    84%,
+    /* and thinks better of standing there */
+    60%,
     100% {
-      translate: 0 0;
+      translate: -2.6em 0;
     }
   }
 
@@ -1382,101 +1524,97 @@ main {
       rotate: 0deg;
       scale: 1 1;
     }
-    /* winds up, and lets go of rather more than he meant to */
+    /* winds up */
     28% {
-      rotate: -26deg;
-      scale: 1 1.04;
+      rotate: -24deg;
+      scale: 1 1.05;
     }
-    32% {
-      rotate: 30deg;
-      scale: 1.06 0.96;
+    /* through */
+    31% {
+      rotate: 26deg;
+      scale: 1.07 0.95;
     }
     36%,
-    60% {
-      rotate: 0deg;
-      scale: 1 1;
-    }
-    /* heaves on the hilt until it gives */
-    66% {
-      rotate: -18deg;
-      scale: 1 0.94;
-    }
-    70% {
-      rotate: 8deg;
-      scale: 1 1;
-    }
-    74%,
     100% {
       rotate: 0deg;
       scale: 1 1;
     }
   }
 
-  /* The blade is in his hand for most of the loop, so its x matches
-     knight-pace at every keyframe except the throw and the landing. */
-  @keyframes blade-flight {
-    0%,
-    12% {
-      translate: calc(var(--px) * 7) calc(var(--px) * -8);
-    }
-    22% {
-      translate: calc(var(--px) * 12) calc(var(--px) * -8);
-    }
-    28% {
-      translate: calc(var(--px) * 10) calc(var(--px) * -16);
-    }
-    32% {
-      translate: calc(var(--px) * 20) calc(var(--px) * -14);
-    }
-    36% {
-      translate: calc(var(--px) * 34) calc(var(--px) * -4);
-    }
-    /* buried in the rule, point down, until he arrives */
-    38%,
-    62% {
-      translate: calc(var(--px) * 34) calc(var(--px) * 2);
-    }
-    68% {
-      translate: calc(var(--px) * 34) calc(var(--px) * -1);
-    }
-    72% {
-      translate: calc(var(--px) * 31) calc(var(--px) * -8);
-    }
-    84%,
-    100% {
-      translate: calc(var(--px) * 7) calc(var(--px) * -8);
-    }
-  }
-
-  @keyframes blade-turn {
+  @keyframes blade-swing {
     0%,
     24% {
+      translate: calc(var(--px) * 7) calc(var(--px) * -8);
       rotate: 0deg;
     }
     28% {
-      rotate: -22deg;
+      translate: calc(var(--px) * 4) calc(var(--px) * -15);
+      rotate: -38deg;
+    }
+    31% {
+      translate: calc(var(--px) * 12) calc(var(--px) * -9);
+      rotate: 62deg;
+    }
+    36%,
+    100% {
+      translate: calc(var(--px) * 7) calc(var(--px) * -8);
+      rotate: 0deg;
+    }
+  }
+
+  /* Struck on the 31% of knight-swing that the sword arrives, then it drops
+     back into the line and rolls square. It finishes on 720deg rather than
+     0deg so the last turn is a turn: the glyph is symmetrical, so the wrap at
+     the loop seam has nothing to show. */
+  @keyframes pip-struck {
+    0%,
+    30% {
+      translate: 0 0;
+      rotate: 0deg;
     }
     32% {
+      translate: 0.3em -0.55em;
       rotate: 120deg;
     }
     36% {
-      rotate: 200deg;
+      translate: 0.85em -0.95em;
+      rotate: 300deg;
     }
-    38%,
-    62% {
-      rotate: 180deg;
+    41% {
+      translate: 1.25em -0.35em;
+      rotate: 480deg;
     }
-    /* it does not come quietly */
-    65% {
-      rotate: 174deg;
+    /* down, short of where it started */
+    45% {
+      translate: 1.2em 0.06em;
+      rotate: 570deg;
     }
-    68% {
-      rotate: 186deg;
+    47% {
+      translate: 1.15em 0;
+      rotate: 585deg;
     }
-    72%,
+    /* and rolls home */
+    56%,
     100% {
-      rotate: 360deg;
+      translate: 0 0;
+      rotate: 720deg;
     }
+  }
+}
+
+/* The footer line wraps below about 570px, and when it does the separator the
+   knight is anchored to can land at the start of a line — which stands him on
+   top of the line above and covers a link. There is no room on a wrapped
+   footer for a 56px knight, so below 40rem he sits the scene out and the
+   separator keeps still with him. */
+@media (max-width: 40rem) {
+  .crew--knight,
+  .crew--blade {
+    display: none;
+  }
+
+  .footer__dot--struck .footer__pip {
+    animation: none;
   }
 }
 
