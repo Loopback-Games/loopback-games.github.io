@@ -1,0 +1,71 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # The game links point at other repositories. Catch a dead one weekly.
+    - cron: "23 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  no-javascript:
+    name: no javascript
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Fail if a script tag, javascript: URL or inline handler appears
+        run: |
+          if grep -RniE '<script|javascript:|\son[a-z]+\s*=' -- *.html; then
+            echo "::error::This site ships zero JavaScript. Remove the above."
+            exit 1
+          fi
+          echo "No JavaScript found."
+
+  markup:
+    name: html validity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Validate with the W3C Nu Html Checker
+        run: |
+          docker run --rm -v "$PWD:/src:ro" ghcr.io/validator/validator@sha256:3f0f5a507c1b93960145f9ceb9df2981eb3e9b092444aae29cb941cfabf5e824 \
+            vnu --errors-only --skip-non-html /src/index.html /src/404.html
+
+  accessibility:
+    name: accessibility
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Audit both pages against WCAG 2 AA
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 &
+          server=$!
+          trap 'kill $server' EXIT
+          sleep 2
+          npx --yes pa11y@9 --standard WCAG2AA http://127.0.0.1:8765/
+          npx --yes pa11y@9 --standard WCAG2AA http://127.0.0.1:8765/404.html
+
+  links:
+    name: links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: --no-progress --accept 200,204,206 index.html 404.html README.md
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
