@@ -210,6 +210,10 @@ body::before {
 main {
   position: relative;
   z-index: 1;
+  /* The crew throw things. Clip sideways only, so a stray button never adds a
+     horizontal scrollbar, while anything leaving the top or bottom of a
+     section stays visible. */
+  overflow-x: clip;
 }
 
 .section {
@@ -243,11 +247,12 @@ main {
 }
 
 .card {
+  --card-pad: clamp(1.25rem, 3vw, 1.75rem);
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  padding: clamp(1.25rem, 3vw, 1.75rem);
+  padding: var(--card-pad);
   background: var(--panel);
   border: 3px solid var(--line);
   box-shadow: calc(var(--step) * 2) calc(var(--step) * 2) 0 0 var(--accent);
@@ -369,6 +374,7 @@ main {
 
 .footer {
   position: relative;
+  overflow-x: clip;
   z-index: 1;
   max-width: var(--measure);
   margin-inline: auto;
@@ -740,78 +746,43 @@ main {
 
 /* SPRITES:END */
 
-/* ---------- the stage ----------
-   A strip of ground above the footer where three sprites run four skits on a
-   loop. Every animation below shares one duration, --loop, and every keyframe
-   percentage is a position in that single timeline, which is the only way a
-   stylesheet can keep this many actors in step. 1% is 0.4s.
+/* ---------- the crew ----------
+   Eight of them, loose on the page. Each is anchored inside a real element —
+   the wordmark, the word "playable", a card, the button row — so wherever the
+   layout puts that element, its resident goes too, and contact is exact at
+   every width without a single hard-coded coordinate.
 
-     A  0-25%   Blip kicks the ball away. The ball disagrees.
-     B  25-50%  Kip tries to talk to a parser that is not listening.
-     C  50-75%  Blip stands on the ball. The ball has opinions.
-     D  75-100% Kip steals a button that was never real.  */
+   Nobody shares a clock. The loops are 5s to 14s and mutually prime enough
+   that the combination on screen keeps changing, which is the point: this is a
+   page with vermin, not a page playing a cutscene. */
 
-.stage {
-  --loop: 40s;
-  --u: min(1vw, 14px);
-  /* Entrances and exits are measured from the viewport edge rather than in
-     --u, which is capped, so on a very wide screen an actor still starts
-     off-stage instead of popping into being halfway across it. */
-  --off: 56vw;
-  /* A sprite pixel must be a whole device-independent pixel. A fractional one
-     lands every row on a subpixel boundary and the rasteriser leaves seams
-     between the box-shadows, which shreds the sprite on a high-DPI screen. */
+:root {
+  /* A sprite pixel has to be a whole pixel. A fractional one puts every row on
+     a subpixel boundary and the rasteriser shreds the sprite. */
   --px: 3px;
-  position: relative;
-  height: clamp(9.5rem, 21vw, 13.5rem);
-  margin-top: clamp(1rem, 4vw, 2.5rem);
-  overflow: hidden;
 }
 
 @media (min-width: 30rem) {
-  .stage {
+  :root {
     --px: 4px;
   }
 }
 
 @media (min-width: 48rem) {
-  .stage {
+  :root {
     --px: 5px;
   }
 }
 
-.skit {
+.crew {
   position: absolute;
-  inset: 0;
-  opacity: 0;
-}
-
-/* Without motion the page still gets a cast, just a still one, which is why
-   the skit-A actors carry a resting position outside the animations. */
-.skit--a {
-  opacity: 1;
-}
-
-/* Measured in whole sprite pixels, not in --u. An animated actor gets its own
-   compositing layer and rasterises cleanly wherever it is, but this resting
-   pair is painted in place, so it has to land on whole pixels. */
-.act-a-blip {
-  translate: calc(var(--px) * -22) 0;
-}
-
-.act-a-orb {
-  translate: calc(var(--px) * 16) 0;
-}
-
-.actor {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
+  z-index: 3;
   width: 0;
   height: 0;
+  pointer-events: none;
 }
 
-.body {
+.crew .body {
   position: absolute;
   bottom: 0;
   left: calc(var(--px) * var(--cols) / -2);
@@ -820,17 +791,15 @@ main {
   transform-origin: bottom center;
 }
 
-/* Characters pivot at their feet when they lean, kick or slump. The ball is
-   the exception: it rolls, so it turns about its middle. */
+/* Characters pivot at their feet. The ball rolls, so it turns about its middle. */
 .actor--orb .body {
   transform-origin: center;
 }
 
-/* Each cell is a touch larger than the grid step it sits on. Actors move to
-   fractional positions, which puts every shadow edge mid-device-pixel, and two
-   antialiased edges meeting there do not add up to full coverage — you get a
-   seam through the sprite. The overlap closes it. */
-.pixel {
+/* Each cell overlaps its neighbour a touch. Actors sit at fractional positions,
+   which puts every shadow edge mid-device-pixel, and two antialiased edges
+   meeting there do not add up to full coverage — you get a seam. */
+.crew .pixel {
   position: absolute;
   top: 0;
   left: 0;
@@ -838,150 +807,81 @@ main {
   height: calc(var(--px) + 0.6px);
 }
 
-.bubble,
-.parser,
-.prop {
-  position: absolute;
-  white-space: nowrap;
-  font-family: var(--display);
-  font-size: clamp(0.36rem, 1.05vw, 0.55rem);
-  line-height: 1.6;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+/* anchors */
+
+.hero__wordmark {
+  position: relative;
 }
 
-.bubble {
+.hero__letters {
+  display: inline-block;
+}
+
+.section__heading {
+  position: relative;
+}
+
+.loose {
+  display: inline-block;
+  position: relative;
+}
+
+.card__actions {
+  position: relative;
+}
+
+.footer {
+  position: relative;
+  overflow-x: clip;
+}
+
+.crew--bouncer {
+  left: 18%;
+  bottom: 100%;
+}
+
+.crew--runner {
+  left: 50%;
+  bottom: clamp(0.75rem, 3vw, 1.75rem);
+}
+
+.crew--thief {
   left: 0;
-  bottom: calc(var(--px) * var(--rows) + 1rem);
-  translate: -50% 0;
-  padding: 0.5em 0.7em;
-  opacity: 0;
-  color: var(--void);
+  bottom: 100%;
 }
 
-.bubble--cyan {
-  background: var(--cyan);
-  box-shadow: 0 calc(var(--px) * 1.5) 0 0 var(--cyan);
+.crew--mugger {
+  left: 1.6rem;
+  bottom: 100%;
 }
 
-.bubble--violet {
-  background: var(--violet);
-  box-shadow: 0 calc(var(--px) * 1.5) 0 0 var(--violet);
+.crew--slider {
+  right: calc(var(--card-pad) * -1);
+  top: 0;
 }
 
-/* The parser answers from the top of the stage, in its own voice. */
-.parser {
-  top: calc(var(--u) * 1.5);
-  left: 50%;
-  translate: -50% 0;
-  padding: 0.5em 0.7em;
-  border: 2px solid var(--line);
-  background: var(--panel);
-  color: var(--dim);
-  opacity: 0;
-  text-transform: none;
+.crew--bowler {
+  left: 0;
+  bottom: calc(var(--px) * 2);
 }
 
-/* Not the real Play button. The real one still works. */
-.prop {
-  bottom: calc(var(--u) * 0.5);
-  left: 50%;
-  padding: 0.55em 0.8em;
-  background: var(--magenta);
-  color: var(--void);
-  opacity: 0;
+.crew--scrapper-a {
+  left: 34%;
+  top: 0;
+}
+
+.crew--scrapper-b {
+  left: 58%;
+  top: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .skit {
-    animation: var(--loop) linear infinite both;
-    animation-timing-function: steps(1, end);
-  }
-
-  .skit--a {
-    animation-name: skit-a;
-  }
-  .skit--b {
-    animation-name: skit-b;
-  }
-  .skit--c {
-    animation-name: skit-c;
-  }
-  .skit--d {
-    animation-name: skit-d;
-  }
-
-  @keyframes skit-a {
-    0%,
-    24.9% {
-      opacity: 1;
-    }
-    25%,
-    100% {
-      opacity: 0;
-    }
-  }
-  @keyframes skit-b {
-    0%,
-    24.9% {
-      opacity: 0;
-    }
-    25%,
-    49.9% {
-      opacity: 1;
-    }
-    50%,
-    100% {
-      opacity: 0;
-    }
-  }
-  @keyframes skit-c {
-    0%,
-    49.9% {
-      opacity: 0;
-    }
-    50%,
-    74.9% {
-      opacity: 1;
-    }
-    75%,
-    100% {
-      opacity: 0;
-    }
-  }
-  @keyframes skit-d {
-    0%,
-    74.9% {
-      opacity: 0;
-    }
-    75%,
-    100% {
-      opacity: 1;
-    }
-  }
-
-  .actor,
-  .prop,
-  .parser,
-  .bubble,
-  .body {
-    animation-duration: var(--loop);
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
-    animation-timing-function: linear;
-  }
-
-  .bubble,
-  .parser,
-  .prop {
-    animation-timing-function: steps(1, end);
-  }
-
-  /* Nobody stands perfectly still in a game from 1987. The bob lives on the
-     pixel so it never fights the leaning and squashing on .body. */
-  .actor--blip .pixel,
-  .actor--kip .pixel {
+  .crew .pixel {
     animation: idle-bob 0.44s steps(1, end) infinite;
+  }
+
+  .actor--orb .pixel {
+    animation: none;
   }
 
   @keyframes idle-bob {
@@ -995,705 +895,594 @@ main {
     }
   }
 
-  /* ---- skit A ---- */
+  /* ---- the ball on the wordmark, and the wordmark taking it ---- */
 
-  .act-a-blip {
-    animation-name: a-blip;
-  }
-  .act-a-blip .body {
-    animation-name: a-blip-body;
-  }
-  .act-a-orb {
-    animation-name: a-orb;
-  }
-  .act-a-orb .body {
-    animation-name: a-orb-spin;
-  }
-  .bub-a-1 {
-    animation-name: show-7-9;
-  }
-  .bub-a-2 {
-    animation-name: show-11-13;
-  }
-  .bub-a-3 {
-    animation-name: show-17-21;
+  .crew--bouncer {
+    animation: bounce-arc 5.5s cubic-bezier(0.3, 0, 0.7, 1) infinite;
   }
 
-  @keyframes a-blip {
+  .crew--bouncer .body {
+    animation: bounce-spin 5.5s linear infinite;
+  }
+
+  .hero__letters {
+    animation: letters-struck 5.5s steps(1, end) infinite;
+  }
+
+  @keyframes bounce-arc {
     0%,
-    1% {
-      translate: calc(var(--off) * -1) 0;
-    }
-    9% {
-      translate: calc(var(--u) * -14) 0;
-    }
-    10% {
-      translate: calc(var(--u) * -18) 0;
-    }
-    10.6% {
-      translate: calc(var(--u) * -11) 0;
-    }
-    11.6% {
-      translate: calc(var(--u) * -11) calc(var(--u) * -2.5);
-    }
-    12.4%,
-    15.6% {
-      translate: calc(var(--u) * -11) 0;
-    }
-    16.3%,
-    21% {
-      translate: calc(var(--u) * 26) 0;
-    }
-    22.5% {
-      translate: calc(var(--u) * 26) 0;
-    }
-    24.5%,
     100% {
-      translate: var(--off) 0;
+      translate: 0 calc(var(--px) * 1);
+    }
+    8% {
+      translate: calc(var(--px) * 2) calc(var(--px) * -14);
+    }
+    22% {
+      translate: calc(var(--px) * 9) calc(var(--px) * 1);
+    }
+    30% {
+      translate: calc(var(--px) * 12) calc(var(--px) * -9);
+    }
+    44% {
+      translate: calc(var(--px) * 18) calc(var(--px) * 1);
+    }
+    52% {
+      translate: calc(var(--px) * 22) calc(var(--px) * -13);
+    }
+    66% {
+      translate: calc(var(--px) * 30) calc(var(--px) * 1);
+    }
+    76% {
+      translate: calc(var(--px) * 20) calc(var(--px) * -16);
+    }
+    88% {
+      translate: calc(var(--px) * 6) calc(var(--px) * -4);
     }
   }
 
-  @keyframes a-blip-body {
+  @keyframes bounce-spin {
+    from {
+      rotate: 0deg;
+    }
+    to {
+      rotate: 720deg;
+    }
+  }
+
+  /* The letters flinch on each landing, and only on the landings. */
+  @keyframes letters-struck {
     0%,
-    9% {
-      rotate: 0deg;
-      scale: 1 1;
+    1.6% {
+      translate: 0 calc(var(--px) * 0.8);
     }
-    /* winds up, then swings a leg */
-    10% {
-      rotate: -16deg;
-      scale: 1 1;
-    }
-    10.6% {
-      rotate: 14deg;
-      scale: 1 1;
-    }
-    11% {
-      rotate: 0deg;
-      scale: 1 1;
-    }
-    /* a small victory hop */
-    11.6% {
-      rotate: 0deg;
-      scale: 1.06 0.94;
-    }
-    12.4% {
-      rotate: 0deg;
-      scale: 1 1;
-    }
-    15.6% {
-      rotate: 0deg;
-      scale: 1 1;
-    }
-    /* punted, spun, and landed on */
-    16.3% {
-      rotate: 380deg;
-      scale: 1 1;
-    }
-    16.7%,
-    21% {
-      rotate: 360deg;
-      scale: 1.5 0.28;
-    }
-    22.3%,
-    100% {
-      rotate: 360deg;
-      scale: 1 1;
-    }
-  }
-
-  @keyframes a-orb {
-    0%,
-    10.6% {
-      translate: calc(var(--u) * -4) 0;
-    }
-    12.4% {
-      translate: calc(var(--off) * 1.04) 0;
-    }
-    15.2% {
-      translate: calc(var(--off) * -1.04) 0;
-    }
-    16.3% {
-      translate: calc(var(--u) * 26) 0;
-    }
-    17.6%,
-    100% {
-      translate: calc(var(--off) * 1.08) 0;
-    }
-  }
-
-  @keyframes a-orb-spin {
-    0%,
-    10.6% {
-      rotate: 0deg;
-    }
-    12.4% {
-      rotate: 1080deg;
-    }
-    15.2% {
-      rotate: 0deg;
-    }
-    17.6%,
-    100% {
-      rotate: 900deg;
-    }
-  }
-
-  /* ---- skit B ---- */
-
-  .act-b-kip {
-    animation-name: b-kip;
-  }
-  .act-b-kip .body {
-    animation-name: b-kip-body;
-  }
-  .bub-b-1 {
-    animation-name: show-31-33;
-  }
-  .bub-b-2 {
-    animation-name: show-37-39;
-  }
-  .bub-b-3 {
-    animation-name: show-43-45;
-  }
-  .parser-b-1 {
-    animation-name: show-33-36;
-  }
-  .parser-b-2 {
-    animation-name: show-39-42;
-  }
-  .parser-b-3 {
-    animation-name: show-45-48;
-  }
-
-  @keyframes b-kip {
-    0%,
-    26% {
-      translate: calc(var(--off) * -1) 0;
-    }
-    31% {
-      translate: calc(var(--u) * -6) 0;
-    }
-    41.5% {
-      translate: calc(var(--u) * -6) 0;
-    }
-    42% {
-      translate: calc(var(--u) * -4) 0;
-    }
-    42.5% {
-      translate: calc(var(--u) * -8) 0;
-    }
-    43% {
-      translate: calc(var(--u) * -6) 0;
-    }
-    47.5% {
-      translate: calc(var(--u) * -6) 0;
-    }
-    49.5%,
-    100% {
-      translate: calc(var(--off) * -1) 0;
-    }
-  }
-
-  @keyframes b-kip-body {
-    0%,
-    35.5% {
-      scale: 1 1;
-      rotate: 0deg;
-    }
-    /* the shoulders go down a little further with each refusal */
-    36.5%,
-    41% {
-      scale: 1 0.96;
-      rotate: 0deg;
-    }
-    42.5%,
-    46.5% {
-      scale: 1.02 0.92;
-      rotate: 0deg;
-    }
-    47.5%,
-    100% {
-      scale: 1.04 0.88;
-      rotate: 0deg;
-    }
-  }
-
-  /* ---- skit C ---- */
-
-  .act-c-orb {
-    animation-name: c-orb;
-  }
-  .act-c-orb .body {
-    animation-name: c-orb-body;
-  }
-  .act-c-blip {
-    animation-name: c-blip;
-  }
-  .act-c-blip .body {
-    animation-name: c-blip-body;
-  }
-  .bub-c-1 {
-    animation-name: show-59-62;
-  }
-  .bub-c-2 {
-    animation-name: show-65-68;
-  }
-
-  @keyframes c-orb {
-    0%,
-    51% {
-      translate: calc(var(--off) * -1) 0;
-    }
-    54.5%,
-    63% {
+    3.2%,
+    22% {
       translate: 0 0;
     }
-    64.5%,
-    100% {
-      translate: calc(var(--off) * 1.08) 0;
+    23.6% {
+      translate: 0 calc(var(--px) * 0.8);
     }
-  }
-
-  @keyframes c-orb-body {
-    0%,
-    51% {
-      rotate: 0deg;
+    25%,
+    44% {
+      translate: 0 0;
     }
-    54.5% {
-      rotate: 720deg;
+    45.6% {
+      translate: 0 calc(var(--px) * 0.8);
     }
-    /* the wobble builds until it does not hold */
-    58% {
-      rotate: 720deg;
+    47%,
+    66% {
+      translate: 0 0;
     }
-    59% {
-      rotate: 714deg;
-    }
-    60% {
-      rotate: 726deg;
-    }
-    61% {
-      rotate: 712deg;
-    }
-    62% {
-      rotate: 730deg;
-    }
-    63% {
-      rotate: 706deg;
-    }
-    64.5%,
-    100% {
-      rotate: 1440deg;
-    }
-  }
-
-  @keyframes c-blip {
-    0%,
-    53% {
-      translate: calc(var(--off) * -1) 0;
-    }
-    57% {
-      translate: calc(var(--u) * -9) 0;
-    }
-    58.5%,
-    63% {
-      translate: 0 calc(var(--px) * -12);
-    }
-    64.5%,
-    68.5% {
-      translate: calc(var(--u) * -14) 0;
-    }
-    72%,
-    100% {
-      translate: calc(var(--off) * -1) 0;
-    }
-  }
-
-  @keyframes c-blip-body {
-    0%,
-    58.4% {
-      rotate: 0deg;
-      scale: 1 1;
-    }
-    /* balancing, then not */
-    59% {
-      rotate: -4deg;
-      scale: 1 1;
-    }
-    61% {
-      rotate: 5deg;
-      scale: 1 1;
-    }
-    63% {
-      rotate: -6deg;
-      scale: 1 1;
-    }
-    64% {
-      rotate: 300deg;
-      scale: 1 1;
-    }
-    64.5%,
-    68% {
-      rotate: 360deg;
-      scale: 1.4 0.3;
+    67.6% {
+      translate: 0 calc(var(--px) * 0.8);
     }
     69%,
     100% {
+      translate: 0 0;
+    }
+  }
+
+  /* ---- the runner crossing the hero ---- */
+
+  .crew--runner {
+    animation: crossing 9s linear infinite;
+  }
+
+  .crew--runner .body {
+    animation: crossing-antics 9s ease-in-out infinite;
+  }
+
+  @keyframes crossing {
+    0% {
+      translate: -58vw 0;
+    }
+    34% {
+      translate: -8vw 0;
+    }
+    42% {
+      translate: 4vw calc(var(--px) * -11);
+    }
+    50% {
+      translate: 14vw 0;
+    }
+    58% {
+      translate: 20vw 0;
+    }
+    66% {
+      translate: 26vw calc(var(--px) * -7);
+    }
+    74%,
+    100% {
+      translate: 58vw 0;
+    }
+  }
+
+  @keyframes crossing-antics {
+    0%,
+    36% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    38% {
+      rotate: 0deg;
+      scale: 0.86 1.14;
+    }
+    42% {
+      rotate: 180deg;
+      scale: 1 1;
+    }
+    50% {
+      rotate: 360deg;
+      scale: 1.3 0.72;
+    }
+    54%,
+    62% {
+      rotate: 360deg;
+      scale: 1 1;
+    }
+    66% {
+      rotate: 540deg;
+      scale: 1 1;
+    }
+    70%,
+    100% {
+      rotate: 720deg;
+      scale: 1 1;
+    }
+  }
+
+  /* ---- a word gets carried off ---- */
+
+  .loose {
+    animation: word-abducted 14s ease-in-out infinite;
+  }
+
+  .crew--thief {
+    animation: thief-approach 14s ease-in-out infinite;
+  }
+
+  .crew--thief .body {
+    animation: thief-strain 14s ease-in-out infinite;
+  }
+
+  @keyframes word-abducted {
+    0%,
+    26% {
+      translate: 0 0;
+      rotate: 0deg;
+    }
+    30% {
+      translate: 0 calc(var(--px) * -1);
+      rotate: -3deg;
+    }
+    46% {
+      translate: 5.5em calc(var(--px) * -2);
+      rotate: 7deg;
+    }
+    54% {
+      translate: 6em calc(var(--px) * -1);
+      rotate: -9deg;
+    }
+    62% {
+      translate: 2em calc(var(--px) * 3);
+      rotate: 14deg;
+    }
+    70%,
+    100% {
+      translate: 0 0;
+      rotate: 0deg;
+    }
+  }
+
+  /* He walks in, takes hold, and from there the word carries him. */
+  @keyframes thief-approach {
+    0%,
+    12% {
+      translate: -9em 0;
+    }
+    26%,
+    62% {
+      translate: calc(var(--px) * -3) 0;
+    }
+    66% {
+      translate: calc(var(--px) * -3) calc(var(--px) * -6);
+    }
+    72%,
+    100% {
+      translate: -9em 0;
+    }
+  }
+
+  @keyframes thief-strain {
+    0%,
+    27% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    34%,
+    54% {
+      rotate: -14deg;
+      scale: 1 0.94;
+    }
+    62% {
+      rotate: 20deg;
+      scale: 1 1;
+    }
+    66% {
+      rotate: 200deg;
+      scale: 1 1;
+    }
+    70%,
+    100% {
       rotate: 360deg;
       scale: 1 1;
     }
   }
 
-  /* ---- skit D ---- */
+  /* ---- the Play button in Lost Wages gets stolen ---- */
 
-  .prop-d {
-    animation-name: d-prop;
-    animation-timing-function: linear;
-  }
-  .act-d-kip {
-    animation-name: d-kip;
-  }
-  .act-d-kip .body {
-    animation-name: d-kip-body;
-  }
-  .act-d-blip {
-    animation-name: d-blip;
-  }
-  .act-d-blip .body {
-    animation-name: d-blip-body;
-  }
-  .bub-d-1 {
-    animation-name: show-82-84;
-  }
-  .bub-d-2 {
-    animation-name: show-85-87;
-  }
-  .bub-d-3 {
-    animation-name: show-89-93;
+  .card--wages .button {
+    animation: button-yanked 11s cubic-bezier(0.35, 0, 0.3, 1) infinite;
   }
 
-  @keyframes d-prop {
+  .crew--mugger {
+    animation: mugger-move 11s ease-in-out infinite;
+  }
+
+  .crew--mugger .body {
+    animation: mugger-heave 11s ease-in-out infinite;
+  }
+
+  @keyframes button-yanked {
     0%,
-    74.9% {
-      opacity: 0;
-      translate: calc(var(--u) * 20) 0;
+    30% {
+      translate: 0 0;
+      rotate: 0deg;
     }
-    75%,
-    80.5% {
-      opacity: 1;
-      translate: calc(var(--u) * 20) 0;
+    36% {
+      translate: calc(var(--px) * -3) calc(var(--px) * -2);
+      rotate: -8deg;
     }
-    /* dragged along beside him, clear of his face */
-    84% {
-      opacity: 1;
-      translate: calc(var(--u) * -25) 0;
+    /* hurled clean out of the card */
+    44% {
+      translate: min(7rem, 22vw) calc(var(--px) * -18);
+      rotate: 220deg;
     }
-    85% {
-      opacity: 1;
-      translate: calc(var(--u) * -25) 0;
+    52% {
+      translate: min(11rem, 34vw) calc(var(--px) * 6);
+      rotate: 420deg;
     }
-    /* thrown */
-    86.5% {
-      opacity: 1;
-      translate: calc(var(--u) * 2) calc(var(--u) * -9);
+    58% {
+      translate: min(11rem, 34vw) calc(var(--px) * 6);
+      rotate: 420deg;
     }
-    88.5% {
-      opacity: 1;
-      translate: calc(var(--off) * 1.04) calc(var(--u) * 1);
+    /* and sheepishly put back */
+    70% {
+      translate: 0 0;
+      rotate: 720deg;
     }
-    89%,
+    76%,
     100% {
-      opacity: 0;
-      translate: calc(var(--off) * 1.04) 0;
+      translate: 0 0;
+      rotate: 720deg;
     }
   }
 
-  @keyframes d-kip {
+  /* He loiters at the card's left frame between jobs rather than off the edge
+     of the page, where he would read as a rendering fault. */
+  @keyframes mugger-move {
     0%,
-    76% {
-      translate: var(--off) 0;
+    8% {
+      translate: -3.1rem calc(var(--px) * 2);
     }
-    80.5% {
-      translate: calc(var(--u) * 22) 0;
+    28%,
+    40% {
+      translate: 0 0;
     }
-    84%,
-    86% {
-      translate: calc(var(--u) * -18) 0;
+    46% {
+      translate: calc(var(--px) * -4) 0;
     }
-    89%,
+    62%,
     100% {
-      translate: calc(var(--off) * 1.08) 0;
+      translate: -3.1rem calc(var(--px) * 2);
     }
   }
 
-  @keyframes d-kip-body {
+  @keyframes mugger-heave {
     0%,
-    80.5% {
+    30% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    36% {
+      rotate: -22deg;
       scale: 1 0.92;
-      rotate: 0deg;
     }
-    81.5% {
-      scale: 1 1;
-      rotate: 0deg;
+    41% {
+      rotate: 26deg;
+      scale: 1.06 1;
     }
-    85.5% {
-      scale: 1 1;
-      rotate: 0deg;
-    }
-    86.5% {
-      scale: 1 1;
-      rotate: -18deg;
-    }
-    87.5%,
+    46%,
     100% {
-      scale: 1 1;
       rotate: 0deg;
+      scale: 1 1;
     }
   }
 
-  @keyframes d-blip {
+  /* ---- one of them uses the Pinball card as a banister ---- */
+
+  .crew--slider {
+    animation: banister 8s ease-in infinite;
+  }
+
+  .crew--slider .body {
+    animation: banister-style 8s ease-in-out infinite;
+  }
+
+  @keyframes banister {
     0%,
-    82% {
-      translate: calc(var(--off) * -1) 0;
+    6% {
+      top: -4%;
     }
-    85.5% {
-      translate: calc(var(--u) * -32) 0;
+    38% {
+      top: 96%;
     }
-    86.8% {
-      translate: calc(var(--u) * -25) calc(var(--u) * -7);
+    46% {
+      top: 96%;
     }
-    88% {
-      translate: calc(var(--u) * -20) 0;
+    54% {
+      top: 96%;
+      translate: calc(var(--px) * -7) 0;
     }
-    93.5% {
-      translate: calc(var(--u) * -20) 0;
-    }
-    96%,
+    70%,
     100% {
-      translate: calc(var(--off) * -1) 0;
+      top: -4%;
+      translate: calc(var(--px) * -7) 0;
     }
   }
 
-  @keyframes d-blip-body {
+  @keyframes banister-style {
     0%,
-    86.8% {
+    5% {
       rotate: 0deg;
       scale: 1 1;
     }
-    /* jumps for it, misses, lands face first */
-    88% {
-      rotate: 88deg;
-      scale: 1 1;
-    }
-    88.4%,
-    93% {
+    /* riding the frame down sideways, because of course */
+    12%,
+    34% {
       rotate: 90deg;
       scale: 1 1;
     }
-    94%,
+    40% {
+      rotate: 90deg;
+      scale: 1.35 0.7;
+    }
+    48% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    58% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    64%,
     100% {
       rotate: 0deg;
       scale: 1 1;
     }
   }
 
-  /* ---- the speech timings, shared ---- */
+  /* ---- the ball goes bowling into the Looplings card ---- */
 
-  @keyframes show-7-9 {
-    0%,
-    7% {
-      opacity: 0;
-    }
-    7.4%,
-    9.4% {
-      opacity: 1;
-    }
-    9.8%,
-    100% {
-      opacity: 0;
-    }
+  .crew--bowler {
+    animation: bowling 13s linear infinite;
   }
-  @keyframes show-11-13 {
-    0%,
-    11% {
-      opacity: 0;
-    }
-    11.3%,
-    13.4% {
-      opacity: 1;
-    }
-    13.8%,
-    100% {
-      opacity: 0;
-    }
+
+  .crew--bowler .body {
+    animation: bowling-spin 13s linear infinite;
   }
-  @keyframes show-17-21 {
-    0%,
-    17% {
-      opacity: 0;
-    }
-    17.4%,
-    20.8% {
-      opacity: 1;
-    }
-    21.2%,
-    100% {
-      opacity: 0;
-    }
+
+  .card--looplings {
+    animation: card-shoved 13s ease-out infinite;
   }
-  @keyframes show-31-33 {
+
+  @keyframes bowling {
     0%,
-    31.5% {
-      opacity: 0;
+    4% {
+      left: -14%;
     }
-    31.9%,
-    33.4% {
-      opacity: 1;
+    30% {
+      left: 88%;
     }
-    33.8%,
-    100% {
-      opacity: 0;
-    }
-  }
-  @keyframes show-33-36 {
-    0%,
     34% {
-      opacity: 0;
+      left: 84%;
     }
-    34.4%,
-    36.4% {
-      opacity: 1;
-    }
-    36.8%,
-    100% {
-      opacity: 0;
-    }
-  }
-  @keyframes show-37-39 {
-    0%,
-    37.5% {
-      opacity: 0;
-    }
-    37.9%,
-    39.4% {
-      opacity: 1;
-    }
-    39.8%,
-    100% {
-      opacity: 0;
-    }
-  }
-  @keyframes show-39-42 {
-    0%,
-    40% {
-      opacity: 0;
-    }
-    40.4%,
-    42.4% {
-      opacity: 1;
-    }
-    42.8%,
-    100% {
-      opacity: 0;
-    }
-  }
-  @keyframes show-43-45 {
-    0%,
-    43.5% {
-      opacity: 0;
-    }
-    43.9%,
-    45.4% {
-      opacity: 1;
-    }
-    45.8%,
-    100% {
-      opacity: 0;
-    }
-  }
-  @keyframes show-45-48 {
-    0%,
     46% {
-      opacity: 0;
+      left: -14%;
     }
-    46.4%,
-    48.4% {
-      opacity: 1;
-    }
-    48.8%,
     100% {
-      opacity: 0;
+      left: -14%;
     }
   }
-  @keyframes show-59-62 {
+
+  @keyframes bowling-spin {
     0%,
-    59% {
-      opacity: 0;
+    4% {
+      rotate: 0deg;
     }
-    59.4%,
-    62.4% {
-      opacity: 1;
+    30% {
+      rotate: 900deg;
     }
-    62.8%,
+    34% {
+      rotate: 860deg;
+    }
+    46%,
     100% {
-      opacity: 0;
+      rotate: -360deg;
     }
   }
-  @keyframes show-65-68 {
+
+  /* The card takes the hit. Only rotate, so it never fights the hover
+     translate or the shadow on .card. */
+  @keyframes card-shoved {
     0%,
-    65% {
-      opacity: 0;
+    29% {
+      rotate: 0deg;
     }
-    65.4%,
-    67.8% {
-      opacity: 1;
+    31% {
+      rotate: 1.4deg;
     }
-    68.2%,
+    34% {
+      rotate: -1deg;
+    }
+    37% {
+      rotate: 0.5deg;
+    }
+    40%,
     100% {
-      opacity: 0;
+      rotate: 0deg;
     }
   }
-  @keyframes show-82-84 {
+
+  /* ---- two of them scrapping on the footer rule ---- */
+
+  .crew--scrapper-a {
+    animation: scrap-a 5s ease-in-out infinite;
+  }
+
+  .crew--scrapper-a .body {
+    animation: scrap-a-body 5s ease-in-out infinite;
+  }
+
+  .crew--scrapper-b {
+    animation: scrap-b 5s ease-in-out infinite;
+  }
+
+  .crew--scrapper-b .body {
+    animation: scrap-b-body 5s ease-in-out infinite;
+  }
+
+  @keyframes scrap-a {
     0%,
-    82% {
-      opacity: 0;
+    14% {
+      translate: 0 0;
     }
-    82.4%,
-    84.4% {
-      opacity: 1;
+    22% {
+      translate: calc(var(--px) * 7) calc(var(--px) * -4);
     }
-    84.8%,
+    30% {
+      translate: calc(var(--px) * 2) 0;
+    }
+    56% {
+      translate: calc(var(--px) * 2) 0;
+    }
+    64% {
+      translate: calc(var(--px) * -6) 0;
+    }
+    80%,
     100% {
-      opacity: 0;
+      translate: 0 0;
     }
   }
-  @keyframes show-85-87 {
+
+  @keyframes scrap-a-body {
     0%,
-    85.2% {
-      opacity: 0;
+    16% {
+      rotate: 0deg;
+      scale: 1 1;
     }
-    85.6%,
-    87% {
-      opacity: 1;
+    22% {
+      rotate: 34deg;
+      scale: 1 1;
     }
-    87.4%,
+    30% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    58% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    /* takes one back and sits down hard */
+    64% {
+      rotate: -30deg;
+      scale: 1.2 0.8;
+    }
+    76%,
     100% {
-      opacity: 0;
+      rotate: 0deg;
+      scale: 1 1;
     }
   }
-  @keyframes show-89-93 {
+
+  @keyframes scrap-b {
     0%,
-    89% {
-      opacity: 0;
+    18% {
+      translate: 0 0;
     }
-    89.4%,
-    93% {
-      opacity: 1;
+    24% {
+      translate: calc(var(--px) * 5) 0;
     }
-    93.4%,
+    34%,
+    50% {
+      translate: 0 0;
+    }
+    60% {
+      translate: calc(var(--px) * -8) calc(var(--px) * -3);
+    }
+    70%,
     100% {
-      opacity: 0;
+      translate: 0 0;
+    }
+  }
+
+  @keyframes scrap-b-body {
+    0%,
+    20% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    /* eats it, flails, returns the favour */
+    24% {
+      rotate: 24deg;
+      scale: 1.15 0.86;
+    }
+    34% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    52% {
+      rotate: 0deg;
+      scale: 1 1;
+    }
+    60% {
+      rotate: -40deg;
+      scale: 1 1;
+    }
+    70%,
+    100% {
+      rotate: 0deg;
+      scale: 1 1;
     }
   }
 }
@@ -1779,8 +1568,7 @@ main {
   .hero__mark,
   .hero__wordmark,
   .hero__thesis,
-  .hero__status,
-  .card {
+  .hero__status {
     animation: boot-in 320ms steps(4, end) backwards;
   }
 
@@ -1795,16 +1583,6 @@ main {
   }
   .hero__status {
     animation-delay: 520ms;
-  }
-
-  .card:nth-child(1) {
-    animation-delay: 660ms;
-  }
-  .card:nth-child(2) {
-    animation-delay: 760ms;
-  }
-  .card:nth-child(3) {
-    animation-delay: 860ms;
   }
 
   .hero__caret {

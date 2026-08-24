@@ -55,11 +55,20 @@
         height="384"
         alt="The Loopback Games crest: a pixelated arrow curling back into its own tail inside a shield."
       />
-      <h1 class="hero__wordmark">Loopback Games</h1>
+      <h1 class="hero__wordmark">
+        <span class="hero__letters">Loopback Games</span>
+        <span class="crew crew--bouncer actor--orb" aria-hidden="true"
+          ><span class="body"><i class="pixel"></i></span
+        ></span>
+      </h1>
       <p class="hero__thesis">
         Small games that build themselves out of code.<br />
         No engine, no sprite sheets, no audio files.
       </p>
+      <span class="crew crew--runner actor--blip" aria-hidden="true"
+        ><span class="body"><i class="pixel"></i></span
+      ></span>
+
       <p class="hero__status">
         <span aria-hidden="true">&gt;</span> system ready<span
           class="hero__caret"
@@ -73,7 +82,14 @@
       <section class="section" id="titles" aria-labelledby="titles-heading">
         <h2 class="section__heading" id="titles-heading">
           <span class="section__glyph" aria-hidden="true">&#9654;</span> Three
-          titles, all playable now
+          titles, all
+          <span class="loose"
+            >playable<span
+              class="crew crew--thief actor--kip"
+              aria-hidden="true"
+              ><span class="body"><i class="pixel"></i></span></span
+          ></span>
+          now
         </h2>
 
         <ul class="grid">
@@ -94,6 +110,9 @@
             </p>
             <p class="card__actions">
               <span class="button" aria-hidden="true">&#9654; Play</span>
+              <span class="crew crew--mugger actor--kip" aria-hidden="true"
+                ><span class="body"><i class="pixel"></i></span
+              ></span>
               <a class="source" href="https://github.com/Loopback-Games/larry"
                 >Source<span class="sr-only"> for Lost Wages</span></a
               >
@@ -101,6 +120,9 @@
           </li>
 
           <li class="card card--pinball">
+            <span class="crew crew--slider actor--blip" aria-hidden="true"
+              ><span class="body"><i class="pixel"></i></span
+            ></span>
             <p class="card__route">/pinball</p>
             <h3 class="card__title">
               <a
@@ -125,6 +147,9 @@
           </li>
 
           <li class="card card--looplings">
+            <span class="crew crew--bowler actor--orb" aria-hidden="true"
+              ><span class="body"><i class="pixel"></i></span
+            ></span>
             <p class="card__route">/looplings</p>
             <h3 class="card__title">
               <a
@@ -151,63 +176,16 @@
           </li>
         </ul>
       </section>
-
-      <div class="stage" aria-hidden="true">
-        <!-- Skit A: Blip kicks the ball offstage. The ball comes back. -->
-        <div class="skit skit--a">
-          <div class="actor actor--orb act-a-orb">
-            <span class="body"><i class="pixel"></i></span>
-          </div>
-          <div class="actor actor--blip act-a-blip">
-            <span class="body"><i class="pixel"></i></span>
-            <span class="bubble bubble--cyan bub-a-1">Watch this</span>
-            <span class="bubble bubble--cyan bub-a-2">GOAL</span>
-            <span class="bubble bubble--cyan bub-a-3">ow</span>
-          </div>
-        </div>
-
-        <!-- Skit B: Kip tries to talk to a parser that is not listening. -->
-        <div class="skit skit--b">
-          <div class="actor actor--kip act-b-kip">
-            <span class="body"><i class="pixel"></i></span>
-            <span class="bubble bubble--violet bub-b-1">&gt; GET LAMP</span>
-            <span class="bubble bubble--violet bub-b-2">&gt; XYZZY</span>
-            <span class="bubble bubble--violet bub-b-3">&gt; PLEASE</span>
-          </div>
-          <span class="parser parser-b-1">You can't see any lamp here.</span>
-          <span class="parser parser-b-2">Nothing happens.</span>
-          <span class="parser parser-b-3">Nothing happens.</span>
-        </div>
-
-        <!-- Skit C: Blip stands on the ball. The ball has opinions. -->
-        <div class="skit skit--c">
-          <div class="actor actor--orb act-c-orb">
-            <span class="body"><i class="pixel"></i></span>
-          </div>
-          <div class="actor actor--blip act-c-blip">
-            <span class="body"><i class="pixel"></i></span>
-            <span class="bubble bubble--cyan bub-c-1">Almost</span>
-            <span class="bubble bubble--cyan bub-c-2">physics</span>
-          </div>
-        </div>
-
-        <!-- Skit D: Kip steals a button. It was not a real button. -->
-        <div class="skit skit--d">
-          <span class="prop prop-d">&#9654; Play</span>
-          <div class="actor actor--kip act-d-kip">
-            <span class="body"><i class="pixel"></i></span>
-            <span class="bubble bubble--violet bub-d-1">mine now</span>
-          </div>
-          <div class="actor actor--blip act-d-blip">
-            <span class="body"><i class="pixel"></i></span>
-            <span class="bubble bubble--cyan bub-d-2">HEY</span>
-            <span class="bubble bubble--cyan bub-d-3">that was decorative</span>
-          </div>
-        </div>
-      </div>
     </main>
 
     <footer class="footer">
+      <span class="crew crew--scrapper-a actor--blip" aria-hidden="true"
+        ><span class="body"><i class="pixel"></i></span
+      ></span>
+      <span class="crew crew--scrapper-b actor--kip" aria-hidden="true"
+        ><span class="body"><i class="pixel"></i></span
+      ></span>
+
       <p class="footer__meta">
         <a href="https://github.com/Loopback-Games"
           >github.com/Loopback-Games</a

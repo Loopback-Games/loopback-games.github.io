@@ -30,13 +30,39 @@ just check     # zero-JS guard, link check, accessibility audit
 
 Without `just`, `python3 -m http.server 8765` does the same job.
 
-## The cast
+## The crew
 
-Three sprites run four skits on a loop above the footer: Blip kicks a ball that
-comes back, Kip argues with a parser, Blip stands on the ball, and Kip steals a
-button. It is all CSS. Every animation shares one duration, `--loop`, and every
-keyframe percentage is a position in that one timeline, which is the only way a
-stylesheet can keep this many actors in step.
+Eight small characters live on the page and interfere with it. There is no
+script and no sequence of scenes: each one runs on its own clock, between five
+and fourteen seconds, so what you catch them doing depends on when you look.
+
+They work on the real page, not on a picture of it:
+
+| Who                    | What they get up to                                        |
+| ---------------------- | ---------------------------------------------------------- |
+| A ball on the wordmark | Bounces along the letters, which flinch on each landing    |
+| A runner in the hero   | Crosses it, somersaults over the status line, belly-flops  |
+| A thief in the heading | Drags the word "playable" out of the sentence and drops it |
+| A mugger in Lost Wages | Wrenches the `Play` button out of the card and hurls it    |
+| A rider on Pinball     | Uses the card's right frame as a banister                  |
+| A ball at Looplings    | Rolls the length of the card and shoulders it out of true  |
+| Two on the footer rule | Kick each other off it, take turns losing                  |
+
+Each character is anchored **inside** the element it torments — the thief is a
+child of the `<span>` around the word, the mugger sits in the button row — so
+wherever the layout puts that element, its resident goes too. Contact is exact
+at every width without one hard-coded coordinate.
+
+Three properties the page has to keep, and the tests that hold it to them:
+
+- **Nothing is clickable that should not be.** The crew is `pointer-events:
+none` and `aria-hidden`. The `Play` elements were already decorative spans —
+  the whole card is the link — so throwing one breaks no control.
+- **Nothing moves the layout.** Every antic is `translate`, `rotate` or
+  `scale`, none of which reflow anything. The card's shove uses `rotate` alone
+  so it never fights the hover `translate`.
+- **Nothing scrolls sideways.** `main` and the footer clip on the x axis only,
+  so a thrown button is cut off rather than widening the document.
 
 The sprites are pixel matrices in `tools/sprites/*.txt`, expanded into
 box-shadow CSS by `tools/build-sprites.py` and pasted between the `SPRITES:`
@@ -47,8 +73,8 @@ just sprites   # rewrite the generated block
 just check     # includes a check that the block is not stale
 ```
 
-The stage is `aria-hidden` and stops entirely under `prefers-reduced-motion`,
-where it falls back to the two characters standing still.
+Under `prefers-reduced-motion` the whole thing stops and the crew becomes a
+still tableau perched around an entirely readable page.
 
 ## Adding a game
 
