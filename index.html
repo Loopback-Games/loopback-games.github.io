@@ -181,17 +181,13 @@
         <a href="https://github.com/Loopback-Games"
           >github.com/Loopback-Games</a
         >
-        <span class="footer__dot" aria-hidden="true"
-          ><span class="footer__pip">&#9642;</span></span
-        >
-        <a
-          href="https://github.com/Loopback-Games/loopback-games.github.io/blob/main/LICENSE"
-          >MIT licence</a
-        >
         <!-- The adventurer lives inside this separator so she is anchored to
              the thing she hits, at every width, without a hard-coded
-             coordinate. The pip is a separate element because the dot is her
-             positioning context and must not move when the whip takes it. -->
+             coordinate. It is the FIRST one deliberately: when the footer line
+             wraps, this is the only separator that stays on the top line, so
+             she can never end up standing on the line above. The pip is a
+             separate element because the dot is her positioning context and
+             must not move when the whip takes it. -->
         <span class="footer__dot footer__dot--struck" aria-hidden="true"
           ><span class="footer__pip">&#9642;</span
           ><span
@@ -201,6 +197,13 @@
           ><span class="crew crew--whip actor--whip" aria-hidden="true"
             ><span class="body"><i class="pixel"></i></span></span
         ></span>
+        <a
+          href="https://github.com/Loopback-Games/loopback-games.github.io/blob/main/LICENSE"
+          >MIT licence</a
+        >
+        <span class="footer__dot" aria-hidden="true"
+          ><span class="footer__pip">&#9642;</span></span
+        >
         <span>&copy; 2026 Loopback Games</span>
       </p>
     </footer>

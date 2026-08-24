@@ -1613,22 +1613,6 @@ main {
   }
 }
 
-/* The footer line wraps below about 570px, and when it does the separator the
-   adventurer is anchored to can land at the start of a line — which stands her
-   on top of the line above and covers a link. There is no room on a wrapped
-   footer for a 56px character, so below 40rem she sits the scene out and the
-   separator keeps still with her. */
-@media (max-width: 40rem) {
-  .crew--adventurer,
-  .crew--whip {
-    display: none;
-  }
-
-  .footer__dot--struck .footer__pip {
-    animation: none;
-  }
-}
-
 /* ---------- not found ---------- */
 
 .lost {
