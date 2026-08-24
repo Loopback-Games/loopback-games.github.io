@@ -42,8 +42,8 @@ check: no-js lint
     server=$!
     trap 'kill $server' EXIT
     sleep 1
-    npx --yes pa11y@9 --standard WCAG2AA "http://127.0.0.1:{{port}}/"
-    npx --yes pa11y@9 --standard WCAG2AA "http://127.0.0.1:{{port}}/404.html"
+    npx --yes pa11y@9 --config .pa11y.json "http://127.0.0.1:{{port}}/"
+    npx --yes pa11y@9 --config .pa11y.json "http://127.0.0.1:{{port}}/404.html"
 
 # Remove local scratch output.
 clean:

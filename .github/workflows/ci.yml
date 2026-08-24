@@ -54,8 +54,8 @@ jobs:
           server=$!
           trap 'kill $server' EXIT
           sleep 2
-          npx --yes pa11y@9 --standard WCAG2AA http://127.0.0.1:8765/
-          npx --yes pa11y@9 --standard WCAG2AA http://127.0.0.1:8765/404.html
+          npx --yes pa11y@9 --config .pa11y.json http://127.0.0.1:8765/
+          npx --yes pa11y@9 --config .pa11y.json http://127.0.0.1:8765/404.html
 
   links:
     name: links
@@ -65,7 +65,10 @@ jobs:
 
       - uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
-          args: --no-progress --accept 200,204,206 index.html 404.html README.md
+          args: >-
+            --no-progress --accept 200,204,206
+            --root-dir ${{ github.workspace }}
+            index.html 404.html README.md
           fail: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
