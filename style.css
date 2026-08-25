@@ -22,6 +22,7 @@
   --cyan: #4ee6d8;
   --violet: #a68cff;
   --magenta: #ff5cf4;
+  --lime: #7ef2a8;
 
   --accent: var(--cyan);
 
@@ -284,10 +285,20 @@ main {
 
 /* ---------- game cards ---------- */
 
+/* Two columns, not auto-fit. auto-fit packs three across at desktop widths,
+   which strands the fourth card alone on a row with two columns of empty space
+   beside it. There is no min-width that fixes it either: anything wide enough
+   to stop three fitting at 1280px also stops two fitting at 768px. */
 .grid {
   display: grid;
   gap: clamp(1.25rem, 3vw, 1.75rem);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17.5rem), 1fr));
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 40rem) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .card {
@@ -317,6 +328,10 @@ main {
 
 .card--looplings {
   --accent: var(--violet);
+}
+
+.card--solitaire {
+  --accent: var(--lime);
 }
 
 /* The whole card is the target. The title carries the only link in the
