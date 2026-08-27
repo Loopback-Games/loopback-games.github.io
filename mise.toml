@@ -1,0 +1,33 @@
+# Every development tool this repository expects, pinned once. CI installs
+# exactly this list (jdx/mise-action) and runs the same `just` recipes, so local
+# and CI can never disagree about a tool's version.
+#
+# Task running belongs to just. There are deliberately no [tasks] here: two task
+# runners in one repository means neither is trusted.
+[tools]
+# Nothing pinned anything before: the workflows used whatever python3 and node
+# the runner happened to carry, and every Node tool arrived through
+# `npx --yes <pkg>@<major>` at run time.
+node = "24.20.0"
+
+# Not optional, and easy to mistake for it. The sprite tooling is Python, and
+# the Playwright suite starts its server with `python3 -m http.server`.
+python = "3.13.15"
+
+just = "1.58.0"
+actionlint = "1.7.12"
+zizmor = "1.29.0"
+gitleaks = "8.30.1"
+
+# uv owns the Python environment; mise only pins the interpreter it uses. It
+# also serves the pipx backend below, which has no packaged binary to fetch.
+uv = "0.12.6"
+"pipx:yamllint" = "1.38.0"
+
+[settings]
+# The pipx backend goes through uv rather than needing a pipx of its own.
+pipx.uvx = true
+
+[env]
+# Use mise's interpreter rather than letting uv download a second one.
+UV_NO_MANAGED_PYTHON = "1"
