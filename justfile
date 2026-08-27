@@ -141,10 +141,11 @@ markup:
 # the rule the README states. `sprites` and `hd` regenerate committed artefacts,
 # and `lint` fails if either is stale.
 
-# Secrets in the history, and advisories against the dependencies.
+# Secrets in the history, and advisories against both lockfiles.
 security:
     gitleaks git . --no-banner --redact
     npm audit --audit-level=high
+    osv-scanner scan source --lockfile package-lock.json --lockfile uv.lock
 
 # Serve the site locally.
 run:

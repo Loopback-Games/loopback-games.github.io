@@ -19,6 +19,11 @@ actionlint = "1.7.12"
 zizmor = "1.29.0"
 gitleaks = "8.30.1"
 
+# A second advisory database. It has no severity filter, which is what keeps npm
+# audit's gate defensible at `high`: nothing is hidden, it just does not block.
+# It reads uv.lock as well as package-lock.json.
+osv-scanner = "2.5.1"
+
 # uv owns the Python environment; mise only pins the interpreter it uses. It
 # also serves the pipx backend below, which has no packaged binary to fetch.
 uv = "0.12.6"
