@@ -1,0 +1,17 @@
+node_modules/
+.venv/
+assets/
+hd-src/
+test-results/
+playwright-report/
+package-lock.json
+
+# style.css carries a generated block between the SPRITES: markers, written by
+# tools/build-sprites.py. `just sprites-current` compares it whitespace-squashed
+# so a reflow is not a staleness failure, but there is no reason to reflow it.
+style.css
+
+# yamllint --strict owns these, and the two tools disagree: prettier collapses
+# the two spaces before an inline comment that yamllint requires. One formatter
+# per file, so the workflows belong to the linter that also validates them.
+.github/
