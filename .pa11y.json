@@ -1,6 +1,0 @@
-{
-  "standard": "WCAG2AA",
-  "chromeLaunchConfig": {
-    "args": ["--no-sandbox", "--disable-dev-shm-usage"]
-  }
-}
