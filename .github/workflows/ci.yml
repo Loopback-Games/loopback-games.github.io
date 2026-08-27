@@ -1,4 +1,4 @@
-name: ci
+name: CI
 
 on:
   push:
@@ -13,66 +13,79 @@ permissions:
   contents: read
 
 concurrency:
-  group: ci-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  no-javascript:
-    name: no javascript
+  check:
+    name: just ci
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+          # gitleaks reads the history, not the tip: a key that was committed
+          # and then deleted is still a key that was published.
+          fetch-depth: 0
 
-      - name: "Fail if a script tag, javascript: URL or inline handler appears"
-        run: |
-          if grep -RniE '<script|javascript:|\son[a-z]+\s*=' -- *.html; then
-            echo "::error::This site ships zero JavaScript. Remove the above."
-            exit 1
-          fi
-          echo "No JavaScript found."
+      # Every tool comes from mise.toml. Nothing was pinned before: the jobs
+      # used whatever python3 and node the runner carried, and every Node tool
+      # arrived through `npx --yes <pkg>@<major>` at run time.
+      - uses: jdx/mise-action@c2a87611a18de5b3828c5652fe268e992400cb5c  # v4.3.0
+        with:
+          cache: true
 
-  sprites:
-    name: sprites in sync
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9  # v6.1.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: playwright-${{ runner.os }}-
 
-      - name: Check style.css still matches the sprite matrices
-        run: python3 tools/build-sprites.py --check
+      # The one command: the zero-JS guard, the generated sprites, the
+      # workflows, the formatting, the audit and the accessibility suite. Four
+      # of the five jobs this workflow used to carry were inline shell that
+      # duplicated a recipe, or existed nowhere a developer could reach.
+      - run: just ci
 
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+  # Its own job because `just markup` runs a container, and the main job would
+  # have to nest one to do the same. Still a recipe, so it is still something a
+  # developer can run.
   markup:
-    name: html validity
+    name: just markup
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
 
-      - name: Validate with the W3C Nu Html Checker
-        run: |
-          docker run --rm -v "$PWD:/src:ro" ghcr.io/validator/validator@sha256:3f0f5a507c1b93960145f9ceb9df2981eb3e9b092444aae29cb941cfabf5e824 \
-            vnu --errors-only --skip-non-html /src/index.html /src/404.html
+      - uses: jdx/mise-action@c2a87611a18de5b3828c5652fe268e992400cb5c  # v4.3.0
+        with:
+          cache: true
 
-  accessibility:
-    name: accessibility
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: just markup
 
-      - name: Audit both pages against WCAG 2 AA
-        run: |
-          python3 -m http.server 8765 --bind 127.0.0.1 &
-          server=$!
-          trap 'kill $server' EXIT
-          sleep 2
-          npx --yes pa11y@9 --config .pa11y.json http://127.0.0.1:8765/
-          npx --yes pa11y@9 --config .pa11y.json http://127.0.0.1:8765/404.html
-
+  # lychee is an action rather than a command, so the rule that every CI command
+  # must be a just recipe does not reach it. The weekly cron above is the point:
+  # a sibling repository's link can rot without anyone pushing here.
   links:
     name: links
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
 
-      - uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+      - uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8  # v2.9.0
         with:
           args: >-
             --no-progress --accept 200,204,206
