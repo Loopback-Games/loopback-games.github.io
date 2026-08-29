@@ -23,12 +23,31 @@ assets/       logo, favicons, social card, the pixel font and its licence
 
 ## Working on it locally
 
+One file pins every tool and one file holds every command.
+
 ```sh
-just serve     # http://127.0.0.1:8765
-just check     # zero-JS guard, link check, accessibility audit
+mise install   # node, python, just and the linters, at the pinned versions
+just setup     # the above, plus the dependencies and the test browser
+just           # list the recipes
 ```
 
-Without `just`, `python3 -m http.server 8765` does the same job.
+```sh
+just run       # http://127.0.0.1:8765
+just fmt       # format the page
+just lint      # zero-JS guard, generated assets, workflows, formatting
+just test      # WCAG 2 AA on both pages, through axe inside Playwright
+just markup    # the W3C Nu Html Checker, in a container
+just security  # advisories against the dependencies, secrets in the history
+just check     # every gate
+just ci        # what CI's main job runs
+```
+
+Tool versions live in `mise.toml` and nowhere else. `.github/workflows/ci.yml`
+installs that same file with `jdx/mise-action` and runs `just ci`, so a workflow
+cannot carry a command you are unable to run yourself. It used to carry five
+jobs and call the justfile from none of them.
+
+Without `just`, `python3 -m http.server 8765` still serves the page.
 
 ## The crew
 

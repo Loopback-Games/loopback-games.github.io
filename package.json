@@ -1,0 +1,16 @@
+{
+  "name": "loopback-games-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The Loopback Games landing page. Static HTML and CSS, and no JavaScript at all.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.62.1",
+    "prettier": "3.9.6"
+  }
+}

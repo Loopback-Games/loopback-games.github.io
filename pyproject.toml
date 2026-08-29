@@ -1,0 +1,16 @@
+# The Python side of the sprite tooling.
+#
+# Pillow was an undeclared import: `tools/build-hd.py` has always needed it and
+# nothing anywhere said so, which worked only because the machines that ran it
+# already had it. `just setup` runs `uv sync`; `just hd` runs through `uv run`.
+#
+# Nothing here is a runtime dependency. The page is HTML and CSS and ships no
+# Python, no JavaScript and no build output.
+[project]
+name = "loopback-games-site-tools"
+version = "0"
+requires-python = ">=3.13"
+dependencies = ["pillow>=11,<13"]
+
+[tool.uv]
+package = false

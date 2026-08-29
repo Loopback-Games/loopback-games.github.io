@@ -1,4 +1,11 @@
 node_modules/
+.venv/
+test-results/
+playwright-report/
+__pycache__/
+
+# Session checkpoints from Claude Code, not project configuration.
+.claude/
 
 # Source art for the upgraded sprites; see assets/hd/README.md
 hd-src/

@@ -18,8 +18,6 @@ from __future__ import annotations
 import pathlib
 import sys
 
-from PIL import Image
-
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "hd-src"
 OUT = ROOT / "assets" / "hd"
@@ -37,6 +35,11 @@ COLOURS = 128  # indistinguishable from full colour here, and a fifth of the siz
 
 
 def build(name: str, rel: str, rows: int) -> tuple[str, int]:
+    # Imported here rather than at the top so that `--check`, which only looks
+    # for the output files, needs nothing but the standard library. It is the
+    # only one of the two paths CI takes.
+    from PIL import Image
+
     src = SRC / name / rel
     if not src.exists():
         raise SystemExit(f"missing {src}\nsee {OUT / 'README.md'} for where to get it")
